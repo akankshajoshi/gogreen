@@ -1,0 +1,24 @@
+{% block doctype %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">{% endblock doctype %}
+{% spaceless %}
+{% block html %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% endblock html %}
+    <!-- SERVER:{{SERVER}} -->
+{% block head %}
+<head>
+	<title>{% block title %}{% endblock title %}</title>
+	{% block meta %}{% endblock meta %}
+	{% block css %}{% endblock css%}
+	{% block js %}{% endblock js%}
+	{%block htmlstyle%}{%endblock htmlstyle%}
+</head>
+{% endblock head %}
+<body>
+	{% block body %}
+	{% endblock body %}
+{% block footerbase %}{% endblock footerbase %}
+{% block ASYJS %}{% endblock ASYJS %}
+{% block jsbottom %}{% endblock jsbottom %}
+</body>
+</html>
+{% endspaceless%}

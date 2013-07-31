@@ -1,0 +1,28 @@
+{% for cat in cats %}
+<ul>
+<li><a href='#'>{{cat}}</a>
+<ul>
+{% for sub in cat.subcategory_set.all %}
+<li><a href='/ab-cd/{{sub.id}}'>{{ sub }}</a></li>
+{% endfor %}
+</ul>
+</li>
+</ul>
+{% endfor %}
+
+---------------------------------------------------
+populars<br />
+{% for key in populars %}
+<li><a href='?keyword={{key}}'>{{key}}</a></li>
+{% endfor %}
+----------------------------------------
+right div companys<br />
+{% for comp in comps %}
+<li><a href='#'>{{comp}}</a></li>
+{% endfor %}
+--------------------------------------------------------
+search <br />
+<form action='.' method='GET'>
+<input type="text" name='keyword'>
+<input type="submit" name='submit' value='Go'>
+</form>>

@@ -1,0 +1,9 @@
+<form action='#' method='POST'>
+	{% csrf_token %}
+	{{form}}
+	<input type='Submit' name='go' value='Go'>
+</form>
+
+{% for result in results %}
+	<p>{{result}}</p>
+{% endfor %}

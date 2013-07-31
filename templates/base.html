@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>{% block head %}
+    <title>{% block title %}{% endblock title %}</title>
+    {% block meta %}
+    {% endblock meta %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block css %}
+    {% endblock css %}
+    {% block js %}
+    {% endblock js %}
+    {% endblock head %}
+</head>
+
+%<body>{% spaceless %}{% block body %}
+	    {%block container %}
+        {% endblock container %}
+    {% block js_register %}{% endblock js_register %}
+    {% block javascript %}{% endblock javascript %}
+    {% block javascriptcustom %}{% endblock javascriptcustom %}
+    {% block extras %}{% endblock extras %}
+    {% endblock body %}{% endspaceless%}
+</body>
+</html>
