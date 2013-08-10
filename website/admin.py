@@ -1,6 +1,7 @@
 from models import AboutUs, Blog, Comments, ContactUs, Enquiry, Icons, Company , \
     Jobs, Category, Subcategory, GreenVichar, BusinessType, Event, PostArticle, \
-    PicsVideo, Questionire, StoryQuotes, GreenVicharImg, GreenOMeter, PopularKeyword
+    PicsVideo, Questionire, StoryQuotes, GreenVicharImg, GreenOMeter, PopularKeyword, \
+    GrnVchrHome
 from django.conf import settings
 from django.contrib import admin
 from forms import CompanyForm
@@ -9,11 +10,11 @@ class BlogAdmin(admin.ModelAdmin):
     pass
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('blog', 'name', 'email', 'text', 'is_approve', 'moderation_date')
+    list_display = ('grnvichar', 'name', 'email', 'text', 'is_approve', 'moderation_date')
     actions = ('approve_selected',)
-    fields = ('blog', 'name', 'email', 'text', 'is_approve', 'moderation_date')
-    readonly_fields = ('blog', 'name', 'email', 'text', 'moderation_date')
-    
+    fields = ('grnvichar', 'name', 'email', 'text', 'is_approve', 'moderation_date')
+    readonly_fields = ('grnvichar', 'name', 'email', 'text', 'moderation_date')
+     
     def approve_selected(self, request, queryset):
         rows_updated = queryset.filter(is_approve=False).update(is_approve=True, approve_by=request.user)
         if rows_updated == 1:
@@ -22,21 +23,21 @@ class CommentAdmin(admin.ModelAdmin):
             message_bit = "%s email moderations were" % rows_updated
         self.message_user(request, "%s successfully marked as Approved." % message_bit)
     approve_selected.short_description = "Approve all selected comments."
-    
+     
     def save_model(self, request, obj, form, change):
         super(CommentAdmin, self).save_model(request, obj, form, change)
         if obj.is_approve:
             obj.approve_by = request.user
             obj.save()
-    
+     
     def queryset(self, request):
         """Non-superuser should not be able to view superusers.
         """
         qs = super(CommentAdmin, self).queryset(request)
         qs.order_by('-moderationdate')
         return qs
-
-
+ 
+ 
 admin.site.register(Comments, CommentAdmin)
 
 class EventInline(admin.StackedInline):
@@ -103,9 +104,16 @@ class CompanyAdmin(admin.ModelAdmin):
         obj.save()
         super(CompanyAdmin, self).save_model(request, obj, form, change)
             
+class PopularKeywordAdmin(admin.StackedInline):
+    model=PopularKeyword
+    extra=1
+            
+class SubcategoryAdmin(admin.ModelAdmin):
+    inlines = [PopularKeywordAdmin,]
     
     
 admin.site.register(Blog)
+admin.site.register(GrnVchrHome)
 admin.site.register(GreenVichar, GreenVicharAdmin)
 admin.site.register(ContactUs)
 admin.site.register(Enquiry)
@@ -113,7 +121,6 @@ admin.site.register(Icons)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Jobs)
 admin.site.register(Category)
-admin.site.register(Subcategory)
+admin.site.register(Subcategory, SubcategoryAdmin)
 admin.site.register(BusinessType)
 admin.site.register(GreenOMeter)
-admin.site.register(PopularKeyword)
