@@ -1,8 +1,8 @@
 from django.contrib import admin
-from models import Heading, BigBanner, Logo, CompanyCount, Testimonials
+from models import Heading, BigBanner, Logo, CompanyCount, Testimonials, PaidLogo
 
 class HeadingAdmin(admin.ModelAdmin):
-    fields= ('text', 'created_date')
+    fields= ('text',)
     
     def save_model(self, request, obj, form, change):
         super(HeadingAdmin, self).save_model(request, obj, form, change)
@@ -18,7 +18,7 @@ class BigBannerAdmin(admin.ModelAdmin):
         obj.save()
         
 class LogoAdmin(admin.ModelAdmin):
-    fields= ('image' ,'click_url', 'published_date')
+    fields= ('image' ,'click_url', 'start_date','end_date')
     
     def save_model(self, request, obj, form, change):
         super(LogoAdmin, self).save_model(request, obj, form, change)
@@ -42,7 +42,8 @@ class TestimonialsAdmin(admin.ModelAdmin):
         obj.save()
         
 # admin.site.register(Testimonials)
-# admin.site.register(CompanyCount, CompanyCountAdmin)
-# admin.site.register(Logo, LogoAdmin)
+admin.site.register(CompanyCount, CompanyCountAdmin)
+admin.site.register(Logo, LogoAdmin)
+admin.site.register(PaidLogo)
 # admin.site.register(BigBanner, BigBannerAdmin)
-# admin.site.register(Heading, HeadingAdmin)
+admin.site.register(Heading, HeadingAdmin)

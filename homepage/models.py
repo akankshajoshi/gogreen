@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from website.models import Category
 
 class Heading(models.Model):
     text = models.CharField(max_length=150)
@@ -13,11 +14,21 @@ class BigBanner(models.Model):
     published_date = models.DateField(auto_now=True)
     
 class Logo(models.Model):
+    name = models.CharField(max_length=25)
     image = models.ImageField(upload_to='media/logo')
     click_url = models.URLField()
     created_by = models.ForeignKey(User)
-    created_date = models.DateTimeField(auto_now_add=True)
-    published_date = models.DateField(auto_now=True)
+    start_date = models.DateTimeField()
+    end_date = models.DateField()
+    
+class PaidLogo(models.Model):
+    name = models.CharField(max_length=25)
+    image = models.ImageField(upload_to='media/logo')
+    click_url = models.URLField()
+    created_by = models.ForeignKey(User)
+    start_date = models.DateTimeField(auto_now_add=True)
+    end_date = models.DateField(auto_now=True)
+    category = models.ManyToManyField(Category)
     
 class CompanyCount(models.Model):
     text1 = models.CharField(max_length=10)

@@ -123,10 +123,15 @@ class Subcategory(models.Model):
     
     def __unicode__(self):
         return self.name         
+
+class GrnVchrHome(models.Model):
+    title = models.CharField(max_length=50)
+    text = models.CharField(max_length=250)
+    image = models.ImageField(upload_to='uploads/grnvichar')
     
 class GreenVichar(models.Model):
     title = models.CharField(max_length=200)
-    type = models.IntegerField(choices=((1,'Event'),(2,'Post/Article'),(3,'Upload Pics and Post video link'),(4,'Share Stories, Ideas, Quotes'),(5,'Ask Questions'),))
+    type = models.IntegerField(choices=GrnVchrHome.objects.all().values_list('id','title'))
     creation_date = models.DateTimeField(auto_now_add=True)
     publish_date = models.DateTimeField()
     created_by = models.ForeignKey(User)
@@ -135,7 +140,7 @@ class GreenVichar(models.Model):
     
     def __unicode__(self):
         return self.title
-    
+
 class Comments(models.Model):
     grnvichar = models.ForeignKey(GreenVichar)
     name = models.CharField(max_length=200)
@@ -204,21 +209,3 @@ class ContactUs(models.Model):
     is_approve = models.BooleanField(default=False)
     approve_by = models.ForeignKey(User)
     
-class GrnVchrHome(models.Model):
-    event_heading = models.CharField(max_length=50)
-    event_text = models.CharField(max_length=250)
-    event_image = models.ImageField(upload_to='uploads/grnvichar')
-    quote_heading = models.CharField(max_length=50)
-    quote_text = models.CharField(max_length=250)
-    quote_image = models.ImageField(upload_to='uploads/grnvichar')
-    article_heading = models.CharField(max_length=50)
-    article_text = models.CharField(max_length=250)
-    article_img = models.ImageField(upload_to='uploads/grnvichar')
-    pic_video_heading = models.CharField(max_length=50)
-    pic_video_img = models.ImageField(upload_to='uploads/grnvichar')
-    ques_heading = models.CharField(max_length=50)
-    ques_text = models.CharField(max_length=250)
-    ques_img = models.ImageField(upload_to='uploads/grnvichar')
-    googlemap_heading = models.CharField(max_length=50)
-    googlemap_text = models.CharField(max_length=250)
-    googlemap_img = models.ImageField(upload_to='uploads/grnvichar')
