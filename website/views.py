@@ -6,6 +6,7 @@ from models import Company, Category, Subcategory, PopularKeyword
 from django.db.models import Q
 
 
+
 def signup(request):
     if request.Method == 'POST':
         form = SignUpForm(request.POST)
