@@ -125,6 +125,8 @@ INSTALLED_APPS = (
     'homepage',
     'tinymce',
     'dbcron',
+    'logo',
+    'greenvichar',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
