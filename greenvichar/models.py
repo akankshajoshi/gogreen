@@ -3,14 +3,14 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
 class GrnVchrHome(models.Model):
-    type = models.IntegerField((1,'Event'),(2,'Article'),(3,'Pics/Video'),(4,'Quotes'),(4,'Questionire'))
+    type = models.IntegerField(choices=((1,'Event'),(2,'Article'),(3,'Pics/Video'),(4,'Quotes'),(5,'Questionire')))
     title = models.CharField(max_length=50)
     text = models.CharField(max_length=250)
     image = models.ImageField(upload_to='uploads/grnvichar')
     
 class GreenVichar(models.Model):
     title = models.CharField(max_length=200)
-    vichar_type = models.CharField(max_length=50, choices=(GrnVchrHome.objects.all().values_list('type','title')))
+    vichar_type = models.IntegerField()
 #     vichar_type = models.IntegerField()
     creation_date = models.DateTimeField(auto_now_add=True)
     publish_date = models.DateTimeField()
@@ -31,9 +31,6 @@ class Comments(models.Model):
     is_approve = models.BooleanField(default=False)
     approve_by = models.ForeignKey(User, null=True)
     
-class GreenVicharImg(models.Model):
-    green_vichar = models.ForeignKey('GreenVichar')
-    image = models.ImageField(upload_to='uploads/greenvichar')
 
 class Event(models.Model):
     green_vichar = models.ForeignKey('GreenVichar') 

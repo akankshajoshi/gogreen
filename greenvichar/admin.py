@@ -1,5 +1,6 @@
 from models import Comments, GreenVichar,  Event, Article, \
-    PicsVideo, Questionire, StoryQuotes, GreenVicharImg, GrnVchrHome
+    PicsVideo, Questionire, StoryQuotes, GrnVchrHome
+from forms import GreenVicharForm
 from django.contrib import admin
 from django.conf import settings
     
@@ -57,17 +58,13 @@ class QuestionireInline(admin.StackedInline):
     extra = 1
     max_num = 1
 
-class GreenVicharImgInline(admin.StackedInline):
-    model = GreenVicharImg
-    extra = 1
-    max_num = 5
-
 class GreenVicharAdmin(admin.ModelAdmin):
-    inlines = [GreenVicharImgInline, EventInline, ArticleInline, PicsVideoInline, StoryQuotesInline, 
+    
+    inlines = [EventInline, ArticleInline, PicsVideoInline, StoryQuotesInline, 
                QuestionireInline]
     list_display = ('title', 'vichar_type', 'publish_date')
     fields = ('title', 'vichar_type', 'publish_date')
-    
+    form = GreenVicharForm
     class Media:
         js = [settings.MEDIA_URL + '/admin/js/admin.js']
         

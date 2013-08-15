@@ -153,7 +153,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'admin','','','a@gmail.com','sha1$f6df0$425681add19de3d8a54005ca8ceddd582813d73f',1,1,1,'2013-08-15 00:23:19','2013-08-15 00:23:19');
+INSERT INTO `auth_user` VALUES (1,'admin','','','a@gmail.com','sha1$f6df0$425681add19de3d8a54005ca8ceddd582813d73f',1,1,1,'2013-08-15 01:20:09','2013-08-15 00:23:19');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +385,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_1bb8f392` (`content_type_id`),
   CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,6 +394,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,'');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -446,6 +447,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('1cde185ab17595d1495fd3a9259be0a3','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 01:20:09'),('41eebb4507761c617e62d748d29a8848','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 00:32:23');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -574,7 +576,7 @@ DROP TABLE IF EXISTS `greenvichar_greenvichar`;
 CREATE TABLE `greenvichar_greenvichar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
-  `vichar_type` varchar(50) NOT NULL,
+  `vichar_type` int(11) DEFAULT NULL,
   `creation_date` datetime NOT NULL,
   `publish_date` datetime NOT NULL,
   `created_by_id` int(11) NOT NULL,
@@ -596,32 +598,6 @@ LOCK TABLES `greenvichar_greenvichar` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `greenvichar_greenvicharimg`
---
-
-DROP TABLE IF EXISTS `greenvichar_greenvicharimg`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `greenvichar_greenvicharimg` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `green_vichar_id` int(11) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `greenvichar_greenvicharimg_5c26833` (`green_vichar_id`),
-  CONSTRAINT `green_vichar_id_refs_id_2859b8d3` FOREIGN KEY (`green_vichar_id`) REFERENCES `greenvichar_greenvichar` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `greenvichar_greenvicharimg`
---
-
-LOCK TABLES `greenvichar_greenvicharimg` WRITE;
-/*!40000 ALTER TABLE `greenvichar_greenvicharimg` DISABLE KEYS */;
-/*!40000 ALTER TABLE `greenvichar_greenvicharimg` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `greenvichar_grnvchrhome`
 --
 
@@ -629,12 +605,13 @@ DROP TABLE IF EXISTS `greenvichar_grnvchrhome`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `greenvichar_grnvchrhome` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `text` varchar(250) NOT NULL,
   `image` varchar(100) NOT NULL,
-  PRIMARY KEY (`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -643,6 +620,7 @@ CREATE TABLE `greenvichar_grnvchrhome` (
 
 LOCK TABLES `greenvichar_grnvchrhome` WRITE;
 /*!40000 ALTER TABLE `greenvichar_grnvchrhome` DISABLE KEYS */;
+INSERT INTO `greenvichar_grnvchrhome` VALUES (1,1,'test event','test event','uploads/grnvichar/IMG_0028_1.JPG'),(2,2,'test article','test article','uploads/grnvichar/IMG_0050.JPG'),(3,3,'test pics vedio','test video','uploads/grnvichar/IMG_0044.JPG'),(4,4,'test quotes','test quotes','uploads/grnvichar/IMG_0052.JPG'),(5,5,'test questionre','test questionre','uploads/grnvichar/IMG_0047.JPG');
 /*!40000 ALTER TABLE `greenvichar_grnvchrhome` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1326,4 +1304,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-15 10:55:40
+-- Dump completed on 2013-08-15 12:29:10
