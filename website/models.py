@@ -1,5 +1,5 @@
 from choices import COUNTRY_CHOICES, STATE_CHOICES, CITY_CHOICES, YEAR_CHOICES, \
-    TURNOVER_CHOICES, EMP_CHOICES, CONTACT_CHOICES
+    TURNOVER_CHOICES, EMP_CHOICES
 from django.contrib.auth.models import User
 from django.db import models
 from tinymce.models import HTMLField
@@ -16,34 +16,6 @@ class Blog(models.Model):
     def __unicode__(self):
         return self.title     
      
-class ContactUsText(models.Model):
-    text = HTMLField()
-    creation_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User)
-    
-class TermsNCondition(models.Model):
-    text = HTMLField()
-    creation_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User)
-     
-class AboutUs(models.Model):
-    text = HTMLField()
-    creation_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
-    updated_by = models.ForeignKey(User)
-    
-class Enquiry(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.EmailField()
-    text = HTMLField(max_length=1000)
-    mobile = models.CharField(max_length=12)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    moderation_date = models.DateTimeField(auto_now=True) 
-    is_approve = models.BooleanField(default=False)
-    approve_by = models.ForeignKey(User)
-
 class BusinessType(models.Model):
     name = models.CharField(max_length=20)
     
@@ -53,27 +25,27 @@ class BusinessType(models.Model):
 class Company(models.Model):
     company_name = models.CharField(max_length=200)
     company_tagline = models.CharField(max_length=200, null=True, blank=True)
+    meta_desc = models.TextField(null=True, blank=True, verbose_name='Meta Description')
+    meta_kword = models.CharField(max_length=50, null=True, blank=True, verbose_name='Meta Keywords')
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
-    country = models.CharField(choices=COUNTRY_CHOICES ,max_length=50)
     mobile = models.CharField(max_length=40, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
     contact_person = models.CharField(max_length=30, null=True, blank=True)
     contact_email = models.EmailField()
     website = models.URLField(null=True, blank=True)
     business_type = models.ManyToManyField('BusinessType')
-    company_profile = models.CharField(max_length=2000)
-    product_profile = models.CharField(max_length=1000)
+    business_description = models.TextField(null=True)
+    deals_in = models.CharField(max_length=200,null=True,blank=True)
     green_o_meter = models.CharField(max_length=100, null=True, blank=True)
     subcategory = models.ManyToManyField('Subcategory')
     year_founded = models.IntegerField(choices=YEAR_CHOICES, null=True, blank=True)
     no_of_emp = models.IntegerField(choices=EMP_CHOICES, null=True, blank=True)
     turnover = models.IntegerField(choices=TURNOVER_CHOICES, null=True, blank=True)
     certifications = models.CharField(max_length=200, null=True, blank=True)
-    featured_logo = models.ImageField(upload_to='uploads/comp_img/', null=True, blank=True)
-    featured_blog = models.BooleanField(default=False)
-    featured_downloads = models.FileField(upload_to='uploads/comp_downloads/',null=True, blank=True)
+    company_logo = models.ImageField(upload_to='uploads/comp_logo/', null=True, blank=True)
+    brouchers = models.FileField(upload_to='uploads/comp_downloads/',null=True, blank=True, verbose_name='brouchers(if any)')
     created_date = models.DateField(auto_now_add=True)
     modified_date = models.DateField(auto_now=True)
     modified_by = models.ForeignKey(User)
@@ -81,21 +53,36 @@ class Company(models.Model):
     def __unicode__(self):
         return self.company_name
     
-            
+
+class CompanyImg(models.Model):
+    company = models.ForeignKey('Company')
+    image = models.ImageField(upload_to='uploads/comp_imgs')
+
+class Comment(models.Model):
+    company = models.ForeignKey('Company')
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    text = HTMLField(max_length=1000)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    moderation_date = models.DateTimeField(auto_now=True) 
+    status = models.IntegerField(choices=((0,'Submitted'),(1,'Accepted'),(2,'Rejected')))
+    done_by = models.ForeignKey(User, null=True)
+
+class ContactUs(models.Model):
+    company = models.ForeignKey('Company')
+    name = models.CharField(max_length=200)
+    email = models.EmailField()
+    text = HTMLField(max_length=1000)
+    mobile = models.CharField(max_length=12)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    moderation_date = models.DateTimeField(auto_now=True) 
+    status = models.IntegerField(choices=((0,'Submitted'),(1,'Viewed'),))
+    done_by = models.IntegerField(null=True)
+    
+
 class GreenOMeter(models.Model):
     name = models.CharField(max_length=200)
     icon = models.ImageField(upload_to ='uploads/greenometer/',null=True,blank=True)
-    
-    def __unicode__(self):
-        return self.name
-    
-class Jobs(models.Model):
-    name = models.CharField(max_length=100)
-    title = models.CharField(max_length=100)
-    description = HTMLField()
-    created_date = models.DateField(auto_now_add=True)
-    modified_date = models.DateField(auto_now=True)
-    modified_by = models.ForeignKey(User)
     
     def __unicode__(self):
         return self.name
@@ -120,10 +107,10 @@ class Subcategory(models.Model):
         return self.name         
 
 
-class TopBanner(models.Model):
-    image = models.ImageField(upload_to='uploads/top_banners')
-    published_date = models.DateField()
-    created_by = models.ForeignKey(User)
+# class TopBanner(models.Model):
+#     image = models.ImageField(upload_to='uploads/top_banners')
+#     published_date = models.DateField()
+#     created_by = models.ForeignKey(User)
 
 class PopularKeyword(models.Model):
     keyword = models.CharField(max_length=200)
@@ -132,14 +119,4 @@ class PopularKeyword(models.Model):
     def __unicode__(self):
         return self.keyword
     
-class ContactUs(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.EmailField()
-    text = HTMLField(max_length=1000)
-    mobile = models.CharField(max_length=12)
-    type = models.IntegerField(choices=CONTACT_CHOICES)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    moderation_date = models.DateTimeField(auto_now=True) 
-    is_approve = models.BooleanField(default=False)
-    approve_by = models.ForeignKey(User)
     

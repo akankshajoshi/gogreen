@@ -30,9 +30,8 @@ class Command(BaseCommand):
             modfy_str = _regx.sub('', sheet1.cell(row, 7).value)
             comp = Company.objects.create(state = sheet1.cell(row, 2).value,
             city = sheet1.cell(row, 3).value,
-            product_profile = sheet1.cell(row, 4).value,
             company_name = sheet1.cell(row, 5).value, 
-            company_profile = modfy_str,
+            business_description = modfy_str,
             mobile = sheet1.cell(row, 9).value,
             address = sheet1.cell(row, 10).value,
             website = sheet1.cell(row, 11).value,

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from models import GreenOMeter
+from models import Company, GreenOMeter
 
 
 class SignUpForm(forms.ModelForm):
@@ -15,9 +15,6 @@ class SearchForm(forms.Form):
 
 class CompanyForm(forms.ModelForm):
     green_o_meter = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple,choices=GreenOMeter.objects.all().values_list('id','name'))
-    class Meta:
-        models = GreenOMeter
-        
-        
     
-             
+    class Meta:
+        model = Company

@@ -3,13 +3,15 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
 class GrnVchrHome(models.Model):
+    type = models.IntegerField((1,'Event'),(2,'Article'),(3,'Pics/Video'),(4,'Quotes'),(4,'Questionire'))
     title = models.CharField(max_length=50)
     text = models.CharField(max_length=250)
     image = models.ImageField(upload_to='uploads/grnvichar')
     
 class GreenVichar(models.Model):
     title = models.CharField(max_length=200)
-    vichar_type = models.IntegerField(choices=GrnVchrHome.objects.all().values_list('id','title'))
+    vichar_type = models.CharField(max_length=50, choices=(GrnVchrHome.objects.all().values_list('type','title')))
+#     vichar_type = models.IntegerField()
     creation_date = models.DateTimeField(auto_now_add=True)
     publish_date = models.DateTimeField()
     created_by = models.ForeignKey(User)
@@ -35,28 +37,26 @@ class GreenVicharImg(models.Model):
 
 class Event(models.Model):
     green_vichar = models.ForeignKey('GreenVichar') 
-    event_name = models.CharField(max_length=200,null=True,blank=True)
-    location = models.CharField(max_length=200,null=True,blank=True)
-    date = models.DateTimeField(null=True,blank=True)
-    organiser = models.CharField(max_length=200,null=True,blank=True)
-    contact_person = models.CharField(max_length=200,null=True,blank=True)
-    contact_number = models.CharField(max_length=20,null=True,blank=True)
-    event_detail = models.TextField(max_length=200,null=True,blank=True)
-
-class PostArticle(models.Model):
-    green_vichar = models.ForeignKey('GreenVichar')
-    heading = models.CharField(max_length=200,null=True,blank=True)
-    body = models.TextField(null=True,blank=True)
-    uploadHeadImg = models.ImageField(upload_to='uploads/postarticle')
+    title = models.CharField(max_length=200,null=True,blank=True)
+    image = models.ImageField(upload_to='uploads/event')
+    description = models.TextField()
+                              
+class Article(models.Model):
+    green_vichar = models.ForeignKey('GreenVichar') 
+    title = models.CharField(max_length=200,null=True,blank=True)
+    image = models.ImageField(upload_to='uploads/event')
+    description = models.TextField()
     
 class PicsVideo(models.Model):
     green_vichar = models.ForeignKey('GreenVichar')
-    pic = models.ImageField(upload_to='uploads/picsvideos')
-    links = models.URLField()
+    type = models.IntegerField(choices=((1,'Image'),(2,'Video'),))
+    title = models.CharField(max_length=50)
+    pic = models.ImageField(upload_to='uploads/picsvideos', null=True, blank=True)
+    links = models.URLField(null=True, blank=True)
         
 class StoryQuotes(models.Model):
     green_vichar = models.ForeignKey('GreenVichar')
-    heading = models.CharField(max_length=200,null=True,blank=True)
+    text = models.CharField(max_length=200,null=True,blank=True)
     body = models.TextField(null=True,blank=True)
     
 class Questionire(models.Model):

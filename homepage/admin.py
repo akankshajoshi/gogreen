@@ -10,7 +10,7 @@ class HeadingAdmin(admin.ModelAdmin):
         obj.save()
         
 class BigBannerAdmin(admin.ModelAdmin):
-    fields= ('image', 'created_date', 'published_date')
+    fields= ('image',)
     
     def save_model(self, request, obj, form, change):
         super(BigBannerAdmin, self).save_model(request, obj, form, change)
@@ -34,7 +34,6 @@ class TestimonialsAdmin(admin.ModelAdmin):
         obj.created_by = request.user
         obj.save()
         
-# admin.site.register(Testimonials)
 admin.site.register(CompanyCount, CompanyCountAdmin)
-# admin.site.register(BigBanner, BigBannerAdmin)
+admin.site.register(BigBanner, BigBannerAdmin)
 admin.site.register(Heading, HeadingAdmin)
