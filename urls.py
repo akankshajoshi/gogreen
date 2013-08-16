@@ -2,6 +2,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -9,6 +10,11 @@ urlpatterns = patterns('',
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^$', 'gogreen.website.views.index_page'),
     url(r'^(?P<subcat>[-\w+]*)/(?P<subcat_id>\d+)/$','gogreen.website.views.view_category', name='view_company_list'),
+    url(r'^home/$', direct_to_template,{'template':'home/home.html'},name='index'),
+    url(r'^greenvichar/$', direct_to_template,{'template':'greenvichar/greenvichar.htm'},name='greenvichar'),
+    url(r'^company/$', direct_to_template,{'template':'directory/company.htm'},name='company'),
+    url(r'^category/$', direct_to_template,{'template':'directory/keyword.html'},name='category'),
+    url(r'^search/$', direct_to_template,{'template':'directory/searchresult.htm'},name='search'),
     # url(r'^$', 'gogreen.views.home', name='home'),
     # url(r'^gogreen/', include('gogreen.foo.urls')),
 
