@@ -125,7 +125,7 @@ INSTALLED_APPS = (
     'homepage',
     'tinymce',
     'dbcron',
-    'common',
+    'footer',
     'logo',
     'greenvichar',
     # Uncomment the next line to enable admin documentation:

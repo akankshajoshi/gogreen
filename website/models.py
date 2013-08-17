@@ -25,11 +25,10 @@ class BusinessType(models.Model):
 class Company(models.Model):
     company_name = models.CharField(max_length=200)
     company_tagline = models.CharField(max_length=200, null=True, blank=True)
-    meta_desc = models.TextField(null=True, blank=True, verbose_name='Meta Description')
+    meta_desc = models.CharField(null=True, blank=True, verbose_name='Meta Description', max_length=50)
     meta_kword = models.CharField(max_length=50, null=True, blank=True, verbose_name='Meta Keywords')
     address = models.CharField(max_length=200)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
+    state = models.CharField(max_length=50,choices=STATE_CHOICES)
     mobile = models.CharField(max_length=40, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
     contact_person = models.CharField(max_length=30, null=True, blank=True)
@@ -54,7 +53,7 @@ class Company(models.Model):
         return self.company_name
     
 
-class CompanyImg(models.Model):
+class CompanyProductImg(models.Model):
     company = models.ForeignKey('Company')
     image = models.ImageField(upload_to='uploads/comp_imgs')
 
@@ -115,7 +114,7 @@ class Subcategory(models.Model):
 class PopularKeyword(models.Model):
     keyword = models.CharField(max_length=200)
     timestamp = models.DateTimeField(auto_now=True)
-    subcat = models.ForeignKey('Subcategory')
+    subcat = models.ManyToManyField('Subcategory')
     def __unicode__(self):
         return self.keyword
     

@@ -14,8 +14,9 @@ class BigBanner(models.Model):
     
     
 class CompanyCount(models.Model):
-    text1 = models.CharField(max_length=10)
-    text2 = models.CharField(max_length=10)
+    text1 = models.CharField(max_length=10, verbose_name='Registered Companies')
+    text2 = models.CharField(max_length=10, verbose_name='Registered products')
+    tree_planted = models.CharField(max_length=10, verbose_name='No. of Trees Planted')
     created_by = models.ForeignKey(User)
     
 class Testimonials(models.Model):

@@ -26,6 +26,14 @@ django.jQuery(document).ready(function() {
            django.jQuery('#questionire_set-group').show();
            django.jQuery('#event_set-group,#article_set-group,#storyquotes_set-group,#picsvideo_set-group').hide();
     }
+        if (django.jQuery(this).val() == 1){
+            django.jQuery('.form-row pic').show();
+            django.jQuery('form-row video').hide();
+     }
+    	else if (django.jQuery(this).val() == 2){
+            django.jQuery('.form-row pic').hide();
+            django.jQuery('form-row video').show();
+     }
 });
 
 django.jQuery('#id_vichar_type').live('change',function(){
@@ -51,4 +59,15 @@ django.jQuery('#id_vichar_type').live('change',function(){
            django.jQuery('#event_set-group,#article_set-group,#storyquotes_set-group,#picsvideo_set-group').hide();
     }
 
+});
+
+django.jQuery('#id_picsvideo_set-0-type').live('change',function(){
+	if (django.jQuery(this).val() == 1){
+        django.jQuery('.form-row pic').show();
+        django.jQuery('form-row video').hide();
+ }
+	else if (django.jQuery(this).val() == 2){
+        django.jQuery('.form-row pic').hide();
+        django.jQuery('form-row video').show();
+ }
 });
