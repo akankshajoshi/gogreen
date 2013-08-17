@@ -14,7 +14,10 @@ class PaidLogo(models.Model):
     name = models.CharField(max_length=25)
     image = models.ImageField(upload_to='media/logo')
     click_url = models.URLField()
-    created_by = models.ForeignKey(User)
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateField(auto_now=True)
     category = models.ManyToManyField(Category)
+    
+class GovrnLogo(models.Model):
+    image = models.ImageField(upload_to='media/logo')
+    click_url = models.URLField(null=True, blank=True)
