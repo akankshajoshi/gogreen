@@ -153,7 +153,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'admin','','','a@gmail.com','sha1$f6df0$425681add19de3d8a54005ca8ceddd582813d73f',1,1,1,'2013-08-15 01:20:09','2013-08-15 00:23:19');
+INSERT INTO `auth_user` VALUES (1,'admin','','','a@gmail.com','sha1$f6df0$425681add19de3d8a54005ca8ceddd582813d73f',1,1,1,'2013-08-16 23:39:31','2013-08-15 00:23:19');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,8 +172,8 @@ CREATE TABLE `auth_user_groups` (
   UNIQUE KEY `user_id` (`user_id`,`group_id`),
   KEY `auth_user_groups_403f60f` (`user_id`),
   KEY `auth_user_groups_425ae3c4` (`group_id`),
-  CONSTRAINT `user_id_refs_id_7ceef80f` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `group_id_refs_id_f116770` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+  CONSTRAINT `group_id_refs_id_f116770` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `user_id_refs_id_7ceef80f` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -201,9 +201,9 @@ CREATE TABLE `auth_user_user_permissions` (
   UNIQUE KEY `user_id` (`user_id`,`permission_id`),
   KEY `auth_user_user_permissions_403f60f` (`user_id`),
   KEY `auth_user_user_permissions_1e014c8f` (`permission_id`),
-  CONSTRAINT `user_id_refs_id_dfbab7d` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `permission_id_refs_id_67e79cb` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `permission_id_refs_id_67e79cb` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `user_id_refs_id_dfbab7d` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=337 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,6 +212,7 @@ CREATE TABLE `auth_user_user_permissions` (
 
 LOCK TABLES `auth_user_user_permissions` WRITE;
 /*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+INSERT INTO `auth_user_user_permissions` VALUES (225,1,1),(226,1,2),(227,1,3),(228,1,4),(229,1,5),(230,1,6),(231,1,7),(232,1,8),(233,1,9),(234,1,10),(235,1,11),(236,1,12),(237,1,13),(238,1,14),(239,1,15),(240,1,16),(241,1,17),(242,1,18),(243,1,19),(244,1,20),(245,1,21),(246,1,22),(247,1,23),(248,1,24),(249,1,25),(250,1,26),(251,1,27),(252,1,28),(253,1,29),(254,1,30),(255,1,31),(256,1,32),(257,1,33),(258,1,34),(259,1,35),(260,1,36),(261,1,38),(262,1,39),(263,1,40),(264,1,41),(265,1,42),(266,1,43),(267,1,44),(268,1,45),(269,1,46),(270,1,47),(271,1,48),(272,1,49),(273,1,50),(274,1,51),(275,1,52),(276,1,53),(277,1,54),(278,1,55),(279,1,56),(280,1,57),(281,1,58),(282,1,59),(283,1,60),(284,1,61),(285,1,62),(286,1,63),(287,1,64),(288,1,65),(289,1,66),(290,1,67),(291,1,68),(292,1,69),(293,1,70),(294,1,71),(295,1,72),(296,1,73),(297,1,74),(298,1,75),(299,1,76),(300,1,77),(301,1,78),(302,1,79),(303,1,80),(304,1,81),(305,1,82),(306,1,83),(307,1,84),(308,1,85),(309,1,86),(310,1,87),(311,1,88),(312,1,89),(313,1,90),(314,1,91),(315,1,92),(316,1,93),(317,1,95),(318,1,96),(319,1,97),(320,1,98),(321,1,99),(322,1,100),(323,1,101),(324,1,102),(325,1,103),(326,1,104),(327,1,105),(328,1,106),(329,1,107),(330,1,108),(331,1,109),(332,1,110),(333,1,111),(334,1,112),(335,1,113),(336,1,114);
 /*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,9 +384,9 @@ CREATE TABLE `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_403f60f` (`user_id`),
   KEY `django_admin_log_1bb8f392` (`content_type_id`),
-  CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,7 +395,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,'');
+INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,''),(6,'2013-08-16 09:47:06',1,3,'1','admin',2,'Changed user_permissions.'),(7,'2013-08-16 09:48:15',1,3,'1','admin',2,'Changed is_superuser.'),(8,'2013-08-16 09:53:03',1,3,'1','admin',2,'Changed is_superuser.'),(9,'2013-08-16 09:53:47',1,13,'1','Comment object',1,''),(10,'2013-08-16 09:55:02',1,13,'2','Comment object',1,''),(11,'2013-08-16 12:33:27',1,31,'1','test article',1,''),(12,'2013-08-16 12:33:58',1,39,'1','VicharComment object',1,'');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +413,7 @@ CREATE TABLE `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `app_label` (`app_label`,`model`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,7 +422,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'log entry','admin','logentry'),(9,'blog','website','blog'),(10,'business type','website','businesstype'),(11,'company','website','company'),(12,'company img','website','companyimg'),(13,'comment','website','comment'),(14,'contact us','website','contactus'),(15,'green o meter','website','greenometer'),(16,'category','website','category'),(17,'subcategory','website','subcategory'),(18,'popular keyword','website','popularkeyword'),(19,'heading','homepage','heading'),(20,'big banner','homepage','bigbanner'),(21,'company count','homepage','companycount'),(22,'testimonials','homepage','testimonials'),(23,'contact us','common','contactus'),(24,'contact us text','common','contactustext'),(25,'terms n condition','common','termsncondition'),(26,'about us','common','aboutus'),(27,'enquiry','common','enquiry'),(28,'logo','logo','logo'),(29,'paid logo','logo','paidlogo'),(30,'grn vchr home','greenvichar','grnvchrhome'),(31,'green vichar','greenvichar','greenvichar'),(32,'comments','greenvichar','comments'),(33,'green vichar img','greenvichar','greenvicharimg'),(34,'event','greenvichar','event'),(35,'article','greenvichar','article'),(36,'pics video','greenvichar','picsvideo'),(37,'story quotes','greenvichar','storyquotes'),(38,'questionire','greenvichar','questionire');
+INSERT INTO `django_content_type` VALUES (1,'permission','auth','permission'),(2,'group','auth','group'),(3,'user','auth','user'),(4,'message','auth','message'),(5,'content type','contenttypes','contenttype'),(6,'session','sessions','session'),(7,'site','sites','site'),(8,'log entry','admin','logentry'),(9,'blog','website','blog'),(10,'business type','website','businesstype'),(11,'company','website','company'),(12,'company img','website','companyimg'),(13,'comment','website','comment'),(14,'contact us','website','contactus'),(15,'green o meter','website','greenometer'),(16,'category','website','category'),(17,'subcategory','website','subcategory'),(18,'popular keyword','website','popularkeyword'),(19,'heading','homepage','heading'),(20,'big banner','homepage','bigbanner'),(21,'company count','homepage','companycount'),(22,'testimonials','homepage','testimonials'),(23,'contact us','common','contactus'),(24,'contact us text','common','contactustext'),(25,'terms n condition','common','termsncondition'),(26,'about us','common','aboutus'),(27,'enquiry','common','enquiry'),(28,'logo','logo','logo'),(29,'paid logo','logo','paidlogo'),(30,'grn vchr home','greenvichar','grnvchrhome'),(31,'green vichar','greenvichar','greenvichar'),(32,'comments','greenvichar','comments'),(33,'green vichar img','greenvichar','greenvicharimg'),(34,'event','greenvichar','event'),(35,'article','greenvichar','article'),(36,'pics video','greenvichar','picsvideo'),(37,'story quotes','greenvichar','storyquotes'),(38,'questionire','greenvichar','questionire'),(39,'vichar comment','greenvichar','vicharcomment');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -447,7 +448,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('1cde185ab17595d1495fd3a9259be0a3','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 01:20:09'),('41eebb4507761c617e62d748d29a8848','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 00:32:23');
+INSERT INTO `django_session` VALUES ('1cde185ab17595d1495fd3a9259be0a3','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 01:20:09'),('41eebb4507761c617e62d748d29a8848','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 00:32:23'),('71d88c1d0f800b95e7554970521b4641','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-30 23:39:31');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -505,40 +506,6 @@ LOCK TABLES `greenvichar_article` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `greenvichar_comments`
---
-
-DROP TABLE IF EXISTS `greenvichar_comments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `greenvichar_comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `grnvichar_id` int(11) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `email` varchar(75) NOT NULL,
-  `text` longtext NOT NULL,
-  `creation_date` datetime NOT NULL,
-  `moderation_date` datetime NOT NULL,
-  `is_approve` tinyint(1) NOT NULL,
-  `approve_by_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `greenvichar_comments_11944be1` (`grnvichar_id`),
-  KEY `greenvichar_comments_5d1bd22d` (`approve_by_id`),
-  CONSTRAINT `approve_by_id_refs_id_645c2435` FOREIGN KEY (`approve_by_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `grnvichar_id_refs_id_1fa642e6` FOREIGN KEY (`grnvichar_id`) REFERENCES `greenvichar_greenvichar` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `greenvichar_comments`
---
-
-LOCK TABLES `greenvichar_comments` WRITE;
-/*!40000 ALTER TABLE `greenvichar_comments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `greenvichar_comments` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `greenvichar_event`
 --
 
@@ -585,7 +552,7 @@ CREATE TABLE `greenvichar_greenvichar` (
   PRIMARY KEY (`id`),
   KEY `greenvichar_greenvichar_4a21cf42` (`created_by_id`),
   CONSTRAINT `created_by_id_refs_id_43e16b16` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -594,6 +561,7 @@ CREATE TABLE `greenvichar_greenvichar` (
 
 LOCK TABLES `greenvichar_greenvichar` WRITE;
 /*!40000 ALTER TABLE `greenvichar_greenvichar` DISABLE KEYS */;
+INSERT INTO `greenvichar_greenvichar` VALUES (1,'test article',4,'2013-08-16 12:33:27','2013-08-16 23:03:11',1,0,NULL);
 /*!40000 ALTER TABLE `greenvichar_greenvichar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -691,11 +659,10 @@ CREATE TABLE `greenvichar_storyquotes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `green_vichar_id` int(11) NOT NULL,
   `text` varchar(200) DEFAULT NULL,
-  `body` longtext,
   PRIMARY KEY (`id`),
   KEY `greenvichar_storyquotes_5c26833` (`green_vichar_id`),
   CONSTRAINT `green_vichar_id_refs_id_132b6b0d` FOREIGN KEY (`green_vichar_id`) REFERENCES `greenvichar_greenvichar` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -704,7 +671,39 @@ CREATE TABLE `greenvichar_storyquotes` (
 
 LOCK TABLES `greenvichar_storyquotes` WRITE;
 /*!40000 ALTER TABLE `greenvichar_storyquotes` DISABLE KEYS */;
+INSERT INTO `greenvichar_storyquotes` VALUES (1,1,'yes yes yes');
 /*!40000 ALTER TABLE `greenvichar_storyquotes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `greenvichar_vicharcomment`
+--
+
+DROP TABLE IF EXISTS `greenvichar_vicharcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `greenvichar_vicharcomment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `grnvichar_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  `text` longtext NOT NULL,
+  `creation_date` datetime NOT NULL,
+  `moderation_date` datetime NOT NULL,
+  `status` int(11) NOT NULL,
+  `approve_by_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `greenvichar_vicharcomment`
+--
+
+LOCK TABLES `greenvichar_vicharcomment` WRITE;
+/*!40000 ALTER TABLE `greenvichar_vicharcomment` DISABLE KEYS */;
+INSERT INTO `greenvichar_vicharcomment` VALUES (1,1,'test','a@test.com','<p>nklajadf</p>\r\n<p>kkdf</p>','2013-08-16 12:33:58','2013-08-16 12:33:58',0,1);
+/*!40000 ALTER TABLE `greenvichar_vicharcomment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -747,6 +746,7 @@ CREATE TABLE `homepage_companycount` (
   `text1` varchar(10) NOT NULL,
   `text2` varchar(10) NOT NULL,
   `created_by_id` int(11) NOT NULL,
+  `tree_planted` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `homepage_companycount_4a21cf42` (`created_by_id`),
   CONSTRAINT `created_by_id_refs_id_5c41f7d8` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`)
@@ -821,6 +821,30 @@ LOCK TABLES `homepage_testimonials` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `logo_govrnlogo`
+--
+
+DROP TABLE IF EXISTS `logo_govrnlogo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logo_govrnlogo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(100) NOT NULL,
+  `click_url` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logo_govrnlogo`
+--
+
+LOCK TABLES `logo_govrnlogo` WRITE;
+/*!40000 ALTER TABLE `logo_govrnlogo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `logo_govrnlogo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `logo_logo`
 --
 
@@ -862,12 +886,9 @@ CREATE TABLE `logo_paidlogo` (
   `name` varchar(25) NOT NULL,
   `image` varchar(100) NOT NULL,
   `click_url` varchar(200) NOT NULL,
-  `created_by_id` int(11) NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `logo_paidlogo_4a21cf42` (`created_by_id`),
-  CONSTRAINT `created_by_id_refs_id_2c2d5cba` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -895,8 +916,8 @@ CREATE TABLE `logo_paidlogo_category` (
   UNIQUE KEY `paidlogo_id` (`paidlogo_id`,`category_id`),
   KEY `logo_paidlogo_category_2ab37485` (`paidlogo_id`),
   KEY `logo_paidlogo_category_42dc49bc` (`category_id`),
-  CONSTRAINT `paidlogo_id_refs_id_576130ff` FOREIGN KEY (`paidlogo_id`) REFERENCES `logo_paidlogo` (`id`),
-  CONSTRAINT `category_id_refs_id_7b0307b5` FOREIGN KEY (`category_id`) REFERENCES `website_category` (`id`)
+  CONSTRAINT `category_id_refs_id_7b0307b5` FOREIGN KEY (`category_id`) REFERENCES `website_category` (`id`),
+  CONSTRAINT `paidlogo_id_refs_id_576130ff` FOREIGN KEY (`paidlogo_id`) REFERENCES `logo_paidlogo` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1006,9 +1027,9 @@ CREATE TABLE `website_comment` (
   PRIMARY KEY (`id`),
   KEY `website_comment_543518c6` (`company_id`),
   KEY `website_comment_5493075d` (`done_by_id`),
-  CONSTRAINT `done_by_id_refs_id_24b77cd6` FOREIGN KEY (`done_by_id`) REFERENCES `auth_user` (`id`),
-  CONSTRAINT `company_id_refs_id_5792aff3` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `company_id_refs_id_5792aff3` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`),
+  CONSTRAINT `done_by_id_refs_id_24b77cd6` FOREIGN KEY (`done_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1017,6 +1038,7 @@ CREATE TABLE `website_comment` (
 
 LOCK TABLES `website_comment` WRITE;
 /*!40000 ALTER TABLE `website_comment` DISABLE KEYS */;
+INSERT INTO `website_comment` VALUES (1,1,'Akanksha','a@test.com','<p>test test yest</p>\r\n<p>fbb</p>\r\n<p>mblfdkb</p>','2013-08-16 09:53:47','2013-08-16 09:53:47',0,1),(2,2,'Mudit','a@kjkf.com','<p>klhddsgk</p>','2013-08-16 09:55:02','2013-08-16 09:55:02',0,1);
 /*!40000 ALTER TABLE `website_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1031,10 +1053,9 @@ CREATE TABLE `website_company` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `company_name` varchar(200) NOT NULL,
   `company_tagline` varchar(200) DEFAULT NULL,
-  `meta_desc` longtext,
+  `meta_desc` varchar(50) DEFAULT NULL,
   `meta_kword` varchar(50) DEFAULT NULL,
   `address` varchar(200) NOT NULL,
-  `city` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `mobile` varchar(40) DEFAULT NULL,
   `phone` varchar(12) DEFAULT NULL,
@@ -1065,7 +1086,7 @@ CREATE TABLE `website_company` (
 
 LOCK TABLES `website_company` WRITE;
 /*!40000 ALTER TABLE `website_company` DISABLE KEYS */;
-INSERT INTO `website_company` VALUES (1,'Rainbow Designs',NULL,NULL,NULL,'Bangaluru, Karnataka','Bengaluru','Karnataka','',NULL,NULL,'','','We create jewellery which includes glass beads, crystals,wood,brass etc which are both traditional and fashionable. https://www.facebook.com/FahionJewelry The rich look and the amazing color combinations will definitely create a \'WOW\' effect!!!',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(2,'Rahul Handicrafts',NULL,NULL,NULL,'By Pass Road, Near Rajasthan Marble, Muttathara, Vallakadavu P. O, Trivanduram No. 8,\nThiruvananthapuram -695 008, Kerala,India','Thiruvananthapuram','Kerala','(91)-(471)-2505150',NULL,NULL,'','','Kerala has always been famous for its rich and vibrant tradition and unique wooden crafts, coconut shell crafts, metal crafts and bamboo crafts . Rahul handicrafts is the manufacturer and supplier of handicrafts.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(3,'Raga Creations',NULL,NULL,NULL,'No. 267/271, Kanak Chambers, Shop No. 305, 3rd Floor, Opposite Adarsh Hotel, Kalbadevi Road, Mumbai - 400 002, Maharashtra, India','Mumbai','Maharashtra','(91)-9820810080',NULL,NULL,'','','Raga creations is designed to cater to those looking for international design and quality at local prices. Every jewel here is a hand-picked masterpiece. The range includes the finest imitation jewelry. raga creations is one of mumbai\'s most contemporary imitation jewelers, specializing in the latest variation of fashionable ornaments. ',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(4,'Raga jewels',NULL,NULL,NULL,'Noida, Uttar Pradesh','Noida','Uttar Pradesh','',NULL,NULL,'','','Manufacturer of Fashion Jewellery, Beaded Jewellery, Handmade Jewellery etc.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(5,'Raga In Banaras Multi service pvt ltd ',NULL,NULL,NULL,'Ck-10/53, Manikarnika Chowk, Varanasi H O, Varanasi - 221001','Varanasi','Uttar Pradesh','91-(0542) 2402945',NULL,NULL,'','','We provide multi service in several domains of multicultural education & trading sector. Our Education providing methodology is to provide true and meaningful information to bring about change at every level of our society and at the same time our trading section provides multi service and practical training for preparing Ayurvedic herbs (natural medicine) and making 100% recyclable hand made product by natural raw materials and our mission is to keep our clients and believers close to the nature as much as possible...',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(6,'Radhika\'s World of Crafts',NULL,NULL,NULL,'Bengaluru, Karnataka','Bengaluru','Karnataka','',NULL,NULL,'','','Radhika Enterprises is a trusted name in the field of authentic Indian Handicrafts. Our speciality lies in the wide range of Brass artifacts in antique-finish. Over the last decade, we have organised and taken part in over a hundred exhibitions at prominent places at Bangaluru and other major cities. We are regularly invited by most of the State Governments to participate in their craft fairs. Our parent company has won several awards. Our artifacts adorn the homes of crme de la crme, connosiurs, art lovers across the world.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(7,'Rachnatmak Arts',NULL,NULL,NULL,'Jaipur, Rajasthan','Jaipur','Rajasthan','',NULL,NULL,'','','Rachnatmak arts is best known for its handmade paper envelopes. Ranging from paper quilling, to gota work, paper mache work, patch work, bandhej work, etc. we use a variety of arts to make colourful and attractive envelopes.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(8,'Rachaita',NULL,NULL,NULL,'Mumbai, Maharashtra','Mumbai','Maharashtra','',NULL,NULL,'','','the contents of this label are as unique as the label itself. It houses simple yet elegant designs born out of passion for creativity by Lubna in 2010 and is based in Mumbai. The funky colors and geometric designs of lubna\'s handmade jewellery make even the most simplest clothes look chic.It has things that complete all looks, name it and u have it, that\'s not all u can even get things custom made!! Can\'t find something to complete ur look for a kurta u found at a store ! Don\'t let it concern u, here u get exactly what u need. not jus jewelry but if u lookin for genuine gifts to those special frnds there are bags, frames, key chains etc too with innovative designs that will touch hearts.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(9,'R. S. King Jewellers',NULL,NULL,NULL,'No. 578, 1st Floor, Kashi Nath Ji Ki Gali, Gopal Ji Ka, Rasta, Johri Bazar, Jaipur - 302 003, Rajasthan, India','Jaipur','Rajasthan','(91)-9636396762',NULL,NULL,'','','Established in the year 2005, at Jaipur, (Rajasthan, India) we R. S. King Jewellers, are considered among the affluent Manufacturers, Exporters, Wholesalers and Suppliers of an exquisite collection of Kundan Meena Pendant, Kundan Meena Jewelery, Gold Ornament Stone Works, Jeweled Sword, Kundan Meena Sword, Ancient Groom Sword, Antiqe Kundan Meena Sword, Antique Groom Sword, Meena Kundan Jewellery, Kundan Meena Pendant, Kundan Meena Jewelery, Kundan Meena Armlets, Kundan Meena Earrings, Kundan Meena Necklaces, Kundan Meena Necklace Sets, Kundan Meena Bangles, Kundan Meena Purse, Bridal Kundan Meena Purse, Kundan Meena Bridal Purse & Clutches. ',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(10,'R V EXPORTS',NULL,NULL,NULL,'A-127, Baljeet Vihar , Nithari Ext. Nangloi,\nNew Delhi 110041\nIndia','Delhi','New Delhi','91-8802514334',NULL,NULL,'','www.rvexport.com','Established in the year 2003, R V EXPORTS posses master craftsmanship complemented by an enviable vendor base, have skillfully woven magic into the motifs and designs used. A professionally managed organization, R V EXPORTS has recognized itself as one of the leading Manufacturer of unique collection of Indian Fashion Jewellery consisting of Glass Beads Bracelets, etc.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(11,'Quillkaari',NULL,NULL,NULL,'Delhi, New Delhi','Delhi','New Delhi','',NULL,NULL,'quillkaari@gmail.com','','Think beautiful, unique, quirky designs. Think quilling, a paper art form that dates back to the Renaissance. Now put the two together, and you have Quillkaari\'s beautiful range of handcrafted jewelry and gifts that are gorgeous, witty and luscious - in short, a showstopping conversation-starter! And yes, it\'s paper! At Quillkaari each piece is handcrafted by me from start to finish --- with a lot of love, a lot of patience, and a lot of time! Each design has been inspired by the delight of colours and moods that we find in nature: flowers, butterflies, rainbows, blue skies and sunsets. And the things from life we associate them with: Rangeela dil, Limchu ice candy, work-a-day lives and unconventional loves, among them!',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(12,'PUSHKARAM',NULL,NULL,NULL,'Pushkar, Rajasthan','Pushkar','Rajasthan','91-9414415534',NULL,NULL,'info@pushkaram.com','www.pushkaram.com','Pushkaram is an online home shoppe destination. Where one can buy handicrafts products only in India. A complete online shop for fashion, specialist for handicrafts bag. For women tops, skirts, suits, Indian saree, dress material, garments. For men shorts, pants, trouser, shirts, kurta. For kids dresses and many more varieties. The handicraft bag manufactured by us covers all kinds of bags including shoulder bags, hand bags, tote bags, messenger bags and many more products,. These bags are perfectly decorated with various embroidery, mirrors and other embellishments. Our bag match with any kind of outfit providing a grace to the presentation of end user.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(13,'baba craft',NULL,NULL,NULL,'Pushkar, Rajasthan','Pushkar','Rajasthan','',NULL,NULL,'','','a unique and nice collection of jewellery and handmade products available here.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(14,'PurpleCircle',NULL,NULL,NULL,'noida, Uttar Pradesh','Noida','Uttar Pradesh','',NULL,NULL,'','','A design studio based in noida, focusing on expressing thoughts through quirky and cheerful products that are 100% handmade.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(15,'Purple Winter Creations',NULL,NULL,NULL,'Chennai, Tamil Nadu','Chennai','Tamil Nadu','',NULL,NULL,'','','Purple Winter Creations is based out of Chennai, focusing on creative hand crafted products. Currently we are selling glass paintings, representing Indian art form & cultures.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(16,'bharathi ethnics',NULL,NULL,NULL,'Hyderabad, Andhra Pradesh','Hyderabad','Andhra Pradesh','',NULL,NULL,'','','Exclusive in Fashion jewellery followed by hyderabad traditions. Specialist in Hyderabad Lac Bangles,Pearls,antique Jewellery and trendy watches.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(17,'Bhavana arts',NULL,NULL,NULL,'Plot No 38/A, Near Sushma Cinema Hall, Vijawada Highway, Vanasthalipuram, Hyderabad - 500070','Hyderabad','Andhra Pradesh','91-9347484989',NULL,NULL,'bhavanaads_4u@yahoo.com','','It is an one stop shop craft or anticrafts that you can use to decorate your store or use that as an gift for all occasions and as return gifts as well.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(18,'Bhrti Impex',NULL,NULL,NULL,'Temple Shri Amrit Raghunath Ji, Opposite Hawamahal, Jaipur - 302002, Rajasthan, India','Jaipur','Rajasthan','(91)-9214526134',NULL,NULL,'','','Bhrti impex was established in the year 1991. We are manufacturer, supplier, trader, wholesaler and exporter of Oxidized Silver Ring, Oxidized Silver Earring, Oxidize Silver Earring, Gold Ring, Gold Earring, Gold Bracelet, Gold Pendant, Gold Necklace etc. We present masterpieces of craftsmanship in the field of silver jewellery. Every piece is designed keeping in mind the taste & style of the buyer. Bhrti impex expanding its reach in the foreign (export) market. Our items are crafted and manufactured under expert supervision of professionals and designers. ',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(19,'Bindurekha Fashion Studio',NULL,NULL,NULL,'Office No 4 & 5 Building D1 SAI Nagar Society, Opp To Big Bazar, Sinhagad Road-Vadgaon Budruk, Pune - 411041','Pune','Maharashtra','91-9822296370',NULL,NULL,'','','Bindurekha products are a polished blend of designer creativity fueled by designer findings, exotic stones and beads assuring an exclusive product that stands out unlike mass production items. We have 3 series:<br><br> Attitude Series: Designer findings and exotic glass, wooden, ceramic and fancy beads.<br><br> Elegance Series: 92.5 Silver findings fused with semi precious stones<br><br> Bindurekha Pearls: Natural and shell pearls fused with semi precious stones and enamel/ Mina work findings.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(20,'BioGreen Healthcare ',NULL,NULL,NULL,'Prabhakar, Plot No. AM-2/4, Wagle Industrial Area,\nNear Mulund Check Naka, Thane (West) - 400 604, Maharashtra.','Thane','Maharashtra','91-022 - 25827640 / 25829423',NULL,NULL,'biogreenhealthcare@gmail.com','www.biogreenhealthcare.com','Biogreen Healthcare has been in healthcare segment since last 5 years. We manufacture/Market Ayurvedic Herbal medicines, Health nutritional supplements, skin care, hair care products. Our company is well known for producing formulation with,quality,purity, safety, attributes. All the products are controlled by stringent quality control procedures & evaluating through clinical terms and supported by term of scientists, pharmacists.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(21,'Bkreations',NULL,NULL,NULL,'Chennai, Tamil Nadu','Chennai','Tamil Nadu','',NULL,NULL,'bkreations@gmail.com','','B\'Kreations is a handpicked collection of jewellery and fashion accessories from across India. From earrings, necklaces, bracelets, to clothing you will find the finest fashion accessories at affordable costs.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(22,'blossoms2urdoors',NULL,NULL,NULL,'hosur, Hosur, Karnataka, India 635110','Hosur','Karnataka','',NULL,NULL,'','','EXCLUSIVE RANGE OF HAIR CLIPS',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(23,'Blessed creation',NULL,NULL,NULL,'Chennai , Tamil Nadu','Chennai','Tamil Nadu','',NULL,NULL,'','','Manufacturer and Retailer of Beaded Necklace, Wallhangings and handicrafts Products.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(24,'blushh',NULL,NULL,NULL,'New Delhi, Delhi','Delhi','New Delhi','',NULL,NULL,'','','one stop shop for all kinds of creative jwellery and accessories suiting all pockets and age.. customization is also welcome..',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(25,'BohoMe',NULL,NULL,NULL,'Bangaluru, Karnataka','Bengaluru','Karnataka','',NULL,NULL,'','','\"It is the mysterious, unattainable things that pick your heart. A curiously shaped leaf, the way the moon hangs in the sky on a certain night, the pattern on a fish, or even a creature from a dream. And you long to keep that inexpressible, natural, rare occurrence at a place close to you - at your home, on your body. But this desire is not easily understood or fulfilled, which is to be expected because it is an instinct for uniqueness, coming from somewhere deep inside of you. At Boho Me, I try to give an expression to that inner desire, that faint whim or vibrant fancy, collecting my components of work nomadically from this place and that and putting them together and out for you who have the same bent of heart, the same bohemian longing.\"',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(26,'BowsAndRoses',NULL,NULL,NULL,'Mumbai, Maharashtra','Mumbai','Maharashtra','',NULL,NULL,'','','Hair Accessories for Little Princesses',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(27,'Brass House India',NULL,NULL,NULL,'C96, Gandhi Nagar, Moradabad - 244001, Uttar Pradesh, India','Moradabad','Uttar Pradesh','(91)-(591)-2313326',NULL,NULL,'','','Brass House India offers a diverse range of products under a single roof at the most competitive prices. We are a leading and renowned manufacturer and exporter of EPNS Ware, Brass Hardware, Wood Carvings, Nautical Gifts, Herbal Products, etc. We are an importer of the raw materials and scraps required for the manufacture of our products, from the markets of USA and Europe. Ever since our inception in 1990, there has been no looking back for us and we have crossed every hurdle with much ease. This has become possible due to the unalterable trust and tremendous support of our clients. It is due to their satisfaction, that we have grown from strength to strength. We are known for our authentic trade practices and regular introduction of innovative and improved products',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(28,'Bridal Kundan',NULL,NULL,NULL,'Mumbai, Maharashtra','Mumbai','Maharashtra','',NULL,NULL,'','','Unique Heavy Kundan Sets for Bridal wear.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(29,'Bubu\'s Fashion',NULL,NULL,NULL,'tirupur, Tamil Nadu','Tirupur','Tamil Nadu','',NULL,NULL,'','','We are expertised in quilled jewellery(Paper jewellery) and other quileed products. We can even provide quiled jewellery based on the buyers requirements and color. These jewellery are light-weighted and eco-friendly.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(30,'Buddha Marble Arts',NULL,NULL,NULL,'S-1, Shri Ram Apartment,\nGandhipath\nVaishali Nagar, Jaipur (Rajasthan)','Jaipur','Rajasthan','91-9829139946',NULL,NULL,'info@buddhamarblearts.com','www.buddhamarblearts.com','Buddha marble art is a Jaipur, India based manufacturing and trading company dealing in buddha statues of marble, stone, marble garden decoration marble architecture, animals, carving, pots etc. We are committed to customer satisfaction and strive for premium quality products and services, competitive prices and on-schedule delivery.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(31,'buddhaa electrified',NULL,NULL,NULL,'Delhi, New Delhi','Delhi','New Delhi','',NULL,NULL,' buddhaaelectrified@gmail.com','','Sailing through the hustle bustle of Dilli 6, the inner soul finds its spark and connects with the vibrancy beyond, giving way to the buddhaa within and an idea born. \"buddhaa electrified\" - a feeling of freedom and hope from within the constraints of society carves its way into this world. \"be\" fuels our sense of belief for value added designing and also our novelty factor is that every product is uniquely handcrafted. Buddhaa Electrified ... \"be\" mad about: SAREES QUIRKY JEWELRY KEY CHAINS',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(32,'Bulbul',NULL,NULL,NULL,'Meerut, Uttar Pradesh\n','Meerut','Uttar Pradesh','',NULL,NULL,'','','Hand-made woolen sweaters, cardigans, caps, mufflers, gloves, bottle-covers, wrap-arounds for infants and babies in the age-group 0-12 months. Completely Indian and inspired by the true class offered by our daadis and naanis!',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(33,'Butterfly Handicraft',NULL,NULL,NULL,'Thane, Maharashtra','Thane','Maharashtra','',NULL,NULL,'','','We are specialist in making paper flowers and other craft items.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1);
+INSERT INTO `website_company` VALUES (1,'Rainbow Designs',NULL,NULL,NULL,'Bangaluru, Karnataka','Karnataka','',NULL,NULL,'','','We create jewellery which includes glass beads, crystals,wood,brass etc which are both traditional and fashionable. https://www.facebook.com/FahionJewelry The rich look and the amazing color combinations will definitely create a \'WOW\' effect!!!',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(2,'Rahul Handicrafts',NULL,NULL,NULL,'By Pass Road, Near Rajasthan Marble, Muttathara, Vallakadavu P. O, Trivanduram No. 8,\nThiruvananthapuram -695 008, Kerala,India','Kerala','(91)-(471)-2505150',NULL,NULL,'','','Kerala has always been famous for its rich and vibrant tradition and unique wooden crafts, coconut shell crafts, metal crafts and bamboo crafts . Rahul handicrafts is the manufacturer and supplier of handicrafts.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(3,'Raga Creations',NULL,NULL,NULL,'No. 267/271, Kanak Chambers, Shop No. 305, 3rd Floor, Opposite Adarsh Hotel, Kalbadevi Road, Mumbai - 400 002, Maharashtra, India','Maharashtra','(91)-9820810080',NULL,NULL,'','','Raga creations is designed to cater to those looking for international design and quality at local prices. Every jewel here is a hand-picked masterpiece. The range includes the finest imitation jewelry. raga creations is one of mumbai\'s most contemporary imitation jewelers, specializing in the latest variation of fashionable ornaments. ',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(4,'Raga jewels',NULL,NULL,NULL,'Noida, Uttar Pradesh','Uttar Pradesh','',NULL,NULL,'','','Manufacturer of Fashion Jewellery, Beaded Jewellery, Handmade Jewellery etc.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(5,'Raga In Banaras Multi service pvt ltd ',NULL,NULL,NULL,'Ck-10/53, Manikarnika Chowk, Varanasi H O, Varanasi - 221001','Uttar Pradesh','91-(0542) 2402945',NULL,NULL,'','','We provide multi service in several domains of multicultural education & trading sector. Our Education providing methodology is to provide true and meaningful information to bring about change at every level of our society and at the same time our trading section provides multi service and practical training for preparing Ayurvedic herbs (natural medicine) and making 100% recyclable hand made product by natural raw materials and our mission is to keep our clients and believers close to the nature as much as possible...',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(6,'Radhika\'s World of Crafts',NULL,NULL,NULL,'Bengaluru, Karnataka','Karnataka','',NULL,NULL,'','','Radhika Enterprises is a trusted name in the field of authentic Indian Handicrafts. Our speciality lies in the wide range of Brass artifacts in antique-finish. Over the last decade, we have organised and taken part in over a hundred exhibitions at prominent places at Bangaluru and other major cities. We are regularly invited by most of the State Governments to participate in their craft fairs. Our parent company has won several awards. Our artifacts adorn the homes of crme de la crme, connosiurs, art lovers across the world.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(7,'Rachnatmak Arts',NULL,NULL,NULL,'Jaipur, Rajasthan','Rajasthan','',NULL,NULL,'','','Rachnatmak arts is best known for its handmade paper envelopes. Ranging from paper quilling, to gota work, paper mache work, patch work, bandhej work, etc. we use a variety of arts to make colourful and attractive envelopes.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(8,'Rachaita',NULL,NULL,NULL,'Mumbai, Maharashtra','Maharashtra','',NULL,NULL,'','','the contents of this label are as unique as the label itself. It houses simple yet elegant designs born out of passion for creativity by Lubna in 2010 and is based in Mumbai. The funky colors and geometric designs of lubna\'s handmade jewellery make even the most simplest clothes look chic.It has things that complete all looks, name it and u have it, that\'s not all u can even get things custom made!! Can\'t find something to complete ur look for a kurta u found at a store ! Don\'t let it concern u, here u get exactly what u need. not jus jewelry but if u lookin for genuine gifts to those special frnds there are bags, frames, key chains etc too with innovative designs that will touch hearts.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(9,'R. S. King Jewellers',NULL,NULL,NULL,'No. 578, 1st Floor, Kashi Nath Ji Ki Gali, Gopal Ji Ka, Rasta, Johri Bazar, Jaipur - 302 003, Rajasthan, India','Rajasthan','(91)-9636396762',NULL,NULL,'','','Established in the year 2005, at Jaipur, (Rajasthan, India) we R. S. King Jewellers, are considered among the affluent Manufacturers, Exporters, Wholesalers and Suppliers of an exquisite collection of Kundan Meena Pendant, Kundan Meena Jewelery, Gold Ornament Stone Works, Jeweled Sword, Kundan Meena Sword, Ancient Groom Sword, Antiqe Kundan Meena Sword, Antique Groom Sword, Meena Kundan Jewellery, Kundan Meena Pendant, Kundan Meena Jewelery, Kundan Meena Armlets, Kundan Meena Earrings, Kundan Meena Necklaces, Kundan Meena Necklace Sets, Kundan Meena Bangles, Kundan Meena Purse, Bridal Kundan Meena Purse, Kundan Meena Bridal Purse & Clutches. ',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(10,'R V EXPORTS',NULL,NULL,NULL,'A-127, Baljeet Vihar , Nithari Ext. Nangloi,\nNew Delhi 110041\nIndia','New Delhi','91-8802514334',NULL,NULL,'','www.rvexport.com','Established in the year 2003, R V EXPORTS posses master craftsmanship complemented by an enviable vendor base, have skillfully woven magic into the motifs and designs used. A professionally managed organization, R V EXPORTS has recognized itself as one of the leading Manufacturer of unique collection of Indian Fashion Jewellery consisting of Glass Beads Bracelets, etc.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(11,'Quillkaari',NULL,NULL,NULL,'Delhi, New Delhi','New Delhi','',NULL,NULL,'quillkaari@gmail.com','','Think beautiful, unique, quirky designs. Think quilling, a paper art form that dates back to the Renaissance. Now put the two together, and you have Quillkaari\'s beautiful range of handcrafted jewelry and gifts that are gorgeous, witty and luscious - in short, a showstopping conversation-starter! And yes, it\'s paper! At Quillkaari each piece is handcrafted by me from start to finish --- with a lot of love, a lot of patience, and a lot of time! Each design has been inspired by the delight of colours and moods that we find in nature: flowers, butterflies, rainbows, blue skies and sunsets. And the things from life we associate them with: Rangeela dil, Limchu ice candy, work-a-day lives and unconventional loves, among them!',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(12,'PUSHKARAM',NULL,NULL,NULL,'Pushkar, Rajasthan','Rajasthan','91-9414415534',NULL,NULL,'info@pushkaram.com','www.pushkaram.com','Pushkaram is an online home shoppe destination. Where one can buy handicrafts products only in India. A complete online shop for fashion, specialist for handicrafts bag. For women tops, skirts, suits, Indian saree, dress material, garments. For men shorts, pants, trouser, shirts, kurta. For kids dresses and many more varieties. The handicraft bag manufactured by us covers all kinds of bags including shoulder bags, hand bags, tote bags, messenger bags and many more products,. These bags are perfectly decorated with various embroidery, mirrors and other embellishments. Our bag match with any kind of outfit providing a grace to the presentation of end user.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(13,'baba craft',NULL,NULL,NULL,'Pushkar, Rajasthan','Rajasthan','',NULL,NULL,'','','a unique and nice collection of jewellery and handmade products available here.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(14,'PurpleCircle',NULL,NULL,NULL,'noida, Uttar Pradesh','Uttar Pradesh','',NULL,NULL,'','','A design studio based in noida, focusing on expressing thoughts through quirky and cheerful products that are 100% handmade.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(15,'Purple Winter Creations',NULL,NULL,NULL,'Chennai, Tamil Nadu','Tamil Nadu','',NULL,NULL,'','','Purple Winter Creations is based out of Chennai, focusing on creative hand crafted products. Currently we are selling glass paintings, representing Indian art form & cultures.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(16,'bharathi ethnics',NULL,NULL,NULL,'Hyderabad, Andhra Pradesh','Andhra Pradesh','',NULL,NULL,'','','Exclusive in Fashion jewellery followed by hyderabad traditions. Specialist in Hyderabad Lac Bangles,Pearls,antique Jewellery and trendy watches.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(17,'Bhavana arts',NULL,NULL,NULL,'Plot No 38/A, Near Sushma Cinema Hall, Vijawada Highway, Vanasthalipuram, Hyderabad - 500070','Andhra Pradesh','91-9347484989',NULL,NULL,'bhavanaads_4u@yahoo.com','','It is an one stop shop craft or anticrafts that you can use to decorate your store or use that as an gift for all occasions and as return gifts as well.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(18,'Bhrti Impex',NULL,NULL,NULL,'Temple Shri Amrit Raghunath Ji, Opposite Hawamahal, Jaipur - 302002, Rajasthan, India','Rajasthan','(91)-9214526134',NULL,NULL,'','','Bhrti impex was established in the year 1991. We are manufacturer, supplier, trader, wholesaler and exporter of Oxidized Silver Ring, Oxidized Silver Earring, Oxidize Silver Earring, Gold Ring, Gold Earring, Gold Bracelet, Gold Pendant, Gold Necklace etc. We present masterpieces of craftsmanship in the field of silver jewellery. Every piece is designed keeping in mind the taste & style of the buyer. Bhrti impex expanding its reach in the foreign (export) market. Our items are crafted and manufactured under expert supervision of professionals and designers. ',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(19,'Bindurekha Fashion Studio',NULL,NULL,NULL,'Office No 4 & 5 Building D1 SAI Nagar Society, Opp To Big Bazar, Sinhagad Road-Vadgaon Budruk, Pune - 411041','Maharashtra','91-9822296370',NULL,NULL,'','','Bindurekha products are a polished blend of designer creativity fueled by designer findings, exotic stones and beads assuring an exclusive product that stands out unlike mass production items. We have 3 series:<br><br> Attitude Series: Designer findings and exotic glass, wooden, ceramic and fancy beads.<br><br> Elegance Series: 92.5 Silver findings fused with semi precious stones<br><br> Bindurekha Pearls: Natural and shell pearls fused with semi precious stones and enamel/ Mina work findings.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(20,'BioGreen Healthcare ',NULL,NULL,NULL,'Prabhakar, Plot No. AM-2/4, Wagle Industrial Area,\nNear Mulund Check Naka, Thane (West) - 400 604, Maharashtra.','Maharashtra','91-022 - 25827640 / 25829423',NULL,NULL,'biogreenhealthcare@gmail.com','www.biogreenhealthcare.com','Biogreen Healthcare has been in healthcare segment since last 5 years. We manufacture/Market Ayurvedic Herbal medicines, Health nutritional supplements, skin care, hair care products. Our company is well known for producing formulation with,quality,purity, safety, attributes. All the products are controlled by stringent quality control procedures & evaluating through clinical terms and supported by term of scientists, pharmacists.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(21,'Bkreations',NULL,NULL,NULL,'Chennai, Tamil Nadu','Tamil Nadu','',NULL,NULL,'bkreations@gmail.com','','B\'Kreations is a handpicked collection of jewellery and fashion accessories from across India. From earrings, necklaces, bracelets, to clothing you will find the finest fashion accessories at affordable costs.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(22,'blossoms2urdoors',NULL,NULL,NULL,'hosur, Hosur, Karnataka, India 635110','Karnataka','',NULL,NULL,'','','EXCLUSIVE RANGE OF HAIR CLIPS',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(23,'Blessed creation',NULL,NULL,NULL,'Chennai , Tamil Nadu','Tamil Nadu','',NULL,NULL,'','','Manufacturer and Retailer of Beaded Necklace, Wallhangings and handicrafts Products.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(24,'blushh',NULL,NULL,NULL,'New Delhi, Delhi','New Delhi','',NULL,NULL,'','','one stop shop for all kinds of creative jwellery and accessories suiting all pockets and age.. customization is also welcome..',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(25,'BohoMe',NULL,NULL,NULL,'Bangaluru, Karnataka','Karnataka','',NULL,NULL,'','','\"It is the mysterious, unattainable things that pick your heart. A curiously shaped leaf, the way the moon hangs in the sky on a certain night, the pattern on a fish, or even a creature from a dream. And you long to keep that inexpressible, natural, rare occurrence at a place close to you - at your home, on your body. But this desire is not easily understood or fulfilled, which is to be expected because it is an instinct for uniqueness, coming from somewhere deep inside of you. At Boho Me, I try to give an expression to that inner desire, that faint whim or vibrant fancy, collecting my components of work nomadically from this place and that and putting them together and out for you who have the same bent of heart, the same bohemian longing.\"',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(26,'BowsAndRoses',NULL,NULL,NULL,'Mumbai, Maharashtra','Maharashtra','',NULL,NULL,'','','Hair Accessories for Little Princesses',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(27,'Brass House India',NULL,NULL,NULL,'C96, Gandhi Nagar, Moradabad - 244001, Uttar Pradesh, India','Uttar Pradesh','(91)-(591)-2313326',NULL,NULL,'','','Brass House India offers a diverse range of products under a single roof at the most competitive prices. We are a leading and renowned manufacturer and exporter of EPNS Ware, Brass Hardware, Wood Carvings, Nautical Gifts, Herbal Products, etc. We are an importer of the raw materials and scraps required for the manufacture of our products, from the markets of USA and Europe. Ever since our inception in 1990, there has been no looking back for us and we have crossed every hurdle with much ease. This has become possible due to the unalterable trust and tremendous support of our clients. It is due to their satisfaction, that we have grown from strength to strength. We are known for our authentic trade practices and regular introduction of innovative and improved products',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(28,'Bridal Kundan',NULL,NULL,NULL,'Mumbai, Maharashtra','Maharashtra','',NULL,NULL,'','','Unique Heavy Kundan Sets for Bridal wear.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(29,'Bubu\'s Fashion',NULL,NULL,NULL,'tirupur, Tamil Nadu','Tamil Nadu','',NULL,NULL,'','','We are expertised in quilled jewellery(Paper jewellery) and other quileed products. We can even provide quiled jewellery based on the buyers requirements and color. These jewellery are light-weighted and eco-friendly.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(30,'Buddha Marble Arts',NULL,NULL,NULL,'S-1, Shri Ram Apartment,\nGandhipath\nVaishali Nagar, Jaipur (Rajasthan)','Rajasthan','91-9829139946',NULL,NULL,'info@buddhamarblearts.com','www.buddhamarblearts.com','Buddha marble art is a Jaipur, India based manufacturing and trading company dealing in buddha statues of marble, stone, marble garden decoration marble architecture, animals, carving, pots etc. We are committed to customer satisfaction and strive for premium quality products and services, competitive prices and on-schedule delivery.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(31,'buddhaa electrified',NULL,NULL,NULL,'Delhi, New Delhi','New Delhi','',NULL,NULL,' buddhaaelectrified@gmail.com','','Sailing through the hustle bustle of Dilli 6, the inner soul finds its spark and connects with the vibrancy beyond, giving way to the buddhaa within and an idea born. \"buddhaa electrified\" - a feeling of freedom and hope from within the constraints of society carves its way into this world. \"be\" fuels our sense of belief for value added designing and also our novelty factor is that every product is uniquely handcrafted. Buddhaa Electrified ... \"be\" mad about: SAREES QUIRKY JEWELRY KEY CHAINS',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(32,'Bulbul',NULL,NULL,NULL,'Meerut, Uttar Pradesh\n','Uttar Pradesh','',NULL,NULL,'','','Hand-made woolen sweaters, cardigans, caps, mufflers, gloves, bottle-covers, wrap-arounds for infants and babies in the age-group 0-12 months. Completely Indian and inspired by the true class offered by our daadis and naanis!',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1),(33,'Butterfly Handicraft',NULL,NULL,NULL,'Thane, Maharashtra','Maharashtra','',NULL,NULL,'','','We are specialist in making paper flowers and other craft items.',NULL,NULL,NULL,NULL,NULL,NULL,'','','2013-08-15','2013-08-15',1);
 /*!40000 ALTER TABLE `website_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1084,8 +1105,8 @@ CREATE TABLE `website_company_business_type` (
   UNIQUE KEY `company_id` (`company_id`,`businesstype_id`),
   KEY `website_company_business_type_543518c6` (`company_id`),
   KEY `website_company_business_type_6c9ea312` (`businesstype_id`),
-  CONSTRAINT `company_id_refs_id_74bb7dcb` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`),
-  CONSTRAINT `businesstype_id_refs_id_8c999db` FOREIGN KEY (`businesstype_id`) REFERENCES `website_businesstype` (`id`)
+  CONSTRAINT `businesstype_id_refs_id_8c999db` FOREIGN KEY (`businesstype_id`) REFERENCES `website_businesstype` (`id`),
+  CONSTRAINT `company_id_refs_id_74bb7dcb` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1113,8 +1134,8 @@ CREATE TABLE `website_company_subcategory` (
   UNIQUE KEY `company_id` (`company_id`,`subcategory_id`),
   KEY `website_company_subcategory_543518c6` (`company_id`),
   KEY `website_company_subcategory_6ec4c7cb` (`subcategory_id`),
-  CONSTRAINT `subcategory_id_refs_id_5c3c35f5` FOREIGN KEY (`subcategory_id`) REFERENCES `website_subcategory` (`id`),
-  CONSTRAINT `company_id_refs_id_59391c3c` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`)
+  CONSTRAINT `company_id_refs_id_59391c3c` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`),
+  CONSTRAINT `subcategory_id_refs_id_5c3c35f5` FOREIGN KEY (`subcategory_id`) REFERENCES `website_subcategory` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1129,29 +1150,27 @@ INSERT INTO `website_company_subcategory` VALUES (1,1,38),(2,1,47),(3,2,25),(4,2
 UNLOCK TABLES;
 
 --
--- Table structure for table `website_companyimg`
+-- Table structure for table `website_companyproductimg`
 --
 
-DROP TABLE IF EXISTS `website_companyimg`;
+DROP TABLE IF EXISTS `website_companyproductimg`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `website_companyimg` (
+CREATE TABLE `website_companyproductimg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `company_id` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `website_companyimg_543518c6` (`company_id`),
-  CONSTRAINT `company_id_refs_id_48ba14cd` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `website_companyimg`
+-- Dumping data for table `website_companyproductimg`
 --
 
-LOCK TABLES `website_companyimg` WRITE;
-/*!40000 ALTER TABLE `website_companyimg` DISABLE KEYS */;
-/*!40000 ALTER TABLE `website_companyimg` ENABLE KEYS */;
+LOCK TABLES `website_companyproductimg` WRITE;
+/*!40000 ALTER TABLE `website_companyproductimg` DISABLE KEYS */;
+/*!40000 ALTER TABLE `website_companyproductimg` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1222,10 +1241,7 @@ CREATE TABLE `website_popularkeyword` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `keyword` varchar(200) NOT NULL,
   `timestamp` datetime NOT NULL,
-  `subcat_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `website_popularkeyword_6c7f082c` (`subcat_id`),
-  CONSTRAINT `subcat_id_refs_id_6372146` FOREIGN KEY (`subcat_id`) REFERENCES `website_subcategory` (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1236,6 +1252,34 @@ CREATE TABLE `website_popularkeyword` (
 LOCK TABLES `website_popularkeyword` WRITE;
 /*!40000 ALTER TABLE `website_popularkeyword` DISABLE KEYS */;
 /*!40000 ALTER TABLE `website_popularkeyword` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `website_popularkeyword_subcat`
+--
+
+DROP TABLE IF EXISTS `website_popularkeyword_subcat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_popularkeyword_subcat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `popularkeyword_id` int(11) NOT NULL,
+  `subcategory_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `popularkeyword_id` (`popularkeyword_id`,`subcategory_id`),
+  KEY `subcategory_id_refs_id_5ce2a618` (`subcategory_id`),
+  CONSTRAINT `popularkeyword_id_refs_id_31d01a7f` FOREIGN KEY (`popularkeyword_id`) REFERENCES `website_popularkeyword` (`id`),
+  CONSTRAINT `subcategory_id_refs_id_5ce2a618` FOREIGN KEY (`subcategory_id`) REFERENCES `website_subcategory` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_popularkeyword_subcat`
+--
+
+LOCK TABLES `website_popularkeyword_subcat` WRITE;
+/*!40000 ALTER TABLE `website_popularkeyword_subcat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `website_popularkeyword_subcat` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1280,8 +1324,8 @@ CREATE TABLE `website_subcategory_category` (
   UNIQUE KEY `subcategory_id` (`subcategory_id`,`category_id`),
   KEY `website_subcategory_category_6ec4c7cb` (`subcategory_id`),
   KEY `website_subcategory_category_42dc49bc` (`category_id`),
-  CONSTRAINT `subcategory_id_refs_id_2a53145f` FOREIGN KEY (`subcategory_id`) REFERENCES `website_subcategory` (`id`),
-  CONSTRAINT `category_id_refs_id_4bdef1fe` FOREIGN KEY (`category_id`) REFERENCES `website_category` (`id`)
+  CONSTRAINT `category_id_refs_id_4bdef1fe` FOREIGN KEY (`category_id`) REFERENCES `website_category` (`id`),
+  CONSTRAINT `subcategory_id_refs_id_2a53145f` FOREIGN KEY (`subcategory_id`) REFERENCES `website_subcategory` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1304,4 +1348,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-15 12:29:10
+-- Dump completed on 2013-08-17 10:15:48
