@@ -16,6 +16,7 @@ class GreenVichar(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     publish_date = models.DateTimeField()
     created_by = models.ForeignKey(User)
+    published_by = models.CharField(max_length=100)
     is_approved = models.BooleanField(default=False)
     approved_by = models.CharField(max_length=200, null=True)
      

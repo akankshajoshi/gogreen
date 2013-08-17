@@ -10,13 +10,13 @@ class VicharCommentAdmin(admin.ModelAdmin):
     fields = ('grnvichar','name', 'email', 'text', 'status','approve_by')
     list_editable = ('status',)
     
-    def  get_grnvichar_name(self, obj):
+    def get_grnvichar_name(self, obj):
         return obj.grnvichar.title
     get_grnvichar_name.short_description = 'Green Vichar Name'
     
-    def  get_vichar_type(self, obj):
-        return obj.grnvichar.type
-    get_grnvichar_name.short_description = 'Green Vichar Type'
+    def get_vichar_type(self, obj):
+        return obj.grnvichar.get_vichar_type()
+    get_vichar_type.short_description = 'Green Vichar Type'
         
      
     def approve_selected(self, request, queryset):
@@ -69,17 +69,29 @@ class GreenVicharAdmin(admin.ModelAdmin):
     
     inlines = [EventInline, ArticleInline, PicsVideoInline, StoryQuotesInline, 
                QuestionireInline]
-    list_display = ('title', 'vichar_type', 'publish_date')
-    fields = ('title', 'vichar_type', 'publish_date','created_by')
+    list_display = ('title', 'get_vichar_type', 'publish_date','published_by')
+    fields = ('title', 'vichar_type', 'publish_date','published_by')
     form = GreenVicharForm
+    
     class Media:
         js = [settings.MEDIA_URL + '/admin/js/admin.js']
         
-#     def save_model(self, request, obj, form, change):
-#         obj.created_by = request.user
-#         obj.save()
-#         super(GreenVicharAdmin, self).save_model(request, obj, form, change)
-
+    def save_model(self, request, obj, form, change):
+        obj.created_by = request.user
+        obj.save()
+        super(GreenVicharAdmin, self).save_model(request, obj, form, change)
+    
+    def get_vichar_type(self, obj):
+        return obj.get_vichar_type()
+    get_vichar_type.short_description = 'Green Vichar Type'
+    
+#     def add_view(self, request, form_url='', extra_context=None):
+#         if request.method == 'GET':
+#             initial = {'published_by': request.user.username}
+#             form = self.form(initial=initial)
+#         super(GreenVicharAdmin, self).add_view(self, request, form_url='', extra_context=None)
+    
+    
 admin.site.register(VicharComment, VicharCommentAdmin)
 admin.site.register(GrnVchrHome)
 admin.site.register(GreenVichar, GreenVicharAdmin)

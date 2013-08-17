@@ -106,11 +106,6 @@ class Subcategory(models.Model):
         return self.name         
 
 
-# class TopBanner(models.Model):
-#     image = models.ImageField(upload_to='uploads/top_banners')
-#     published_date = models.DateField()
-#     created_by = models.ForeignKey(User)
-
 class PopularKeyword(models.Model):
     keyword = models.CharField(max_length=200)
     timestamp = models.DateTimeField(auto_now=True)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Heading, BigBanner, CompanyCount, Testimonials
+from models import Heading, CompanyCount, Testimonials
 
 class HeadingAdmin(admin.ModelAdmin):
     fields= ('text',)
@@ -9,17 +9,9 @@ class HeadingAdmin(admin.ModelAdmin):
         obj.created_by = request.user
         obj.save()
         
-class BigBannerAdmin(admin.ModelAdmin):
-    fields= ('image',)
-    
-    def save_model(self, request, obj, form, change):
-        super(BigBannerAdmin, self).save_model(request, obj, form, change)
-        obj.created_by = request.user
-        obj.save()
-        
 
 class CompanyCountAdmin(admin.ModelAdmin):
-    fields= ('text1', 'text2')
+    fields= ('text1', 'text2','tree_planted')
     
     def save_model(self, request, obj, form, change):
         super(CompanyCountAdmin, self).save_model(request, obj, form, change)
@@ -35,5 +27,4 @@ class TestimonialsAdmin(admin.ModelAdmin):
         obj.save()
         
 admin.site.register(CompanyCount, CompanyCountAdmin)
-admin.site.register(BigBanner, BigBannerAdmin)
 admin.site.register(Heading, HeadingAdmin)

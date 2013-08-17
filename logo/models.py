@@ -21,3 +21,9 @@ class PaidLogo(models.Model):
 class GovrnLogo(models.Model):
     image = models.ImageField(upload_to='media/logo')
     click_url = models.URLField(null=True, blank=True)
+
+class BigBanner(models.Model):
+    image = models.ImageField(upload_to='media/bigbaner')
+    created_by = models.ForeignKey(User)
+    created_date = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateField(auto_now=True)

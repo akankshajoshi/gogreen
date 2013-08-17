@@ -153,7 +153,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'admin','','','a@gmail.com','sha1$f6df0$425681add19de3d8a54005ca8ceddd582813d73f',1,1,1,'2013-08-16 23:39:31','2013-08-15 00:23:19');
+INSERT INTO `auth_user` VALUES (1,'admin','','','a@gmail.com','sha1$f6df0$425681add19de3d8a54005ca8ceddd582813d73f',1,1,1,'2013-08-17 02:42:32','2013-08-15 00:23:19');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,7 +386,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_1bb8f392` (`content_type_id`),
   CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -395,7 +395,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,''),(6,'2013-08-16 09:47:06',1,3,'1','admin',2,'Changed user_permissions.'),(7,'2013-08-16 09:48:15',1,3,'1','admin',2,'Changed is_superuser.'),(8,'2013-08-16 09:53:03',1,3,'1','admin',2,'Changed is_superuser.'),(9,'2013-08-16 09:53:47',1,13,'1','Comment object',1,''),(10,'2013-08-16 09:55:02',1,13,'2','Comment object',1,''),(11,'2013-08-16 12:33:27',1,31,'1','test article',1,''),(12,'2013-08-16 12:33:58',1,39,'1','VicharComment object',1,'');
+INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,''),(6,'2013-08-16 09:47:06',1,3,'1','admin',2,'Changed user_permissions.'),(7,'2013-08-16 09:48:15',1,3,'1','admin',2,'Changed is_superuser.'),(8,'2013-08-16 09:53:03',1,3,'1','admin',2,'Changed is_superuser.'),(9,'2013-08-16 09:53:47',1,13,'1','Comment object',1,''),(10,'2013-08-16 09:55:02',1,13,'2','Comment object',1,''),(11,'2013-08-16 12:33:27',1,31,'1','test article',1,''),(12,'2013-08-16 12:33:58',1,39,'1','VicharComment object',1,''),(13,'2013-08-17 02:26:57',1,31,'1','test article',2,'Changed published_by.');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -448,7 +448,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('1cde185ab17595d1495fd3a9259be0a3','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 01:20:09'),('41eebb4507761c617e62d748d29a8848','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 00:32:23'),('71d88c1d0f800b95e7554970521b4641','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-30 23:39:31');
+INSERT INTO `django_session` VALUES ('1cde185ab17595d1495fd3a9259be0a3','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 01:20:09'),('41eebb4507761c617e62d748d29a8848','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-29 00:32:23'),('71d88c1d0f800b95e7554970521b4641','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-30 23:39:31'),('cd0efc51a55b20e466932506948a9787','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-31 02:15:59'),('d36ca59988a4f87a677aa6b2ff16bee4','ZDlmYjlmOWVhOTQ3ZjE2MDI1YWExNTlmZmI4NDQ4NjE4YjlkODBhNTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2013-08-31 02:42:32');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -549,6 +549,7 @@ CREATE TABLE `greenvichar_greenvichar` (
   `created_by_id` int(11) NOT NULL,
   `is_approved` tinyint(1) NOT NULL,
   `approved_by` varchar(200) DEFAULT NULL,
+  `published_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `greenvichar_greenvichar_4a21cf42` (`created_by_id`),
   CONSTRAINT `created_by_id_refs_id_43e16b16` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`)
@@ -561,7 +562,7 @@ CREATE TABLE `greenvichar_greenvichar` (
 
 LOCK TABLES `greenvichar_greenvichar` WRITE;
 /*!40000 ALTER TABLE `greenvichar_greenvichar` DISABLE KEYS */;
-INSERT INTO `greenvichar_greenvichar` VALUES (1,'test article',4,'2013-08-16 12:33:27','2013-08-16 23:03:11',1,0,NULL);
+INSERT INTO `greenvichar_greenvichar` VALUES (1,'test article',4,'2013-08-16 12:33:27','2013-08-16 23:03:11',1,0,NULL,'me');
 /*!40000 ALTER TABLE `greenvichar_greenvichar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -707,34 +708,6 @@ INSERT INTO `greenvichar_vicharcomment` VALUES (1,1,'test','a@test.com','<p>nkla
 UNLOCK TABLES;
 
 --
--- Table structure for table `homepage_bigbanner`
---
-
-DROP TABLE IF EXISTS `homepage_bigbanner`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `homepage_bigbanner` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `image` varchar(100) NOT NULL,
-  `created_by_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
-  `published_date` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `homepage_bigbanner_4a21cf42` (`created_by_id`),
-  CONSTRAINT `created_by_id_refs_id_2148edd9` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `homepage_bigbanner`
---
-
-LOCK TABLES `homepage_bigbanner` WRITE;
-/*!40000 ALTER TABLE `homepage_bigbanner` DISABLE KEYS */;
-/*!40000 ALTER TABLE `homepage_bigbanner` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `homepage_companycount`
 --
 
@@ -818,6 +791,32 @@ CREATE TABLE `homepage_testimonials` (
 LOCK TABLES `homepage_testimonials` WRITE;
 /*!40000 ALTER TABLE `homepage_testimonials` DISABLE KEYS */;
 /*!40000 ALTER TABLE `homepage_testimonials` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logo_bigbanner`
+--
+
+DROP TABLE IF EXISTS `logo_bigbanner`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logo_bigbanner` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(100) NOT NULL,
+  `created_by_id` int(11) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `published_date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logo_bigbanner`
+--
+
+LOCK TABLES `logo_bigbanner` WRITE;
+/*!40000 ALTER TABLE `logo_bigbanner` DISABLE KEYS */;
+/*!40000 ALTER TABLE `logo_bigbanner` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1348,4 +1347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-17 10:15:48
+-- Dump completed on 2013-08-17 13:51:40

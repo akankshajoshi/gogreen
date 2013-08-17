@@ -6,11 +6,7 @@ class Heading(models.Model):
     created_by = models.ForeignKey(User)
     created_date = models.DateTimeField(auto_now_add=True)
     
-class BigBanner(models.Model):
-    image = models.ImageField(upload_to='media/bigbaner')
-    created_by = models.ForeignKey(User)
-    created_date = models.DateTimeField(auto_now_add=True)
-    published_date = models.DateField(auto_now=True)
+
     
     
 class CompanyCount(models.Model):
