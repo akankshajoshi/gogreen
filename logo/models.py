@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from website.models import Category
 
-class Logo(models.Model):
+class InsideLogo(models.Model):
     name = models.CharField(max_length=25)
     image = models.ImageField(upload_to='media/logo')
     click_url = models.URLField()
