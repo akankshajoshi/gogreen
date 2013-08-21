@@ -10,6 +10,11 @@
     <div class="container"> 
      
      
+     class CompanyForm(forms.ModelForm):
+    green_o_meter = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple,choices=GreenOMeter.objects.all().values_list('id','name'))
+    
+    class Meta:
+        model = Company
      
       <ul class="breadcrumb">
     <li><a href="#">Home</a> <span class="divider"> > </span></li>

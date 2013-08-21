@@ -7,10 +7,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
+    url(r'^$', include('homepage.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^$', 'gogreen.website.views.index_page'),
+#     url(r'^$', 'gogreen.website.views.index_page'),
     url(r'^(?P<subcat>[-\w+]*)/(?P<subcat_id>\d+)/$','gogreen.website.views.view_category', name='view_company_list'),
-    url(r'^home/$', direct_to_template,{'template':'home/home.html'},name='index'),
+#     url(r'^home/$', direct_to_template,{'template':'home/home.html'},name='index'),
     url(r'^greenvichar/$', direct_to_template,{'template':'greenvichar/greenvichar.htm'},name='greenvichar'),
     url(r'^company/$', direct_to_template,{'template':'directory/company.htm'},name='company'),
     url(r'^category/$', direct_to_template,{'template':'directory/keyword.html'},name='category'),

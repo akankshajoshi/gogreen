@@ -5,18 +5,17 @@ class HeadingAdmin(admin.ModelAdmin):
     fields= ('text',)
     
     def save_model(self, request, obj, form, change):
-        super(HeadingAdmin, self).save_model(request, obj, form, change)
         obj.created_by = request.user
         obj.save()
-        
+        super(HeadingAdmin, self).save_model(request, obj, form, change)        
 
 class CompanyCountAdmin(admin.ModelAdmin):
     fields= ('text1', 'text2','tree_planted')
     
     def save_model(self, request, obj, form, change):
-        super(CompanyCountAdmin, self).save_model(request, obj, form, change)
         obj.created_by = request.user
         obj.save()
+        super(CompanyCountAdmin, self).save_model(request, obj, form, change)
         
 class TestimonialsAdmin(admin.ModelAdmin):
     fields = ('name', 'company', 'description', 'created_date', 'published_date')

@@ -37,14 +37,16 @@ def index_page(request):
           
 def view_category(request, subcat, subcat_id):
     if request.method == 'GET':
+        comps = []
         cats = Category.objects.all()
         populars = PopularKeyword.objects.all()
         sub = Subcategory.objects.get(id=int(subcat_id))
-        import pdb;pdb.set_trace()
         if request.GET.get('keyword'):
             keyword = request.GET.get('keyword')
             comps = Company.objects.filter(Q(company_name__icontains=keyword) | Q(product_profile__icontains=keyword) | Q(company_profile__icontains=keyword))
         else:
+#             import pdb;pdb.set_trace()
+            comps = sub.company_set.all()
             populars =sub.popularkeyword_set.all()
-        return render_to_response('cat.html', {'cats': cats, 'populars': populars, 'comps':comps}, context_instance=RequestContext(request))
+        return render_to_response('search/search.html', {'cats': cats, 'populars': populars, 'comps':comps}, context_instance=RequestContext(request))
         
