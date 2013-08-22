@@ -1,33 +1,12 @@
 <div class="span4 pull-left leftnav" ><h2>Browse Categories</h2>
-
-    <a href="#">   <h3><span class="energy"></span>Energy and power</h3></a>
-    <ul><li><a href="#">Biogas Plant</a></li>
-        <li><a href="#">Biomass and Biofuel</a></li>
-        <li><a href="#">Energy Storage</a></li>
-        <li><a href="#">Led Power Products</a></li>
-        <li><a href="#">Renewable Energy</a></li>
-        <li><a href="#">Solar Energy</a></li>
-        <li><a href="#">Solar Parks</a></li>
-        <li><a href="#">Wind Energy</a></li>
-        <li><a href="#">Wind Farms</a></li></ul>
-
-    <div class="bdr"></div>
-
-
-
-    <h3><span class="herbal"></span>Energy and power</h3>
-    <ul><li><a href="#">Aromatherapy Products</a></li>
-        <li><a href="#">Ayurvedic Products</a></li>
-        <li><a href="#">Ayurvedic Products</a></li>
-        <li><a href="#">Natural Products</a></li>
-    </ul>
-
-    <div class="bdr"></div>
-
-    <h3><span class="enviorment"></span>Environment</h3> <div class="bdr"></div>
-    <h3><span class="gifts"></span>Gifts and cards</h3>   <div class="bdr"></div>
-    <h3><span class="health"></span>Health and beauty</h3><div class="bdr"></div>
-    <h3><span class="fashion"></span>Fashion and Accesories</h3><div class="bdr"></div>
-    <h3><span class="business"></span>Business and Services</h3><div class="bdr"></div>
-    <div class="clearfix"></div>
+{% for cat in cats %}
+           	   <a href="#">
+                  <h3><span class="energy"></span>{{cat}}</h3>
+               </a>
+               <ul>
+               {% for sub in cat.subcategory_set.all %}
+                   <li><a href="#">{{sub}}</a></li>
+               {% endfor %}
+               </ul>
+{% endfor %}
 </div>

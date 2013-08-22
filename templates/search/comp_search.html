@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{MEDIA_URL}}css/bootstrap.css">
     <link rel="stylesheet" href="{{MEDIA_URL}}css/responsive.css">
     <link rel="stylesheet" href="{{MEDIA_URL}}css/style.css">
- <link href="{{MEDIA_URL}}css/carousel.css" rel="stylesheet" type="text/css">
+    <link href="{{MEDIA_URL}}css/carousel.css" rel="stylesheet" type="text/css">
 		<script src="{{MEDIA_URL}}js/jquery.js"></script>
     <script src="{{MEDIA_URL}}js/jquery.mobilemenu.js"></script>
     <script src="{{MEDIA_URL}}js/jquery.easing.1.3.js"></script>
@@ -148,7 +148,7 @@
      <span><strong>Address:</strong> <span>{{comp.address}}</span>
      <span> <strong>Email:</strong> <a href="#">{{comp.contact_email}}</a></span>
      <span> <strong>Website:</strong> <a href="#">{{comp.website}}</a></span>
-     <span> <strong>Business type:</strong>{{comp.business_type}}<br></span>
+     <span> <strong>Business type:</strong>{{comp.get_business_type}}<br></span>
      <span><strong>Company Profile: </strong>{{comp.business_description}}</span>
       </div>
     {% endfor %}

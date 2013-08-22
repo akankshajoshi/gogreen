@@ -1,9 +1,10 @@
-<form class="navbar-form pull-left">
-    <ul>  <li class="mm">Search by </li><li class="mm"><input name="" type="radio" value="">Product
-    </li><li class="mm"><input name="" type="radio" value="">Company Name </li>
-        <li><input type="text" class="span2" value="Search here"></li>
+<form class="navbar-form pull-left" method='POST' action='.'>
+{% csrf_token %}
+    <ul>  <li class="mm">Search by </li><li class="mm"><input name="search_by" type="radio" value="by_product">Product
+    </li><li class="mm"><input name="search_by" type="radio" value="by_name">Company Name </li>
+        <li><input type="text" class="span2" name ='keyword' value="Search here"></li>
         <li><select name="city">
             <option>Select Category</option>
         </select></li>
-        <li> <input name="" type="button"></li></ul>
+        <li> <input name="" type="submit"></li></ul>
 </form>

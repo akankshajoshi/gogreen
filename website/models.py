@@ -29,7 +29,7 @@ class Company(models.Model):
     meta_kword = models.CharField(max_length=50, null=True, blank=True, verbose_name='Meta Keywords')
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=50,choices=CITY_CHOICES)
-    state = models.CharField(max_length=50,choices=STATE_CHOICES)
+    state = models.IntegerField(max_length=50,choices=STATE_CHOICES)
     mobile = models.CharField(max_length=40, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
     contact_person = models.CharField(max_length=30, null=True, blank=True)
@@ -52,6 +52,11 @@ class Company(models.Model):
     
     def __unicode__(self):
         return self.company_name
+    
+    def get_business_type(self):
+        b_types = BusinessType.objects.filter(company=self).values_list('name',flat=True)
+        import pdb;pdb.set_trace()
+        return ','.join(list(b_types))
     
 
 class CompanyProductImg(models.Model):

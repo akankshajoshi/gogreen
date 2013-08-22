@@ -13,15 +13,16 @@
 
 
             </li>   <li class="span4 footerform pull-right">
-                <form>
+                <form id='id_enquiry' method='POST' action={% url enquiry %}>
+                     {% csrf_token %}
                     <strong>Get in touch with us, fill the details below </strong>
-                    <input type="text" name="">
+                    Name<input type="text" name="name">
 
-                    <input type="text" name="">
+                    Email<input type="text" name="email">
+                    Mobile<input type="text" name="mobile">
 
-                    <input type="text" name="">
-                    <textarea rows="3" cols="2" name=""></textarea>
-                    <input type="button" class="button" value="Submit" name="">
+                    Text<textarea rows="3" cols="2" name="text"></textarea>
+                    <input type="submit" class="button" value="Submit" name="">
 
                 </form>
 

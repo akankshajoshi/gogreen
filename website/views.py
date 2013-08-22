@@ -5,8 +5,6 @@ from django.template import RequestContext
 from models import Company, Category, Subcategory, PopularKeyword
 from django.db.models import Q
 
-
-
 def signup(request):
     if request.Method == 'POST':
         form = SignUpForm(request.POST)
@@ -32,21 +30,24 @@ def index_page(request):
         else:
             cats = Category.objects.filter(name__icontains=keyword)
             subcats = Subcategory.objects.filter(Q(name__icontains=keyword) | Q(category__in=cats))
-            results = Company.objects.filter(Q(subcategory__in=subcats) | Q(product_profile__icontains=keyword)).distinct()
+            results = Company.objects.filter(Q(subcategory__in=subcats) | Q(business_description__icontains=keyword)).distinct()
         return render_to_response('index.html', {'results':results}, context_instance=RequestContext(request))
           
 def view_category(request, subcat, subcat_id):
+    comps = []
+    cats = Category.objects.all()
     if request.method == 'GET':
-        comps = []
-        cats = Category.objects.all()
         populars = PopularKeyword.objects.all()
         sub = Subcategory.objects.get(id=int(subcat_id))
-        if request.GET.get('keyword'):
-            keyword = request.GET.get('keyword')
-            comps = Company.objects.filter(Q(company_name__icontains=keyword) | Q(product_profile__icontains=keyword) | Q(company_profile__icontains=keyword))
-        else:
-#             import pdb;pdb.set_trace()
-            comps = sub.company_set.all()
-            populars =sub.popularkeyword_set.all()
-        return render_to_response('search/search.html', {'cats': cats, 'populars': populars, 'comps':comps}, context_instance=RequestContext(request))
-        
+        comps = sub.company_set.all()
+        populars = sub.popularkeyword_set.all()
+        return render_to_response('search/keyword.html', {'cats': cats, 'populars': populars, 'comps':comps,'sub':sub}, context_instance=RequestContext(request))
+    else:
+        keyword = request.POST.get('keyword')
+        search_by = request.POST.get('search_by')
+        if keyword:
+            if search_by == 'by_name':
+                comps = Company.objects.filter(company_name__icontains=keyword)
+            else:
+                comps = Company.objects.filter(deals_in__icontains=keyword)
+        return render_to_response('search/comp_search.html', {'cats': cats, 'comps':comps}, context_instance=RequestContext(request))

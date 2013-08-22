@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', include('homepage.urls')),
+    url(r'^footer/', include('footer.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
 #     url(r'^$', 'gogreen.website.views.index_page'),
     url(r'^(?P<subcat>[-\w+]*)/(?P<subcat_id>\d+)/$','gogreen.website.views.view_category', name='view_company_list'),
