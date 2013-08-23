@@ -22,23 +22,33 @@
   <div class="span6 greybase">
   
       <ul class="nav nav-tabs">
-    <li><a href="#home" data-toggle="tab" class="active">Home</a></li>
-    <li><a href="#profile" data-toggle="tab">Profile</a></li>
-   
+
+    <li><a href="#product" data-toggle="tab" class="active cls_tab" >Product</a></li>
+          <li><a href="#company" data-toggle="tab " class="cls_tab" >Company</a></li>
     </ul>
   <div id="profile" class="tab-pane fade active in">
-                <form>
+
+                <form class="disable cls_tab_company cls_homeform" method='POST' action='.'>
+                    {% csrf_token %}
                 
                 	<ul>
-                    <li ><input name="" type="text" value="Search here"><input name="" type="button"></li>
-                   
-                
-
-                    
-                    </ul>
-                
-                
+                    <li >
+                        <input name="keyword" type="text" value="" placeholder="Search Company" holder="Search Company" />
+                        <input name="search_by" type="hidden" value="by_name" />
+                        <input name="" type="button" />
+                    </li>
+                        </ul>
                 </form>
+              <form class="cls_tab_product cls_homeform" method='POST' action='.'>
+                  {% csrf_token %}
+                       <ul>
+                        <li >
+                            <input name="keyword" type="text" value="" placeholder="Search Product" holder="Search Product" />
+                            <input name="search_by" type="hidden" value="by_product" />
+                            <input name="" type="button" />
+                        </li>
+                    </ul>
+              </form>
               </div>
   
   
