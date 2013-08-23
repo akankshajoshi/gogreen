@@ -35,7 +35,7 @@
                     <li >
                         <input name="keyword" type="text" value="" placeholder="Search Company" holder="Search Company" />
                         <input name="search_by" type="hidden" value="by_name" />
-                        <input name="" type="button" />
+                        <input name="" type="submit" />
                     </li>
                         </ul>
                 </form>
@@ -45,7 +45,7 @@
                         <li >
                             <input name="keyword" type="text" value="" placeholder="Search Product" holder="Search Product" />
                             <input name="search_by" type="hidden" value="by_product" />
-                            <input name="" type="button" />
+                            <input name="" type="submit" />
                         </li>
                     </ul>
               </form>
@@ -83,7 +83,7 @@
     <div class="container"> 
       <div class="row homeart">
       <article class="span4 offset1 pull-left tree"><img src="{{MEDIA_URL}}images/tree.gif" alt=""><strong>{{count.tree_planted}}</strong><em>Green has taken the initiative and planted 
-78456 trees so far. <a href="#">Click here</a> to join us today</em></article>
+{{count.tree_planted}} trees so far. <a href="#">Click here</a> to join us today</em></article>
       
       
       
@@ -91,16 +91,17 @@
                  <h3>Latest Articles</h3>
                   
                 <div class="list_carousel responsive">
-                  <ul id="carousel-fred">     
+                 
+                  <ul id="carousel-fred">    
+                  {% for blog in blogs %} 
                       <li class="span5">
                         <div class="blok_carousel">
-                          <figure class="img-polaroid"><img src="{{MEDIA_URL}}images/homeimage.jpg" alt=""></figure>
-                          <date>June 19 at 08:89 PM</date>
-                          <p><strong>This is Photoshop's version  
-of Lorem Ipsum. </strong>Lorem ipsum dolor sit, consctetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. </p>
+                          <figure class="img-polaroid"><img src="{{MEDIA_URL}}images/homeimage.jpg{{blog.image}}" alt=""></figure>
+                          <date>{{blog.creation_date}}June 19 at 08:89 PM</date>
+                          <a href='{{blog.click_url}}'><p><strong>{{blog.name}}</strong>{{blog.text}}</p></a>
                         </div>
                       </li>
-                
+                {% endfor %}
                         
                   </ul>
                   <a href="#" id="prev-carousel"> < </a>

@@ -8,7 +8,8 @@ def home(request):
     if request.method == 'GET':
         heading = Heading.objects.all()[0]
         count = CompanyCount.objects.all()[0]
-        return render_to_response('home/home.html',{'heading':heading, 'count':count}, context_instance=RequestContext(request))
+        blog = Blog.objects.all().order_by('-creation_date')[:5]
+        return render_to_response('home/home.html',{'heading':heading, 'count':count,'blogs':blogs}, context_instance=RequestContext(request))
     else:
         search_by = request.POST.get('field')
         keyword = request.POST.get('keyword')

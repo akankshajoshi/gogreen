@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from models import Company, GreenOMeter
+from models import Company, GreenOMeter, Blog
 GOM_CHOICES = GreenOMeter.objects.all().values_list('id','name')
 
 class SignUpForm(forms.ModelForm):
@@ -18,3 +18,7 @@ class CompanyForm(forms.ModelForm):
     
     class Meta:
         model = Company
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
