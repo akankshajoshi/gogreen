@@ -1,56 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Home</title>
-    <meta charset="utf-8">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="Your description">
-    <meta name="keywords" content="Your keywords">
-    <meta name="author" content="Your name">
-    <meta name = "format-detection" content = "telephone=no" />
-    <link rel="stylesheet" href="{{MEDIA_URL}}css/bootstrap.css">
-    <link rel="stylesheet" href="{{MEDIA_URL}}css/responsive.css">
-    <link rel="stylesheet" href="{{MEDIA_URL}}css/style.css">
-    <link href="{{MEDIA_URL}}css/carousel.css" rel="stylesheet" type="text/css">
-		<script src="{{MEDIA_URL}}js/jquery.js"></script>
-    <script src="{{MEDIA_URL}}js/jquery.mobilemenu.js"></script>
-    <script src="{{MEDIA_URL}}js/jquery.easing.1.3.js"></script>
-    <script src="{{MEDIA_URL}}js/camera.js"></script>
-    <!--[if (gt IE 9)|!(IE)]><!-->
-      <script src="js/jquery.mobile.customized.min.js"></script>
-    <!--<![endif]-->
-
-    
-
-	<!--[if lt IE 8]>
-  		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg"border="0"alt=""/></a></div>  
- 	<![endif]-->
-  <!--[if lt IE 9]>
-    <link rel="stylesheet" href="css/docs.css">
-    <link rel="stylesheet" href="css/ie.css">
-    <script src="assets/js/html5shiv.js"></script>
-  <![endif]-->
-</head>
-
-<body>
-<!--==============================header=================================-->
-<div class="main">
-  <header>
-     <div class="container">
-           <div class="navbar navbar_ clearfix">
-              <div class="navbar-inner">      
-                    <div class="clearfix"> 
-                      <h1 class="brand"><a href="index.html"><img src="images/logo.png" alt=""></a><span>Green</span></h1> 
-              <div class="greenbase">The more lighter we take the subject of Deforestration, the more heavier it costs</div>        
-                    </div>
-               </div>  
-           </div>
-      </div> 
-  </header>
-   
-  
-
+{% extends "layoutbase.html" %}
+{% block bodycontent %}
   
   <div id="content">
   
@@ -66,69 +15,10 @@
     <li><a href="#">Home</a> <span class="divider"> > </span></li>
     <li class="active">Categories</li>
     </ul>
-         <form class="navbar-form pull-left">
-           <ul>
-             <li class="mm">Search by </li>
-             <li class="mm">
-               <input name="" type="radio" value="">
-               Product </li>
-             <li class="mm">
-               <input name="" type="radio" value="">
-               Company Name </li>
-             <li>
-               <input type="text" class="span2" value="Search here">
-             </li>
-             <li>
-               <select name="city">
-                 <option>Select Category</option>
-               </select>
-             </li>
-             <li>
-               <input name="input" type="button">
-             </li>
-           </ul>
-         </form>
-      <div class="span4 pull-left leftnav" >
-        <h2>Browse Categories</h2>
-           {% for cat in cats %}
-           	   <a href="#">
-                  <h3><span class="energy"></span>{{cat}}</h3>
-               </a>
-               <ul>
-               {% for sub in cat.subcategory_set.all %}
-                   <li><a href="#">{{sub}}</a></li>
-               {% endfor %}
-               </ul>
-           {% endfor %}
-           <!--
-           <a href="#">
-             <h3><span class="energy"></span>Energy and power</h3>
-           </a>
-           <ul>
-             <li><a href="#">Biogas Plant</a></li>
-             
-           </ul>
-           <div class="bdr"></div>
-           <h3><span class="herbal"></span>Energy and power</h3>
-           <ul>
-             <li><a href="#">Aromatherapy Products</a></li>
-             <li><a href="#">Ayurvedic Products</a></li>
-             <li><a href="#">Ayurvedic Products</a></li>
-             <li><a href="#">Natural Products</a></li>
-           </ul>
-           <div class="bdr"></div>
-           <h3><span class="enviorment"></span>Environment</h3>
-           <div class="bdr"></div>
-           <h3><span class="gifts"></span>Gifts and cards</h3>
-           <div class="bdr"></div>
-           <h3><span class="health"></span>Health and beauty</h3>
-           <div class="bdr"></div>
-           <h3><span class="fashion"></span>Fashion and Accesories</h3>
-           <div class="bdr"></div>
-           <h3><span class="business"></span>Business and Services</h3>-->
-           <div class="bdr"></div>
-           <div class="clearfix"></div>
-         </div>
+        {% include "directory/search.html" %}
+
+        {% include "directory/categ-subcateg.htm" %}
+
       <div class="span7 pull-right">
       
    <h4>
@@ -141,16 +31,20 @@
      <option>Sort by Alphabets</option>
    </select></div>
    
-   <div class="searchresult">
+
    {% for comp in comps %}
+       <div class="searchresult {% cycle '' 'searchresultgrey'%}">
      <strong><a href="#">{{comp}}</a> </strong>
      <img src="images/logo_search.gif" alt="" width="108" height="108" class="pull-left"> 
-     <span><strong>Address:</strong> <span>{{comp.address}}</span>
+     <span><strong>Address:</strong>
+         {{comp.address}}</span>
      <span> <strong>Email:</strong> <a href="#">{{comp.contact_email}}</a></span>
      <span> <strong>Website:</strong> <a href="#">{{comp.website}}</a></span>
      <span> <strong>Business type:</strong>{{comp.get_business_type}}<br></span>
      <span><strong>Company Profile: </strong>{{comp.business_description}}</span>
-      </div>
+       </div>
+
+
     {% endfor %}
 
    <div class="sort load">Load more results</div>
@@ -161,56 +55,4 @@
 
 </div>
 
-        
-
-      <footer>
-      <div class="foot">
-      <ul><li class="span2"><strong>What are they Saying </strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p><em> Mohit Arora</em><span> ABC Enterprise</span></li>
-      <li class="span2"><strong>Categories</strong>
-<ul>
-  <li>Eco Friendly</li><li>Sustainable </li><li>Go Green</li><li>Environmental Education </li><li>Eco Friendly</li><li>Sustainable </li><li>Go Green</li><li>Environmental Education </li>
-    </ul>
-      
-      </li>
-      <li class="span1" style="margin-right:none;"><strong>Follow Us</strong>
-    <a href="#" class="twit"></a> 
-      <a href="#" class="face"></a>
-      
-      
-      </li>   <li class="span4 footerform pull-right">
-      <form>
-      <strong>Get in touch with us, fill the details below </strong>
-      <input name="" type="text">
-          
-      <input name="" type="text">
-          
-      <input name="" type="text">
-      <textarea name="" cols="2" rows="3"></textarea>
-      <input name="" type="button" value="Submit" class="button">
-      
-      </form>
-      
-      
-      
-      </li>
-      </ul>
-      </div>
-   
-    
-  </footer>
-<script src="js/bootstrap.js"></script>
-
-<!--LIVEDEMO_00 -->
-
-<script type="text/javascript">
- var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-7078796-5']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();</script>
-
-</body>
-</html>
+{% endblock bodycontent %}

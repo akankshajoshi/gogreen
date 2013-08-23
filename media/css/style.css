@@ -1553,7 +1553,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .navbar-form li.mm { padding-top:10px;} 
 .navbar-form li select { padding:10px ; margin:0 0 0 5px;  width:220px;height:40px;}
-.navbar-form li input[type="button"]{ background:url(/media/images/submit.gif) no-repeat; width:42px; height:42px; border:none; margin:0;}
+.navbar-form li input[type="submit"]{ background:url(/media/images/submit.gif) no-repeat; width:42px; height:42px; border:none; margin:0;}
 .leftnav { background:#e9e7e7;}
 .leftnav h3 { margin:5px 0 0 0; float:left; width:100%;}
 .leftnav h3 span { float:left; background:url(/media/images/sprite.png) no-repeat; width:24px; height:21px;}
@@ -1654,3 +1654,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .tree strong { color:#51b84e; font-size:60px; padding:20px 0 30px 10px; float:left; display:block;}
 .tree img { float:left;}
 .tree em { font-style:normal; display:block; width:67%; float:left;}
+ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}

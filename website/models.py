@@ -55,7 +55,7 @@ class Company(models.Model):
     
     def get_business_type(self):
         b_types = BusinessType.objects.filter(company=self).values_list('name',flat=True)
-        import pdb;pdb.set_trace()
+
         return ','.join(list(b_types))
     
 

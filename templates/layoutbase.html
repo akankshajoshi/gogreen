@@ -37,17 +37,8 @@
 	
 	{% endblock css.custom %}
 
-    {% block ASYJS %}
-	<script src="{{MEDIA_URL}}js/jquery.1.8.3.min.js" type="text/javascript"></script>
-
-    <script src="{{MEDIA_URL}}js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
-
-
-{% endblock ASYJS %}
     
-	{% block js.custom %}
-	
-	{% endblock js.custom %}
+
 
 </head>
 {% endblock head %}
@@ -59,6 +50,16 @@
 		{% block right %}	{% endblock right %}
 		{% block footerbase %}{% include "share/footer.html"%}{% endblock footerbase %}
 	</div>
+
+
+
+    {% block ASYJS %}
+        <script src="{{MEDIA_URL}}js/jquery.1.8.3.min.js" type="text/javascript"></script>
+        <script src="{{MEDIA_URL}}js/jquery-ui-1.9.2.custom.min.js" type="text/javascript"></script>
+        <script src="{{MEDIA_URL}}js/green.js" type="text/javascript"></script>
+
+
+    {% endblock ASYJS %}
 
 </body>
 </html>

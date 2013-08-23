@@ -1,19 +1,12 @@
 {% extends "layoutbase.html" %}
-{% block js.custom %}
-<script type='text/javascript'>
-    $('.popular_key').live('click',function(){
-		$('#id_hdnkeyword').val($(this).attr('html'));
-		$('#proxy_form').submit();
-		});
-</script>
-{% endblock js.custom %}
+
 
 
 {% block bodycontent %}
-<form id='proxy_form' method='POST' action='.'>
+<form id='proxy_form' method='POST' action='.' style="border: 0px;">
 {% csrf_token %}
-<input name="search_by" type="hidden" value="by_product" id='id_hdnproduct>
-<input type="text" class="span2" name ='keyword' value="" id='id_hdnkeyword'>
+<input name="search_by" type="hidden" value="by_product" id="id_hdnproduct" />
+<input type="hidden" class="span2" name ="keyword" value="" id="id_hdnkeyword" />
 </form>
 
 
@@ -26,120 +19,19 @@
 
 
         {% include "directory/search.html" %}
-        {% include "directory/categ-subcateg.html" %}
+        {% include "directory/categ-subcateg.htm" %}
 
 
         <div class="span7 pull-right"><h2>{{sub}}</h2>
 
-            <ul class="span2">
+            <ul class="span2 keyword">
                 {% for key in populars %}
-                	<li><a href='#' class='popular_key' value='ac'>{{key}}</a></li>
+                	<li><a href="javascript:void(0)" class="cls_keyword popular_key" value="ac">{{key}}</a></li>
                 {% endfor %}
-              </ul>     <ul class="span2">
-
-                <li>(PV) Photovoltaic System </li>
-                <li>Soalr Air Conditioner </li>
-                <li>Solar Air Heating </li>
-                <li>Solar Batteries </li>
-                <li>Solar Calculator </li>
-                <li>Solar Cell </li>
-                <li>Solar Charge Controller </li>
-                <li>Solar Chimney </li>
-                <li>Solar Controller </li>
-                <li>Solar Cookers </li>
-                <li>Solar Electric Lighting </li>
-
-
-
-
-
-
-
-            </ul>     <ul class="span2">
-
-                <li>(PV) Photovoltaic System </li>
-                <li>Soalr Air Conditioner </li>
-                <li>Solar Air Heating </li>
-                <li>Solar Batteries </li>
-                <li>Solar Calculator </li>
-                <li>Solar Cell </li>
-                <li>Solar Charge Controller </li>
-                <li>Solar Chimney </li>
-                <li>Solar Controller </li>
-                <li>Solar Cookers </li>
-                <li>Solar Electric Lighting </li>
-
-
-
-
-
-
-
-            </ul>
+              </ul>
             <div class="clearfix"></div>
 
-            <h2>Company Registered</h2>
-            <ul class="span2">
 
-                <li>(PV) Photovoltaic System </li>
-                <li>Soalr Air Conditioner </li>
-                <li>Solar Air Heating </li>
-                <li>Solar Batteries </li>
-                <li>Solar Calculator </li>
-                <li>Solar Cell </li>
-                <li>Solar Charge Controller </li>
-                <li>Solar Chimney </li>
-                <li>Solar Controller </li>
-                <li>Solar Cookers </li>
-                <li>Solar Electric Lighting </li>
-
-
-
-
-
-
-
-            </ul>     <ul class="span2">
-
-                <li>(PV) Photovoltaic System </li>
-                <li>Soalr Air Conditioner </li>
-                <li>Solar Air Heating </li>
-                <li>Solar Batteries </li>
-                <li>Solar Calculator </li>
-                <li>Solar Cell </li>
-                <li>Solar Charge Controller </li>
-                <li>Solar Chimney </li>
-                <li>Solar Controller </li>
-                <li>Solar Cookers </li>
-                <li>Solar Electric Lighting </li>
-
-
-
-
-
-
-
-            </ul>     <ul class="span2">
-
-                <li>(PV) Photovoltaic System </li>
-                <li>Soalr Air Conditioner </li>
-                <li>Solar Air Heating </li>
-                <li>Solar Batteries </li>
-                <li>Solar Calculator </li>
-                <li>Solar Cell </li>
-                <li>Solar Charge Controller </li>
-                <li>Solar Chimney </li>
-                <li>Solar Controller </li>
-                <li>Solar Cookers </li>
-                <li>Solar Electric Lighting </li>
-
-
-
-
-
-
-
-            </ul>
         </div>
 
 
