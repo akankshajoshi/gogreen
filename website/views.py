@@ -51,3 +51,9 @@ def view_category(request, cat, subcat, subcat_id):
             else:
                 comps = Company.objects.filter(deals_in__icontains=keyword)
         return render_to_response('search/comp_search.html', {'cats': cats, 'comps':comps}, context_instance=RequestContext(request))
+    
+def view_company(request, cname, cid):
+    comp = Company.objects.filter(id=int(cid))
+    if comp:
+        data = {'comp':comp[0]}        
+    return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))

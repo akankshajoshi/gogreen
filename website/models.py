@@ -58,7 +58,11 @@ class Company(models.Model):
 
         return ','.join(list(b_types))
     
-
+    def get_green_o_meter(self):
+        val = self.green_o_meter
+        objs = GreenOMeter.objects.filter(pk__in=val.split(','))
+        return objs
+                
 class CompanyProductImg(models.Model):
     company = models.ForeignKey('Company')
     image = models.ImageField(upload_to='uploads/comp_imgs')
