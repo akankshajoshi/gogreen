@@ -16,15 +16,14 @@
      
       <ul class="breadcrumb">
     <li><a href="#">Home</a> <span class="divider"> > </span></li>
-    <li class="active"><a href="#">Categories</a> &gt; GE Doubled Global Solar Power investments</li>
+    <li class="active"><a href="#">Categories</a> &gt; {{comp.company_name}}</li>
       </ul>
       
       
-      <div class="comptop"><img src="{{MEDIA_URL}}images/logo_search.gif" alt=""><h1>GE Doubled Global Solar Power investments
-</h1>    <em>  Business Profile: Manufacturer</em>
+      <div class="comptop"><img src="{{MEDIA_URL}}{{comp.company_logo}}" alt=""><h1>{{comp.company_name}}
+</h1>    <em>  Business Profile: {{comp.get_business_type}}</em>
       
-      <p><b>Deals in:</b> Fashion Jewellery, Beaded Jewellery, Fashion Necklace, Beaded Necklace, 
-Handicrafts,Handmade Jewellery, Handmade Products
+      <p><b>Deals in:</b> {{comp.deals_in}}
 </p>
       <div class="clearfix"></div>
       
@@ -36,7 +35,7 @@ Handicrafts,Handmade Jewellery, Handmade Products
       <div class=" buisness">
    <h2>   Business Description</h2>
       
-      Established in the year 2005, at Jaipur, (Rajasthan, India) we R. S. King Jewellers,â are considered among the affluent Manufacturers, Exporters, Wholesalers and Suppliers of an exquisite collection of Kundan Meena Pendant, Kundan Meena Jewelery, Gold Ornament Stone Works, Jeweled Sword, Kundan Meena Sword, Ancient Groom Sword, Antiqe Kundan Meena Sword, Antique Groom Sword, Meena Kundan Jewellery, Kundan Meena Pendant, Kundan Meena Jewelery, Kundan Meena Armlets, Kundan Meena Earrings, Kundan Meena Necklaces, Kundan Meena Necklace Sets, Kundan Meena Bangles, Kundan Meena Purse, Bridal Kundan Meena Purse, Kundan Meena Bridal Purse & Clutches. </div>
+      {{comp.business_description}}
       
       
       
@@ -44,10 +43,9 @@ Handicrafts,Handmade Jewellery, Handmade Products
    <h2>   Green-o-meter <em>(How green is it?)</em></h2>
    
    <ul>
-   
-   <li><img src="{{MEDIA_URL}}images/homemade.gif" alt=""></li>
-   <li><img src="{{MEDIA_URL}}images/organic.gif" alt=""></li>
-   <li><img src="{{MEDIA_URL}}images/recycle.gif" alt=""></li>
+   {% for obj in comp.get_green_o_meter %}
+       <li><img src="{{MEDIA_URL}}{{obj.icon}}" alt=""></li>
+   {% endfor %}
    </ul>
    
    
@@ -57,11 +55,10 @@ Handicrafts,Handmade Jewellery, Handmade Products
    <div class=" buisness">
    <h2> Contact Information</h2>
    <img src="{{MEDIA_URL}}images/googlemap.jpg" alt=""> 
-   
-   <div class=" contact"><strong>Contact Person: Rahul Jain</strong><br>
+   <div class=" contact"><strong>Contact Person: {{comp.contact_person}}</strong><br>
    <ul><li><span class="ad"></span>
-   No. 267/271, Kanak Chambers, Shop No. 305, 3rd Floor, Opposite Adarsh Hotel, Kalbadevi Road, Mumbai - 400 002, Maharashtra, India</li>
-  <li><span class="mo"></span>(91)-9820810080</li><li>	  <span class="web"></span>	<a href="http://www.rvexport.com/" target="_blank">http://www.rvexport.com/ </a> </li><li> <span class="email"></span><a href="mailto:quillkaari@gmail.com">quillkaari@gmail.com </a></li></ul></div>
+   {{comp.address}}{{comp.city}}{{comp.state}}</li>
+  <li><span class="mo">{{comp.mobile}}</span></li><li>	  <span class="web"></span>	<a href="{{ comp.website }}" target="_blank">{{ comp.website }}</a> </li><li> <span class="email"></span><a href="mailto:{{contact_email}}">{{comp.contact_email}}</a></li></ul></div>
  
    </div>
 
