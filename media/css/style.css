@@ -1655,4 +1655,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .tree img { float:left;}
 .tree em { font-style:normal; display:block; width:67%; float:left;}
 ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
+
+.list_carousel ul a p{color:#333;}
+
+
+
+
 .disable{display: none;}

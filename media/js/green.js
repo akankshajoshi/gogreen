@@ -1,6 +1,6 @@
 
 $('.cls_keyword').on('click',function(){
-    $('#id_hdnkeyword').val($(this).attr('text'));
+    $('#id_hdnkeyword').val($(this).text());
     $('#proxy_form').submit();
  });
 
