@@ -237,7 +237,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_1bb8f392` (`content_type_id`),
   CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +246,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,''),(6,'2013-08-16 09:47:06',1,3,'1','admin',2,'Changed user_permissions.'),(7,'2013-08-16 09:48:15',1,3,'1','admin',2,'Changed is_superuser.'),(8,'2013-08-16 09:53:03',1,3,'1','admin',2,'Changed is_superuser.'),(9,'2013-08-16 09:53:47',1,13,'1','Comment object',1,''),(10,'2013-08-16 09:55:02',1,13,'2','Comment object',1,''),(11,'2013-08-16 12:33:27',1,31,'1','test article',1,''),(12,'2013-08-16 12:33:58',1,39,'1','VicharComment object',1,''),(13,'2013-08-17 02:26:57',1,31,'1','test article',2,'Changed published_by.'),(14,'2013-08-20 12:23:11',1,21,'1','CompanyCount object',1,''),(15,'2013-08-20 12:24:33',1,19,'1','Heading object',1,''),(16,'2013-08-21 07:38:26',1,18,'1','Solar Cell',1,''),(17,'2013-08-21 07:38:34',1,18,'1','Solar Cell',2,'No fields changed.'),(18,'2013-08-21 07:39:24',1,18,'2','Solar Charge Controller',1,''),(19,'2013-08-21 07:40:53',1,18,'3','Handy Jwellery',1,''),(20,'2013-08-21 07:41:43',1,18,'4','Baby Soap',1,''),(21,'2013-08-21 07:51:47',1,18,'3','Jwellery',2,'Changed keyword.'),(22,'2013-08-21 07:54:40',1,10,'1','Manufacture',1,''),(23,'2013-08-21 07:54:49',1,10,'2','Production',1,''),(24,'2013-08-21 07:54:53',1,10,'3','Sell',1,''),(25,'2013-08-21 07:55:03',1,10,'4','Marketing',1,''),(26,'2013-08-21 07:58:00',1,15,'1','A',1,''),(27,'2013-08-21 07:58:12',1,15,'2','B',1,''),(28,'2013-08-21 07:58:22',1,15,'3','C',1,''),(29,'2013-08-21 07:58:33',1,15,'4','D',1,''),(30,'2013-08-21 07:58:44',1,15,'5','G',1,''),(31,'2013-08-21 07:59:10',1,15,'5','e',2,'Changed name.'),(32,'2013-08-21 08:05:51',1,11,'24','blushh',2,'Changed city, state, contact_email, green_o_meter and business_type.');
+INSERT INTO `django_admin_log` VALUES (1,'2013-08-15 01:30:51',1,30,'1','GrnVchrHome object',1,''),(2,'2013-08-15 01:31:16',1,30,'2','GrnVchrHome object',1,''),(3,'2013-08-15 01:31:49',1,30,'3','GrnVchrHome object',1,''),(4,'2013-08-15 01:32:17',1,30,'4','GrnVchrHome object',1,''),(5,'2013-08-15 01:32:46',1,30,'5','GrnVchrHome object',1,''),(6,'2013-08-16 09:47:06',1,3,'1','admin',2,'Changed user_permissions.'),(7,'2013-08-16 09:48:15',1,3,'1','admin',2,'Changed is_superuser.'),(8,'2013-08-16 09:53:03',1,3,'1','admin',2,'Changed is_superuser.'),(9,'2013-08-16 09:53:47',1,13,'1','Comment object',1,''),(10,'2013-08-16 09:55:02',1,13,'2','Comment object',1,''),(11,'2013-08-16 12:33:27',1,31,'1','test article',1,''),(12,'2013-08-16 12:33:58',1,39,'1','VicharComment object',1,''),(13,'2013-08-17 02:26:57',1,31,'1','test article',2,'Changed published_by.'),(14,'2013-08-20 12:23:11',1,21,'1','CompanyCount object',1,''),(15,'2013-08-20 12:24:33',1,19,'1','Heading object',1,''),(16,'2013-08-21 07:38:26',1,18,'1','Solar Cell',1,''),(17,'2013-08-21 07:38:34',1,18,'1','Solar Cell',2,'No fields changed.'),(18,'2013-08-21 07:39:24',1,18,'2','Solar Charge Controller',1,''),(19,'2013-08-21 07:40:53',1,18,'3','Handy Jwellery',1,''),(20,'2013-08-21 07:41:43',1,18,'4','Baby Soap',1,''),(21,'2013-08-21 07:51:47',1,18,'3','Jwellery',2,'Changed keyword.'),(22,'2013-08-21 07:54:40',1,10,'1','Manufacture',1,''),(23,'2013-08-21 07:54:49',1,10,'2','Production',1,''),(24,'2013-08-21 07:54:53',1,10,'3','Sell',1,''),(25,'2013-08-21 07:55:03',1,10,'4','Marketing',1,''),(26,'2013-08-21 07:58:00',1,15,'1','A',1,''),(27,'2013-08-21 07:58:12',1,15,'2','B',1,''),(28,'2013-08-21 07:58:22',1,15,'3','C',1,''),(29,'2013-08-21 07:58:33',1,15,'4','D',1,''),(30,'2013-08-21 07:58:44',1,15,'5','G',1,''),(31,'2013-08-21 07:59:10',1,15,'5','e',2,'Changed name.'),(32,'2013-08-21 08:05:51',1,11,'24','blushh',2,'Changed city, state, contact_email, green_o_meter and business_type.'),(33,'2013-08-23 09:53:06',1,9,'1','Blog1',1,''),(34,'2013-08-23 09:53:47',1,9,'2','Blog2',1,''),(35,'2013-08-23 09:54:21',1,9,'3','Blog3',1,'');
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -911,7 +911,7 @@ CREATE TABLE `website_blog` (
   `text` longtext,
   `creation_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -920,6 +920,7 @@ CREATE TABLE `website_blog` (
 
 LOCK TABLES `website_blog` WRITE;
 /*!40000 ALTER TABLE `website_blog` DISABLE KEYS */;
+INSERT INTO `website_blog` VALUES (1,'Blog1','www.google.com','uploads/blogimage/15072012491.jpg','<p>hey, this is first blog I am writing</p>','2013-08-23 09:53:06'),(2,'Blog2','www.google.com','uploads/blogimage/21072012498.jpg','<p>this is my second blog.... &nbsp; :) :) :)</p>','2013-08-23 09:53:47'),(3,'Blog3','www.google.com','uploads/blogimage/21072012499.jpg','<p>hi, thi is third blod here...</p>','2013-08-23 09:54:21');
 /*!40000 ALTER TABLE `website_blog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1322,4 +1323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-22 22:56:45
+-- Dump completed on 2013-08-24 10:26:54
