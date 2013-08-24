@@ -17,7 +17,7 @@
 .bx-wrapper {
 	position: relative;
 	/*margin: 0 0 60px;*/
-	margin-left:4px
+	margin-left:4px;
 	padding: 0;
 	*zoom: 1;
 }
@@ -98,12 +98,12 @@
 
 .bx-wrapper .bx-prev {
 	left: -13px;
-	 background: url("/media/images/3r_sprite.png") no-repeat scroll -154px -148px transparent;
+	 background: url("/media/images/controls.png") no-repeat scroll 0px -32px transparent;
 }
 
 .bx-wrapper .bx-next {
 	right: -20px;
-	background: url("/media/images/3r_sprite.png") no-repeat scroll -154px -185px transparent;
+	background: url("/media/images/controls.png") no-repeat scroll -43px -32px transparent;
 }
 
 .bx-wrapper .bx-prev:hover {
