@@ -2,12 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from website.models import Category
 
-class InsideLogo(models.Model):
+class HomePageLogo(models.Model):
     name = models.CharField(max_length=25)
     image = models.ImageField(upload_to='media/logo')
     click_url = models.URLField()
     created_by = models.ForeignKey(User)
-    start_date = models.DateTimeField()
+    start_date = models.DateField()
     end_date = models.DateField()
     
 class PaidLogo(models.Model):

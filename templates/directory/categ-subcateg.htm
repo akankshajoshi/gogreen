@@ -5,7 +5,7 @@
    </a>
    <ul>
    {% for sub in cat.subcategory_set.all %}
-       <li><a href="{% url view_category sub.name|slugify sub.id %}">{{sub}}</a></li>
+       <li><a href="{% url view_category cat.name|slugify sub.name|slugify sub.id %}">{{sub}}</a></li>
    {% endfor %}
    </ul>
 {% endfor %}
