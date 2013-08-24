@@ -3,7 +3,7 @@
         <ul><li class="span2"><strong>What are they Saying </strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p><em> Mohit Arora</em><span> ABC Enterprise</span></li>
             <li class="span2"><strong>Categories</strong>
                 <ul>
-                    <li>Eco Friendly</li><li>Sustainable </li><li>Go Green</li><li>Environmental Education </li><li>Eco Friendly</li><li>Sustainable </li><li>Go Green</li><li>Environmental Education </li>
+                    {% for i in cats %}<li>{{i}}</li>{% endfor %}
                 </ul>
 
             </li>

@@ -33,7 +33,7 @@ def index_page(request):
             results = Company.objects.filter(Q(subcategory__in=subcats) | Q(business_description__icontains=keyword)).distinct()
         return render_to_response('index.html', {'results':results}, context_instance=RequestContext(request))
           
-def view_category(request, subcat, subcat_id):
+def view_category(request, cat, subcat, subcat_id):
     comps = []
     cats = Category.objects.all()
     if request.method == 'GET':

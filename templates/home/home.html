@@ -61,14 +61,14 @@
   <div class="span4 sponsor"><img src="{{MEDIA_URL}}images/banner_300.jpg" alt="">
   <div class="spo">
 <h3><strong>  Sponsored by</strong></h3>
-<a href="#"><img src="{{MEDIA_URL}}images/logo1.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo2.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo3.gif" alt=""></a> <a href="#"><img src="{{MEDIA_URL}}images/logo1.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo2.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo3.gif" alt=""></a> </div>
-  
+{% for logo in homelogos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
+</div>  
   
   
   </div>
   
   
-    <div class="buisnessdirtab "><a href="#" class="span4">Green Business Directory</a><a href="#" class="span4 g1">Green Business Directory</a><a href="#" class="span4 g2">Green Business Directory</a></div>
+    <div class="buisnessdirtab "><a href="{% url view_category cats.0.name|slugify sub.name|slugify sub.id %}" class="span4">Green Business Directory</a><a href="#" class="span4 g1">Green Business Directory</a><a href="#" class="span4 g2">Green Business Directory</a></div>
   </div>
 
   
@@ -121,7 +121,7 @@
 <div class="logos">
             
            <div class="spo">
-<a href="#"><img src="{{MEDIA_URL}}images/logo1.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo2.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo3.gif" alt=""></a> <a href="#"><img src="{{MEDIA_URL}}images/logo1.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo2.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo3.gif" alt=""></a> </div>
+           {% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
             
             </div>
 
