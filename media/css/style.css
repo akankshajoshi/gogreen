@@ -1208,7 +1208,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .greybase .nav-tabs > li > a { background:#ff5500; border-radius:0px; color:#fff; margin:0 7px 0 0; padding:10px 30px; font-size:15px; border:none; }
 .greybase input[type="text"] { width:87%; border:solid 1px #d1d0d0; color:#333; padding:11px 5px; box-shadow:1px 1px 1px #e9e7e7; font-size:13px;}	
 .greybase select { float:left; border:solid 1px #d1d0d0; color:#333; padding: 12px 5px 10px 5px; box-shadow:1px 1px 1px #e9e7e7; margin:0 10px 0 0; width:210px; height:43px}
-.greybase input[type="button"] { background:url(/media/images/submit.gif) no-repeat; width:42PX; height:42PX; border:none;}
+.greybase input[type="submit"] { background:url(/media/images/submit.gif) no-repeat; width:42PX; height:42PX; border:none;}
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus,.nav-tabs > li > a:hover,

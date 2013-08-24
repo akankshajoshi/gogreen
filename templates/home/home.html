@@ -38,7 +38,7 @@
                     <li >
                         <input name="keyword" type="text" value="" placeholder="Search Company" holder="Search Company" />
                         <input name="search_by" type="hidden" value="by_name" />
-                        <input name="" type="submit" />
+                        <input name="" type="submit" value="" />
                     </li>
                         </ul>
                 </form>
@@ -48,7 +48,7 @@
                         <li >
                             <input name="keyword" type="text" value="" placeholder="Search Product" holder="Search Product" />
                             <input name="search_by" type="hidden" value="by_product" />
-                            <input name="" type="submit" />
+                            <input name="" type="submit" value="" />
                         </li>
                     </ul>
               </form>
@@ -102,10 +102,10 @@
 
         
 <div class="logos">
-            
+
            <div class="spo">
-           {% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
-            
+           {% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{logo.image}}" alt=""></a>{% endfor %}
+
             </div>
 
 

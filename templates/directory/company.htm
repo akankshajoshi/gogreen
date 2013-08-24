@@ -36,7 +36,7 @@
    <h2>   Business Description</h2>
       
       {{comp.business_description}}
-      
+      </div>
       
       
       <div class=" buisness">
@@ -58,7 +58,7 @@
    <div class=" contact"><strong>Contact Person: {{comp.contact_person}}</strong><br>
    <ul><li><span class="ad"></span>
    {{comp.address}}{{comp.city}}{{comp.state}}</li>
-  <li><span class="mo">{{comp.mobile}}</span></li><li>	  <span class="web"></span>	<a href="{{ comp.website }}" target="_blank">{{ comp.website }}</a> </li><li> <span class="email"></span><a href="mailto:{{contact_email}}">{{comp.contact_email}}</a></li></ul></div>
+  <li><span class="mo"></span>{{comp.mobile}}</li><li>	  <span class="web"></span>	<a href="{{ comp.website }}" target="_blank">{{ comp.website }}</a> </li><li> <span class="email"></span><a href="mailto:{{contact_email}}">{{comp.contact_email}}</a></li></ul></div>
  
    </div>
 
@@ -70,8 +70,9 @@
   <strong> Post a query
   </strong>
   <ul>
-<li><input name="" type="text"></li><li><input name="" type="text"></li>
-<li><textarea name="" cols="" rows=""></textarea></li><li><input name="" type="button" value="Post my review"></li>
+<li><input name="" type="text" placeholder="Name" holder="Name" /></li>
+      <li><input name="" type="text" placeholder="Email" holder="Email"></li>
+<li><textarea name="" cols="" rows="" placeholder="Message" holder="Message"></textarea></li><li><input name="" type="button" value="Post my review"></li>
 </ul>
 
 </form>
@@ -83,10 +84,10 @@
 <div class="contactform"><strong>Contact form</strong><em>Fill the details below to get in touch </em>
 <form>
 <ul>
-<li><input name="" type="text"></li>
-<li><input name="" type="text"></li>
-<li><textarea name="" cols="" rows=""></textarea>
-</li><li><input name="" type="submit" value="Submit">
+<li><input name="" type="text" placeholder="Name" holder="Name"></li>
+<li><input name="" type="text" placeholder="Email" holder="Email"></li>
+<li><textarea name="" cols="" rows="" placeholder="Message" holder="Message"></textarea>
+</li><li><input name="" type="submit" value="Submit" />
 </li>
 
 </ul></form>

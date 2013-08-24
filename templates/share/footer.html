@@ -16,12 +16,12 @@
                 <form id='id_enquiry' method='POST' action={% url enquiry %}>
                      {% csrf_token %}
                     <strong>Get in touch with us, fill the details below </strong>
-                    Name<input type="text" name="name">
+                    <input type="text" name="name" placeholder="Name" holder="Name">
 
-                    Email<input type="text" name="email">
-                    Mobile<input type="text" name="mobile">
+                    <input type="text" name="email"  placeholder="Email" holder="Email">
+                    <input type="text" name="mobile" placeholder="Mobile" holder="Mobile">
 
-                    Text<textarea rows="3" cols="2" name="text"></textarea>
+                    <textarea rows="3" cols="2" name="text" placeholder="Message" holder="Message"></textarea>
                     <input type="submit" class="button" value="Submit" name="">
 
                 </form>
