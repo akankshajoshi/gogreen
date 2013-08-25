@@ -205,19 +205,19 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;;
+  font-family: 'HelveticaNeueRegular';
   font-size: 12px;
   line-height:17px;
   color: #4f4f4f;
   background-color: #ffffff;
 }
 a {
-  color: #cc1014;
+  color: #fc5603;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #26aad0;
+  color: #fc5603;
   text-decoration: underline;
 }
 .img-rounded {
@@ -668,7 +668,7 @@ h4 small {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10.5px 25px;
+  margin: 0 0 10.5px 10px;
 }
 ul ul,
 ul ol,
@@ -882,7 +882,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Open Sans', sans-serif;;
+  font-family: 'HelveticaNeueRegular';
 }
 label {
   display: block;
@@ -3809,7 +3809,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: 'Open Sans', sans-serif;;
+  font-family: 'HelveticaNeueRegular';
   font-size: 13px;
   font-weight: normal;
   line-height: 1;

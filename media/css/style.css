@@ -1616,7 +1616,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .review form { background:#e9e7e8; padding:5px; margin:10px 0;}
 .review p { display:block; width:100%; padding:10px 0 0 0}
 .review li { display:inline-block;}
-.review input[type="text"] { width:300px; margin:5px 10px 5px 0;}
+.review input[type="text"] { width:300px; margin:5px 10px 5px 0;padding: 7px;}
 .review input[type="submit"] { background:#f85606; border-radius:1px; color:#fff; font-size:14px; border:0px; padding:2px 10px; margin:43px 10px 0 10px;}
 
 .review strong { color:#333333; font-size:16px; margin: 0 0 0 10px;}
@@ -1655,6 +1655,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .tree strong { color:#51b84e; font-size:60px; padding:20px 0 30px 10px; float:left; display:block;}
 .tree img { float:left;}
 .tree em { font-style:normal; display:block; width:67%; float:left;}
+.art  { margin:10px 0 0 30px; font:normal 12px Arial, Helvetica, sans-serif; color:#666666; text-align:justify;}
+.art img { margin:0 30px 10px 0}
+.art h1 { font:normal 20px 'HelveticaNeueRegular'; line-height:22px; width:200px; float:left; color:#000; display:block; margin:0 18px 0 0; text-align:left;}
+.atr { background:#51b84e; color:#fff; font:normal 14px 'HelveticaNeueRegular'; margin:15px 0 5px 0; padding:5px 10px}
+.latestart { padding:10px 0; font: normal 12px Arial, Helvetica, sans-serif; width:100%; float:left;}
+.latestart img { margin:0 10px 0 0;}
+.latestart strong { font: bold 13px 'HelveticaNeueRegular'; display:block;}
+.span7 .latestart strong  {font:normal 19px 'HelveticaNeueRegular'; line-height:17px; }
+.latestart span { font: normal 12px 'HelveticaNeueRegular'; padding:5px 0; display:block;}
+.post { background: #fa5604;
+    color: #FFFFFF;
+    font: 14px 'HelveticaNeueRegular';
+    margin: 15px 0 5px;
+    padding: 5px 10px;}
+
+.listright { background:#e9e7e7; padding:10px; border-bottom:solid 1px #fff; color:#666666;}
+.listright strong { display:block; font:bold 15px Arial, Helvetica, sans-serif; padding:2px 0 5px 0;}
+.listright p { width:80%; float:left;}
+.listright em { float:right; width:22px; height:22px; background:url(/media/images/sprite.png) -198px -15px no-repeat;}
+
 ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 
 .list_carousel ul a p{color:#333;}
