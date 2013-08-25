@@ -54,7 +54,13 @@
    
    <div class=" buisness">
    <h2> Contact Information</h2>
-   <img src="{{MEDIA_URL}}images/googlemap.jpg" alt=""> 
+
+<div id="googlemap">
+       {{comp.address}} {{comp.state}}
+   </div>
+
+
+
    <div class=" contact"><strong>Contact Person: {{comp.contact_person}}</strong><br>
    <ul><li><span class="ad"></span>
    {{comp.address}}{{comp.city}}{{comp.state}}</li>
@@ -66,16 +72,16 @@
 <div class=" martop review">
 <h2>Reviews</h2>
 
-<form method='POST' action='{% url save_review %}' id='id_formreview'>
+<form method='POST' action='{% url save_review %}' onsubmit="return false" id='id_formreview'>
  {% csrf_token %}
   <strong> Post a query
   </strong>
   <ul>
-<li><input name="name" type="text" placeholder="Name" holder="Name" /></li>
-      <li><input name="email" type="text" placeholder="Email" holder="Email"></li>
-<li><textarea name="text" cols="" rows="" placeholder="Message" holder="Message"></textarea></li>
+<li><input name="name" type="text" maxlength="70" class="required" placeholder="Name" holder="Name" /></li>
+      <li><input name="email" type="text" maxlength="70" class="required email" placeholder="Email" holder="Email"></li>
+<li><textarea name="text" cols="" rows=""  class="required" placeholder="Message" holder="Message"></textarea></li>
 <li><input name="submit" type="submit" value="Post my review"></li>
-<input type='hidden' name='compId' value={{comp.id}}>
+<input type='hidden' name='compId' value="{{comp.id}}" />
 </ul>
 
 </form>
@@ -85,14 +91,14 @@
 </div>
 <div class="span4 pull-right">
 <div class="contactform"><strong>Contact form</strong><em>Fill the details below to get in touch </em>
-<form action='{% url save_contact %}' method='POST' id='id_formcontact'>
+<form action='{% url save_contact %}' onsubmit="return false" method='POST' id='id_formcontact'>
 {% csrf_token %}
 <ul>
-	<li><input name="name" type="text" placeholder="Name" holder="Name"></li>
-	<li><input name="email" type="text" placeholder="Email" holder="Email"></li>
+	<li><input name="name" type="text" maxlength="70" class="required" placeholder="Name" holder="Name"></li>
+	<li><input name="email" type="text" maxlength="70" class="required email" placeholder="Email" holder="Email"></li>
 	<li><textarea name="text" cols="" rows="" placeholder="Message" holder="Message"></textarea></li>
-	<input type='hidden' name='compId' value={{comp.id}}>
-	<li><input name="" type="submit" value="Submit" /></li>
+	<input type='hidden' name='compId' value="{{comp.id}}" />
+	<li><input name="" type="submit" value="" /></li>
 </ul>
 </form>
 

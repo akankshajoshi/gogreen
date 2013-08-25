@@ -1617,17 +1617,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .review p { display:block; width:100%; padding:10px 0 0 0}
 .review li { display:inline-block;}
 .review input[type="text"] { width:300px; margin:5px 10px 5px 0;}
-.review input[type="button"] { background:#f85606; border-radius:1px; color:#fff; font-size:14px; border:0px; padding:2px 10px; margin:43px 10px 0 10px;}
+.review input[type="submit"] { background:#f85606; border-radius:1px; color:#fff; font-size:14px; border:0px; padding:2px 10px; margin:43px 10px 0 10px;}
 
 .review strong { color:#333333; font-size:16px; margin: 0 0 0 10px;}
 .review  { margin:0;}
 .review textarea { width:500px;}
 @media (min-width: 768px) and (max-width: 979px)
 {.review textarea { width:300px;}
-.review input[type="button"] { margin:10px 10px 0 0px;}
+.review input[type="submit"] { margin:10px 10px 0 0px;}
   .midsection .sponsor { visibility:hidden;}
 }
 
+#googlemap{float: left;width: 690px;height: 240px;}
 
 .martop { margin-top:30px;}
 
