@@ -1158,7 +1158,6 @@ CREATE TABLE `website_contactus` (
   `name` varchar(200) NOT NULL,
   `email` varchar(75) NOT NULL,
   `text` longtext NOT NULL,
-  `mobile` varchar(12) NOT NULL,
   `creation_date` datetime NOT NULL,
   `moderation_date` datetime NOT NULL,
   `status` int(11) NOT NULL,
@@ -1166,7 +1165,7 @@ CREATE TABLE `website_contactus` (
   PRIMARY KEY (`id`),
   KEY `website_contactus_543518c6` (`company_id`),
   CONSTRAINT `company_id_refs_id_529567d0` FOREIGN KEY (`company_id`) REFERENCES `website_company` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1175,6 +1174,7 @@ CREATE TABLE `website_contactus` (
 
 LOCK TABLES `website_contactus` WRITE;
 /*!40000 ALTER TABLE `website_contactus` DISABLE KEYS */;
+INSERT INTO `website_contactus` VALUES (1,1,'jkjk','a@test.com','test test test','2013-08-24 23:59:24','2013-08-24 23:59:24',0,NULL);
 /*!40000 ALTER TABLE `website_contactus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1258,6 +1258,37 @@ INSERT INTO `website_popularkeyword_subcat` VALUES (4,1,25),(5,1,26),(6,1,27),(7
 UNLOCK TABLES;
 
 --
+-- Table structure for table `website_review`
+--
+
+DROP TABLE IF EXISTS `website_review`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_review` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  `text` longtext NOT NULL,
+  `creation_date` datetime NOT NULL,
+  `moderation_date` datetime NOT NULL,
+  `status` int(11) NOT NULL,
+  `done_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_review`
+--
+
+LOCK TABLES `website_review` WRITE;
+/*!40000 ALTER TABLE `website_review` DISABLE KEYS */;
+INSERT INTO `website_review` VALUES (1,1,'jkjk','a@test.com','test','2013-08-25 00:14:40','2013-08-25 00:14:40',0,NULL);
+/*!40000 ALTER TABLE `website_review` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `website_subcategory`
 --
 
@@ -1325,4 +1356,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-24 16:27:55
+-- Dump completed on 2013-08-25 10:45:51

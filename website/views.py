@@ -2,8 +2,9 @@
 from forms import SignUpForm, SearchForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import Company, Category, Subcategory, PopularKeyword
+from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Review
 from django.db.models import Q
+from django.http import HttpResponse
 
 def signup(request):
     if request.Method == 'POST':
@@ -57,3 +58,29 @@ def view_company(request, cname, cid):
     if comp:
         data = {'comp':comp[0]}        
     return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
+
+def ajax_save_contact(request):
+    if request.method == 'POST':
+        compId = request.POST.get('compId')
+        if compId:
+            comp = Company.objects.get(id=compId)
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            text = request.POST.get('text')
+            ContactUs.objects.create(company=comp,name=name,email=email,text=text)
+            return HttpResponse('Successful')
+    else:
+        return HttpResponse('BadRequest')
+    
+def ajax_save_review(request):
+    if request.method == 'POST':
+        compId = request.POST.get('compId')
+        if compId:
+            comp = Company.objects.get(id=compId)
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            text = request.POST.get('text')
+            Review.objects.create(company=comp,name=name,email=email,text=text)
+            return HttpResponse('Successful')
+    else:
+        return HttpResponse('BadRequest')

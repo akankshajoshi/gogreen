@@ -66,13 +66,16 @@
 <div class=" martop review">
 <h2>Reviews</h2>
 
-<form>
+<form method='POST' action='{% url save_review %}' id='id_formreview'>
+ {% csrf_token %}
   <strong> Post a query
   </strong>
   <ul>
-<li><input name="" type="text" placeholder="Name" holder="Name" /></li>
-      <li><input name="" type="text" placeholder="Email" holder="Email"></li>
-<li><textarea name="" cols="" rows="" placeholder="Message" holder="Message"></textarea></li><li><input name="" type="button" value="Post my review"></li>
+<li><input name="name" type="text" placeholder="Name" holder="Name" /></li>
+      <li><input name="email" type="text" placeholder="Email" holder="Email"></li>
+<li><textarea name="text" cols="" rows="" placeholder="Message" holder="Message"></textarea></li>
+<li><input name="submit" type="submit" value="Post my review"></li>
+<input type='hidden' name='compId' value={{comp.id}}>
 </ul>
 
 </form>
@@ -82,15 +85,16 @@
 </div>
 <div class="span4 pull-right">
 <div class="contactform"><strong>Contact form</strong><em>Fill the details below to get in touch </em>
-<form>
+<form action='{% url save_contact %}' method='POST' id='id_formcontact'>
+{% csrf_token %}
 <ul>
-<li><input name="" type="text" placeholder="Name" holder="Name"></li>
-<li><input name="" type="text" placeholder="Email" holder="Email"></li>
-<li><textarea name="" cols="" rows="" placeholder="Message" holder="Message"></textarea>
-</li><li><input name="" type="submit" value="Submit" />
-</li>
-
-</ul></form>
+	<li><input name="name" type="text" placeholder="Name" holder="Name"></li>
+	<li><input name="email" type="text" placeholder="Email" holder="Email"></li>
+	<li><textarea name="text" cols="" rows="" placeholder="Message" holder="Message"></textarea></li>
+	<input type='hidden' name='compId' value={{comp.id}}>
+	<li><input name="" type="submit" value="Submit" /></li>
+</ul>
+</form>
 
 </div>
 <div class="martop"><img src="{{MEDIA_URL}}images/banner_300.jpg" alt=""></div>
