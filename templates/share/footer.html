@@ -2,8 +2,12 @@
     <div class="foot">
         <ul><li class="span2"><strong>What are they Saying </strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p><em> Mohit Arora</em><span> ABC Enterprise</span></li>
             <li class="span2"><strong>Categories</strong>
-                <ul>
-                    {% for i in cats %}<li>{{i}}</li>{% endfor %}
+                <ul class="categ">
+                    {% for i in list %}<li>
+
+                        <a href="{{i.0|slugify}}/{{i.1.name|slugify}}/{{i.1.id }}">{{ i.0 }}</a>
+
+                        </li>{% endfor %}
                 </ul>
 
             </li>
