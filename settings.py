@@ -167,3 +167,5 @@ LOGGING = {
         },
     }
 }
+
+IMG_SIZE = {'company_logo':{'height':95,'width':79}, 'green_o_meter':{'height':75,'width':74}}
