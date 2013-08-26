@@ -36,29 +36,23 @@ def index_page(request):
           
 def view_category(request, cat, subcat, subcat_id):
     comps = []
-    cats = Category.objects.all()
+#     cats = Category.objects.all()
     if request.method == 'GET':
         populars = PopularKeyword.objects.all()
         sub = Subcategory.objects.get(id=int(subcat_id))
         comps = sub.company_set.all()
         populars = sub.popularkeyword_set.all()
-        return render_to_response('search/keyword.html', {'cats': cats, 'populars': populars, 'comps':comps,'sub':sub}, context_instance=RequestContext(request))
-    else:
-        keyword = request.POST.get('keyword')
-        search_by = request.POST.get('search_by')
-        if keyword:
-            if search_by == 'by_name':
-                comps = Company.objects.filter(company_name__icontains=keyword)
-            else:
-                comps = Company.objects.filter(deals_in__icontains=keyword)
-        return render_to_response('search/comp_search.html', {'cats': cats, 'comps':comps}, context_instance=RequestContext(request))
+        return render_to_response('search/keyword.html', {'populars': populars, 'comps':comps,'sub':sub}, context_instance=RequestContext(request))
+    
     
 def view_company(request, cname, cid):
     comp = Company.objects.filter(id=int(cid))
     if comp:
         data = {'comp':comp[0]}        
-    return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
-
+        return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
+    else:
+        return HttpResponse("Company Does not exist")
+        
 def ajax_save_contact(request):
     if request.method == 'POST':
         compId = request.POST.get('compId')
@@ -84,3 +78,16 @@ def ajax_save_review(request):
             return HttpResponse('Successful')
     else:
         return HttpResponse('BadRequest')
+    
+def search(request):
+    if request.method=="POST":
+        keyword = request.POST.get('keyword')
+        search_by = request.POST.get('search_by')
+        if keyword:
+            if search_by == 'by_name':
+                comps = Company.objects.filter(company_name__icontains=keyword)
+            else:
+                comps = Company.objects.filter(deals_in__icontains=keyword)
+        return render_to_response('search/comp_search.html', {'comps':comps,'keyword':keyword}, context_instance=RequestContext(request))
+    else:
+        return HttpResponse('BAD REQUEST')

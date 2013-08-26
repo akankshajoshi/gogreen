@@ -3,6 +3,8 @@ from choices import COUNTRY_CHOICES, STATE_CHOICES, CITY_CHOICES, YEAR_CHOICES, 
 from django.contrib.auth.models import User
 from django.db import models
 from tinymce.models import HTMLField
+from utils import get_image_by_size
+from django.conf import settings
 
 
 
@@ -53,14 +55,22 @@ class Company(models.Model):
     def __unicode__(self):
         return self.company_name
     
+    def save(self):
+        super(Company, self).save()
+        if self.company_logo:
+            thumbname = get_image_by_size(self.company_logo,'company_logo')
+            self.company_logo = 'uploads/comp_logo/' + thumbname
+        super(Company, self).save()
+        
     def get_business_type(self):
         b_types = BusinessType.objects.filter(company=self).values_list('name',flat=True)
-
         return ','.join(list(b_types))
     
     def get_green_o_meter(self):
-        val = self.green_o_meter
-        objs = GreenOMeter.objects.filter(pk__in=val.split(','))
+        objs = []
+        if self.green_o_meter:
+            val = self.green_o_meter
+            objs = GreenOMeter.objects.filter(pk__in=val.split(','))
         return objs
                 
 class CompanyProductImg(models.Model):
@@ -94,6 +104,13 @@ class GreenOMeter(models.Model):
     
     def __unicode__(self):
         return self.name
+    
+    def save(self):
+        super(GreenOMeter, self).save()
+        if self.icon:
+            thumbname = get_image_by_size(self.icon,'green_o_meter')
+            self.icon = 'uploads/comp_logo/' + thumbname
+        super(GreenOMeter, self).save()
     
 class Category(models.Model):
     name = models.CharField(max_length=250)
