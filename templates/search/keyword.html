@@ -3,7 +3,7 @@
 
 
 {% block bodycontent %}
-<form id='proxy_form' method='POST' action='.' style="border: 0px;">
+<form id='proxy_form' method='POST' action='{% url search %}' style="border: 0px;">
 {% csrf_token %}
 <input name="search_by" type="hidden" value="by_product" id="id_hdnproduct" />
 <input type="hidden" class="span2" name ="keyword" value="" id="id_hdnkeyword" />
@@ -26,7 +26,7 @@
 
             <ul class="span2 keyword">
                 {% for key in populars %}
-                	<li><a href="javascript:void(0)" class="cls_keyword popular_key" value="ac">{{key}}</a></li>
+                	<li><a href="javascript:void(0)" class="cls_keyword popular_key" value="">{{key}}</a></li>
                 {% endfor %}
               </ul>
             <div class="clearfix"></div>

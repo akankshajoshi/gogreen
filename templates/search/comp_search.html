@@ -22,7 +22,7 @@
       <div class="span7 pull-right">
       
    <h4>
-   ‘Biogas and Biofuel’ yielded 289 Results
+   ‘{{keyword}}’ yielded {{comps|length}} Results
    
    
    </h4>
@@ -34,7 +34,7 @@
 
    {% for comp in comps %}
        <div class="searchresult {% cycle '' 'searchresultgrey'%}">
-     <strong><a href="#">{{comp}}</a> </strong>
+     <strong><a href="{% url view_company comp.company_name|slugify comp.id %}">{{comp}}</a> </strong>
      <img src="images/logo_search.gif" alt="" width="108" height="108" class="pull-left"> 
      <span><strong>Address:</strong>
          {{comp.address}}</span>

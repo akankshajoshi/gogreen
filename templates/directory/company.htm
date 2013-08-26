@@ -120,7 +120,7 @@
             <div class="logos">
             
            <div class="spo">
-<a href="#"><img src="{{MEDIA_URL}}images/logo1.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo2.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo3.gif" alt=""></a> <a href="#"><img src="{{MEDIA_URL}}images/logo1.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo2.gif" alt=""></a><a href="#"><img src="{{MEDIA_URL}}images/logo3.gif" alt=""></a> </div>
+{% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %} </div>
             
             </div>
 

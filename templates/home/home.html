@@ -31,7 +31,7 @@
     </ul>
   <div id="profile" class="tab-pane fade active in">
 
-                <form class="disable cls_tab_company cls_homeform" method='POST' action='.'>
+                <form class="disable cls_tab_company cls_homeform" method='POST' action='{% url search %}'>
                     {% csrf_token %}
                 
                 	<ul>
@@ -104,8 +104,7 @@
 <div class="logos">
 
            <div class="spo">
-           {% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{logo.image}}" alt=""></a>{% endfor %}
-
+           {% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
             </div>
 
 
