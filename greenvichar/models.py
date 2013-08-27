@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
+from website.utils import get_image_by_size
 
 TYPE_CHOICES = ((1,'Event'),(2,'Article'),(3,'Pics/Video'),(4,'Quotes'),(5,'Questionire'))
 
@@ -12,10 +13,15 @@ class GrnVchrHome(models.Model):
 
     def save(self):
         super(GrnVchrHome, self).save()
-	if self.image:
-	    thumbname = get_image_by_size(self.image,'green_vichar_landing')
-	    self.image = 'uploads/grnvichar' + thumbname
-	super(GrnVchrHome, self).save()
+        if self.image:
+    	    thumbname = get_image_by_size(self.image,'green_vichar_landing')
+    	    self.image = 'uploads/grnvichar/' + thumbname
+        super(GrnVchrHome, self).save()
+        
+    def get_type(self):
+        if self.type:
+            return TYPE_CHOICES[self.type][1]
+        return ''
 
     
 class GreenVichar(models.Model):
@@ -53,10 +59,10 @@ class Event(models.Model):
     
     def save(self):
         super(Event, self).save()
-	if self.image:
-	    thumbname = get_image_by_size(self.image,'small_eventNimage')
-	    self.image = 'uploads/event' + thumbname
-	super(Event, self).save()
+        if self.image:
+	        thumbname = get_image_by_size(self.image,'small_eventNimage')
+	        self.image = 'uploads/event/' + thumbname
+        super(Event, self).save()
     
                               
 class Article(models.Model):
@@ -67,10 +73,10 @@ class Article(models.Model):
 
     def save(self):
         super(Article, self).save()
-	if self.image:
-	    thumbname = get_image_by_size(self.image,'big_eventNimage')
-	    self.image = 'uploads/article' + thumbname
-	super(Article, self).save()
+        if self.image:
+	        thumbname = get_image_by_size(self.image,'big_eventNimage')
+	        self.image = 'uploads/article/' + thumbname
+        super(Article, self).save()
     
 class PicsVideo(models.Model):
     green_vichar = models.ForeignKey('GreenVichar')
@@ -81,10 +87,10 @@ class PicsVideo(models.Model):
     
     def save(self):
         super(PicsVideo, self).save()
-	if self.pic:
-	    thumbname = get_image_by_size(self.pic,'big_eventNimage')
-	    self.pic = 'uploads/picsvideos' + thumbname
-	super(PicsVideo, self).save()
+        if self.pic:
+	        thumbname = get_image_by_size(self.pic,'big_eventNimage')
+	        self.pic = 'uploads/picsvideos/' + thumbname
+        super(PicsVideo, self).save()
     
 class StoryQuotes(models.Model):
     green_vichar = models.ForeignKey('GreenVichar')

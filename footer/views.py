@@ -1,3 +1,4 @@
+import json
 from models import ContactUs
 from django.http import HttpResponse
 
@@ -8,6 +9,7 @@ def enquiry(request):
         mobile = request.POST.get('mobile')
         text = request.POST.get('text')
         ContactUs.objects.create(name=name,mobile=mobile,email=email,text=text)
-        return HttpResponse('Successful')
+        status = 1
     else:
-        return HttpResponse('BadRequest')
+        status = 0
+    return HttpResponse(json.dumps({'status':status}), mimetype="application/json")

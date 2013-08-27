@@ -5,6 +5,7 @@ from django.template import RequestContext
 from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Review
 from django.db.models import Q
 from django.http import HttpResponse
+import json
 
 def signup(request):
     if request.Method == 'POST':
@@ -54,6 +55,7 @@ def view_company(request, cname, cid):
         return HttpResponse("Company Does not exist")
         
 def ajax_save_contact(request):
+    status = 0
     if request.method == 'POST':
         compId = request.POST.get('compId')
         if compId:
@@ -62,11 +64,11 @@ def ajax_save_contact(request):
             email = request.POST.get('email')
             text = request.POST.get('text')
             ContactUs.objects.create(company=comp,name=name,email=email,text=text)
-            return HttpResponse('Successful')
-    else:
-        return HttpResponse('BadRequest')
+            status = 1
+    return HttpResponse(json.dumps({'status':status}), mimetype="application/json")
     
 def ajax_save_review(request):
+    status = 0
     if request.method == 'POST':
         compId = request.POST.get('compId')
         if compId:
@@ -75,9 +77,8 @@ def ajax_save_review(request):
             email = request.POST.get('email')
             text = request.POST.get('text')
             Review.objects.create(company=comp,name=name,email=email,text=text)
-            return HttpResponse('Successful')
-    else:
-        return HttpResponse('BadRequest')
+            status = 1
+    return HttpResponse(json.dumps({'status':status}), mimetype="application/json")
     
 def search(request):
     if request.method=="POST":
@@ -91,3 +92,4 @@ def search(request):
         return render_to_response('search/comp_search.html', {'comps':comps,'keyword':keyword}, context_instance=RequestContext(request))
     else:
         return HttpResponse('BAD REQUEST')
+    

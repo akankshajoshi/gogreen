@@ -1,4 +1,4 @@
-import Image
+from PIL import Image
 import sys
 from django.conf import settings
 IMG_SIZE = settings.IMG_SIZE

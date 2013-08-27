@@ -1,2 +1,4 @@
 django1.3.4
 django-tinymce
+PIL
+pillow

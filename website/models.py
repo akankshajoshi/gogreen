@@ -22,7 +22,7 @@ class Blog(models.Model):
         super(Blog, self).save()
         if self.image:
             thumbname = get_image_by_size(self.image,'blog')
-            self.image = 'uploads/blogimage' + thumbname
+            self.image = 'uploads/blogimage/' + thumbname
         super(Blog, self).save()
      
      
@@ -87,10 +87,10 @@ class CompanyProductImg(models.Model):
 
     def save(self):
         super(CompanyProductImg, self).save()
-	if self.image:
-	    thumbname = get_image_by_size(self.image,'comp_prod_img')
-	    self.image = 'uploads/comp_imgs' + thumbname
-	super(CompanyProductImg, self).save()
+    	if self.image:
+    	    thumbname = get_image_by_size(self.image,'comp_prod_img')
+    	    self.image = 'uploads/comp_imgs/' + thumbname
+    	super(CompanyProductImg, self).save()
 
 class Comment(models.Model):
     company = models.ForeignKey('Company')
@@ -126,12 +126,23 @@ class GreenOMeter(models.Model):
             thumbname = get_image_by_size(self.icon,'green_o_meter')
             self.icon = 'uploads/greenometer/' + thumbname
         super(GreenOMeter, self).save()
-    
+
+class CatManager(models.Manager):
+    def get_query_set(self):
+        new_set = []
+        queryset = super(CatManager, self).get_query_set()
+        for query in queryset:
+            if query.subcategory_set.count():
+                new_set.append(query)
+        return new_set
+
 class Category(models.Model):
     name = models.CharField(max_length=250)
     created_date = models.DateTimeField(auto_now_add=True)
     is_deleted = models.BooleanField(default=False)
     sort_order = models.IntegerField(default=1)
+    objects = models.Manager()
+    has_sub_objs = CatManager()
     
     def __unicode__(self):
         return self.name
