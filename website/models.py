@@ -16,7 +16,15 @@ class Blog(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
-        return self.title     
+        return self.title
+    
+    def save(self):
+        super(Blog, self).save()
+        if self.image:
+            thumbname = get_image_by_size(self.image,'blog')
+            self.image = 'uploads/blogimage' + thumbname
+        super(Blog, self).save()
+     
      
 class BusinessType(models.Model):
     name = models.CharField(max_length=20)
@@ -77,6 +85,13 @@ class CompanyProductImg(models.Model):
     company = models.ForeignKey('Company')
     image = models.ImageField(upload_to='uploads/comp_imgs')
 
+    def save(self):
+        super(CompanyProductImg, self).save()
+	if self.image:
+	    thumbname = get_image_by_size(self.image,'comp_prod_img')
+	    self.image = 'uploads/comp_imgs' + thumbname
+	super(CompanyProductImg, self).save()
+
 class Comment(models.Model):
     company = models.ForeignKey('Company')
     name = models.CharField(max_length=200)
@@ -109,7 +124,7 @@ class GreenOMeter(models.Model):
         super(GreenOMeter, self).save()
         if self.icon:
             thumbname = get_image_by_size(self.icon,'green_o_meter')
-            self.icon = 'uploads/comp_logo/' + thumbname
+            self.icon = 'uploads/greenometer/' + thumbname
         super(GreenOMeter, self).save()
     
 class Category(models.Model):

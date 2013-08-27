@@ -168,4 +168,5 @@ LOGGING = {
     }
 }
 
-IMG_SIZE = {'company_logo':{'height':95,'width':79}, 'green_o_meter':{'height':75,'width':74}}
+IMG_SIZE = {'company_logo':{'height':108,'width':108}, 'green_o_meter':{'height':97,'width':94},'blog':{'height':140,'width':140},'homepage_logo':{'height':95,'width':79},'govn_logo':{'height':95,'width':79},
+'comp_prod_img':{'height':300,'width':250},'green_vichar_landing':{'height':320,'width':364},'small_eventNimage':{'height':95,'width':95},'big_eventNimage':{'height':248,'width':248}}

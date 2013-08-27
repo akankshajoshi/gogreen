@@ -9,6 +9,14 @@ class GrnVchrHome(models.Model):
     title = models.CharField(max_length=50)
     text = models.CharField(max_length=250)
     image = models.ImageField(upload_to='uploads/grnvichar')
+
+    def save(self):
+        super(GrnVchrHome, self).save()
+	if self.image:
+	    thumbname = get_image_by_size(self.image,'green_vichar_landing')
+	    self.image = 'uploads/grnvichar' + thumbname
+	super(GrnVchrHome, self).save()
+
     
 class GreenVichar(models.Model):
     title = models.CharField(max_length=200)
@@ -42,12 +50,27 @@ class Event(models.Model):
     title = models.CharField(max_length=200,null=True,blank=True)
     image = models.ImageField(upload_to='uploads/event')
     description = models.TextField()
+    
+    def save(self):
+        super(Event, self).save()
+	if self.image:
+	    thumbname = get_image_by_size(self.image,'small_eventNimage')
+	    self.image = 'uploads/event' + thumbname
+	super(Event, self).save()
+    
                               
 class Article(models.Model):
     green_vichar = models.ForeignKey('GreenVichar') 
     title = models.CharField(max_length=200,null=True,blank=True)
-    image = models.ImageField(upload_to='uploads/event')
+    image = models.ImageField(upload_to='uploads/article')
     description = models.TextField()
+
+    def save(self):
+        super(Article, self).save()
+	if self.image:
+	    thumbname = get_image_by_size(self.image,'big_eventNimage')
+	    self.image = 'uploads/article' + thumbname
+	super(Article, self).save()
     
 class PicsVideo(models.Model):
     green_vichar = models.ForeignKey('GreenVichar')
@@ -55,7 +78,14 @@ class PicsVideo(models.Model):
     title = models.CharField(max_length=50)
     pic = models.ImageField(upload_to='uploads/picsvideos', null=True, blank=True)
     links = models.URLField(null=True, blank=True)
-        
+    
+    def save(self):
+        super(PicsVideo, self).save()
+	if self.pic:
+	    thumbname = get_image_by_size(self.pic,'big_eventNimage')
+	    self.pic = 'uploads/picsvideos' + thumbname
+	super(PicsVideo, self).save()
+    
 class StoryQuotes(models.Model):
     green_vichar = models.ForeignKey('GreenVichar')
     text = models.CharField(max_length=200,null=True,blank=True)
