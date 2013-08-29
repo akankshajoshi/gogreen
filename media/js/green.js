@@ -29,8 +29,13 @@ $('#id_enquiry').validate({
         var k = {};
         k.DATA = $(form).serialize();
         k.SRC = $(form).attr('action');
+        $('.cls_dyn_popup').remove();
         $f.makeRequest(k,function(){
-
+            k.div = $('<div class="cls_dyn_popup" title="Enquiry"></div>');
+            k.open = function(){
+                $('.cls_dyn_popup').html('Successfully');
+            }
+            $f.popup(k);
         })
     }
 });
@@ -44,9 +49,14 @@ submitHandler:function(form)
     var k = {};
     k.DATA = $(form).serialize();
     k.SRC = $(form).attr('action');
+    $('.cls_dyn_popup').remove();
     $f.makeRequest(k,function(){
-
-    })
+        k.div = $('<div class="cls_dyn_popup" title="Contact Us"></div>');
+        k.open = function(){
+            $('.cls_dyn_popup').html('Successfully');
+        }
+        $f.popup(k);
+    });
 }
 });
 
@@ -59,8 +69,13 @@ $('#id_formreview').validate({
         var k = {};
         k.DATA = $(form).serialize();
         k.SRC = $(form).attr('action');
+        $('.cls_dyn_popup').remove();
         $f.makeRequest(k,function(){
-
+            k.div = $('<div class="cls_dyn_popup" title="Review"></div>');
+            k.open = function(){
+                $('.cls_dyn_popup').html('Successfully');
+            }
+            $f.popup(k);
         })
     }
 });

@@ -1530,7 +1530,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .registered { border:solid 1px #818b91; border-radius:4px; padding:5px 15px;  margin:40px 0; color:#fff; font-weight:bold; }
 
-.registered .re { padding:10px 23px;font-size:13px; text-align:center;}
+.registered .re { padding:10px;font-size:13px; text-align:center;}
 .registered .re span { background:url(/media/images/base.png) repeat-x; display:block; height:54px; width:163px; font:bold 50px Arial, Helvetica, sans-serif; letter-spacing:13px; color:#333; padding:0 0 0 13px; margin:10px 0 0 0;}
 .container .row .span12  { margin-left:37px;}
 
