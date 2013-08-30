@@ -1,9 +1,9 @@
 <div class="span4 pull-left leftnav" ><h2>Browse Categories</h2>
 {% for cat in cats %}
-   <a href="#">
-      <h3><span class="energy"></span>{{cat}}</h3>
+   <a href="javascript:void(0)">
+      <h3 id="{{cat.id}}" class="cls_categ"><span class="energy"></span>{{cat}}</h3>
    </a>
-   <ul>
+   <ul id="sub_{{cat.id}}" class="{% if not categ.0.id == cat.id %}disable{% endif %}">
    {% for sub in cat.subcategory_set.all %}
        <li><a href="{% url view_category cat.name|slugify sub.name|slugify sub.id %}">{{sub}}</a></li>
    {% endfor %}

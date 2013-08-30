@@ -20,39 +20,22 @@
         {% include "directory/categ-subcateg.htm" %}
 
       <div class="span7 pull-right">
-      
-   <h4>
-   ‘{{keyword}}’ yielded {{comps|length}} Results
-   
-   
-   </h4>
-   
-   <div class="sort"><select name="Sort">
-     <option>Sort by Alphabets</option>
-   </select></div>
-   
 
-   {% for comp in comps %}
-       <div class="searchresult {% cycle '' 'searchresultgrey'%}">
-     <strong><a href="{% url view_company comp.company_name|slugify comp.id %}">{{comp}}</a> </strong>
-     <img src="images/logo_search.gif" alt="" width="108" height="108" class="pull-left"> 
-     <span><strong>Address:</strong>
-         {{comp.address}}</span>
-     <span> <strong>Email:</strong> <a href="#">{{comp.contact_email}}</a></span>
-     <span> <strong>Website:</strong> <a href="#">{{comp.website}}</a></span>
-     <span> <strong>Business type:</strong>{{comp.get_business_type}}<br></span>
-     <span><strong>Company Profile: </strong>{{comp.business_description}}</span>
-       </div>
+          <h4>
+              ‘{{keyword}}’ yielded {{compcount}} Results
 
 
-    {% endfor %}
+          </h4>
 
-   <div class="sort load">Load more results</div>
-      </div>
-     
-     
+          <div class="sort"><select name="Sort">
+              <option>Sort by Alphabets</option>
+          </select></div>
+
+
+          {% include "search/searchlisting.html" %}
   </div>
 
 </div>
+  </div>
 
 {% endblock bodycontent %}

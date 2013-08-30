@@ -81,6 +81,20 @@ $('#id_formreview').validate({
 });
 
 
+$('.lmr').live('click',function(){
+    var k ={};
+    k.DATA=$('#frm_search').serialize();
+    k.SRC = "http://localhost:8000/search/?page="+$(this).data('id');
+    $f.makeRequest(k,function(r){
+        $('#content').find('.lmr').remove();
+        $('#searchresult').append(r.HTML)
+
+    });
+});
+
+$('.cls_categ').on('click',function(){
+    $('#sub_'+$(this).attr('id')).slideToggle('slow');
+});
 
     $(document).ready(function(){
         $("#googlemap").each(function(){
