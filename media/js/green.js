@@ -80,7 +80,9 @@ $('#id_formreview').validate({
     }
 });
 
-
+$('.cls_categ').on('click',function(){
+    $('#sub_'+$(this).attr('id')).slideToggle('slow');
+});
 
     $(document).ready(function(){
         $("#googlemap").each(function(){

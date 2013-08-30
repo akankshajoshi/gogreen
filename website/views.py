@@ -40,10 +40,12 @@ def view_category(request, cat, subcat, subcat_id):
 #     cats = Category.objects.all()
     if request.method == 'GET':
         populars = PopularKeyword.objects.all()
-        sub = Subcategory.objects.get(id=int(subcat_id))
-        comps = sub.company_set.all()
-        populars = sub.popularkeyword_set.all()
-        return render_to_response('search/keyword.html', {'populars': populars, 'comps':comps,'sub':sub}, context_instance=RequestContext(request))
+        subcat = Subcategory.objects.get(id=int(subcat_id))
+        comps = subcat.company_set.all()
+        categ=Category.objects.filter(subcategory=subcat)
+
+        populars = subcat.popularkeyword_set.all()
+        return render_to_response('search/keyword.html', {'categ':categ,'populars': populars, 'comps':comps,'subcat':subcat}, context_instance=RequestContext(request))
     
     
 def view_company(request, cname, cid):

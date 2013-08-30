@@ -1684,3 +1684,4 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .ui-dialog .ui-dialog-titlebar{background: none repeat scroll 0 0 #66BA1C;border-color: #66BA1C;}
 
 .disable{display: none;}
+#content .leftnav ul{float: left;padding-top: 0px;}
