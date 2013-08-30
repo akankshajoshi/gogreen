@@ -22,7 +22,7 @@ class Command(BaseCommand):
                     if subcat:
                         subcat = Subcategory.objects.create(name=subcat)
                         subcat.category.add(cat)
-        
+          
         sheet = open_workbook(os.path.join(PROJECT_DIR, 'data/keywords.xls').replace('\\', '/'))
         sheet1 = sheet.sheet_by_index(0)
         for col in range(0, sheet1.ncols):
@@ -42,13 +42,13 @@ class Command(BaseCommand):
                     if keyword:
                         keyword = PopularKeyword.objects.create(keyword=keyword)
                         keyword.subcat.add(subcat)
-                        
+                         
 
              
         sheet = open_workbook(os.path.join(PROJECT_DIR, 'data/total_data.xls').replace('\\', '/'))
         sheet1 = sheet.sheet_by_index(0)
         user = User.objects.get(username='admin')
-        for row in range(2, sheet1.nrows):
+        for row in range(1, sheet1.nrows):
             print row,'-------row--------'
             _regx = re.compile(r'[^\x00-\x7F]')
             modfy_str = _regx.sub('', sheet1.cell(row, 7).value)
