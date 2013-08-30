@@ -1,0 +1,40 @@
+
+<div id="searchresult">
+{% for comp in comps.object_list %}
+    <div class="searchresult {% cycle '' 'searchresultgrey'%}">
+        <strong><a href="{% url view_company comp.company_name|slugify comp.id %}">{{comp}}</a> </strong>
+        {% if comp.company_logo %}
+            <img src="{{MEDIA_URL}}{{comp.company_logo}}" alt="" class="pull-left">
+        {% endif %}
+        {% if comp.address %}
+            <span><strong>Address:&nbsp;</strong>
+        {% endif %}
+        {{comp.address}}</span>
+        {% if comp.contact_email %}
+            <span> <strong>Email:&nbsp;</strong> <a href="javascript:void(0)">{{comp.contact_email}}</a></span>
+        {% endif %}
+
+        {% if comp.website %}
+            <span> <strong>Website:&nbsp;</strong> <a href="javascript:void(0)">{{comp.website}}</a></span>
+        {% endif %}
+        {% if comp.get_business_type %}
+            <span> <strong>Business type:&nbsp;</strong>{{comp.get_business_type}}<br></span>
+        {% endif %}
+        {% if comp.business_description %}
+            <span><strong>Company Profile:&nbsp; </strong>{{comp.business_description|truncatewords:70}}</span>
+        {% endif %}
+    </div>
+
+
+{% endfor %}
+</div>
+
+{% if comps.has_next %}
+<div class="sort load lmr" data-id="{{ comps.next_page_number }}">Load more results</div>
+{% endif %}
+
+<form id="frm_search" style="display: none;">
+    {% csrf_token %}
+    <input type="hidden" name="keyword" value="{{keyword}}" />
+    <input type="hidden" name="search_by" value="{{search_by}}" />
+</form>
