@@ -181,5 +181,11 @@ class Review(models.Model):
 class State(models.Model):
     name = models.CharField(max_length=50)
     
+    def __unicode__(self):
+        return self.name
+    
 class City(models.Model):
     name = models.CharField(max_length=50)
+    
+    def __unicode__(self):
+        return self.name

@@ -1,5 +1,5 @@
 from models import Company , Comment, Category, Subcategory, PopularKeyword, \
-    BusinessType, GreenOMeter, CompanyProductImg, Blog, ContactUs 
+    BusinessType, GreenOMeter, CompanyProductImg, Blog, ContactUs, State, City 
 from django.conf import settings
 from django.contrib import admin
 from forms import CompanyForm
@@ -84,3 +84,5 @@ admin.site.register(PopularKeyword)
 admin.site.register(BusinessType)
 admin.site.register(GreenOMeter)
 admin.site.register(Blog, BlogAdmin)
+admin.site.register(State)
+admin.site.register(City)

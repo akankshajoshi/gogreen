@@ -59,7 +59,7 @@ class Command(BaseCommand):
             elif sheet1.cell(row, 2).value:
                 state = State.objects.create(name=sheet1.cell(row, 2).value)
                 state_val = state.id
-            city = City.objects.filter(name=sheet1.cell(row, 2).value)
+            city = City.objects.filter(name=sheet1.cell(row, 3).value)
             if city:
                 city_val = city[0].id
             elif sheet1.cell(row, 3).value:
