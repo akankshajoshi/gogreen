@@ -40,7 +40,7 @@ class Company(models.Model):
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=50,choices=CITY_CHOICES)
     state = models.IntegerField(max_length=50,choices=STATE_CHOICES)
-    mobile = models.CharField(max_length=40, null=True, blank=True)
+    mobile = models.CharField(max_length=100, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
     contact_person = models.CharField(max_length=30, null=True, blank=True)
     contact_email = models.EmailField()
@@ -63,7 +63,7 @@ class Company(models.Model):
     def __unicode__(self):
         return self.company_name
     
-    def save(self):
+    def save(self,*args,**kwargs):
         super(Company, self).save()
         if self.company_logo:
             thumbname = get_image_by_size(self.company_logo,'company_logo')
@@ -177,3 +177,9 @@ class Review(models.Model):
     moderation_date = models.DateTimeField(auto_now=True) 
     status = models.IntegerField(choices=((0,'Submitted'),(1,'Accepted'),(2,'Rejected')),default=0)
     done_by = models.IntegerField(null=True)
+
+class State(models.Model):
+    name = models.CharField(max_length=50)
+    
+class City(models.Model):
+    name = models.CharField(max_length=50)
