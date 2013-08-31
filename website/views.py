@@ -97,7 +97,7 @@ def search(request):
         compcount = comps.count();
         paginator = Paginator(comps, 10)
         page = request.GET.get('page', 1)
-
+        categ=Category.objects.filter(subcategory=1)
         try:
             comp1 = paginator.page(page)
         except PageNotAnInteger:
@@ -110,7 +110,7 @@ def search(request):
              HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
              return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
 
-        return render_to_response('search/comp_search.html', {'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
+        return render_to_response('search/comp_search.html', {'categ':categ,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
     else:
         return HttpResponse('BAD REQUEST')
 
