@@ -2,7 +2,7 @@
 from forms import SignUpForm, SearchForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Review
+from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment
 from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -80,7 +80,7 @@ def ajax_save_review(request):
             name = request.POST.get('name')
             email = request.POST.get('email')
             text = request.POST.get('text')
-            Review.objects.create(company=comp,name=name,email=email,text=text)
+            Comment.objects.create(company=comp,name=name,email=email,text=text)
             status = 1
     return HttpResponse(json.dumps({'status':status}), mimetype="application/json")
     

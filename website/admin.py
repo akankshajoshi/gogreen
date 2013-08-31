@@ -17,14 +17,22 @@ class CompanyAdmin(admin.ModelAdmin):
     form = CompanyForm    
     exclude = ('modified_by',)
     inlines = (CompanyProductImgInline,)
-    list_display = ('company_name','get_comments',)
+    list_display = ('company_name','get_comments','get_contactus')
     
     
     def get_comments(self, obj):
         """Returns the url for the comments of the Company.
         """
-        return '<a target="_blank" href="/admin/comments/%s/">View Comments</a>' % (obj.id)
+        return '<a target="_blank" href="/admin/website/comment?company=%s">View Comments</a>' % (obj.id)
     get_comments.short_description = 'Comments'
+    get_comments.allow_tags = True
+    
+    def get_contactus(self, obj):
+        """Returns the url for the comments of the Company.
+        """
+        return '<a target="_blank" href="/admin/website/contactus?company=%s">View ContactUs</a>' % (obj.id)
+    get_contactus.short_description = 'ContactUs'
+    get_contactus.allow_tags = True
 
     def save_model(self, request, obj, form, change):
         obj.modified_by = request.user
@@ -49,7 +57,11 @@ class CommentAdmin(admin.ModelAdmin):
     
     def queryset(self, request):
         qs = super(CommentAdmin, self).queryset(request)
-        qs = qs.filter(status=0)
+        if request.GET.get('company'):
+            company = request.GET.get('company')
+            qs= qs.filter(company=Company.objects.get(id=int(company)))
+        else:
+            qs = qs.filter(status=0)
         return qs
     
     def save_model(self, request, obj, form, change):
@@ -59,11 +71,23 @@ class CommentAdmin(admin.ModelAdmin):
         
 class ContactUsAdmin(admin.ModelAdmin):
     model = ContactUs
-    exclude = ('done_by',)
-    list_filter = ('company__id',)
+    list_display = ('name','get_company_name','email','done_by','status')
+        
+    def get_company_name(self, obj):
+        return obj.company.company_name
+    get_company_name.short_description = 'Company Name'
+    
+    def queryset(self, request):
+        qs = super(ContactUsAdmin, self).queryset(request)
+        if request.GET.get('company'):
+            company = request.GET.get('company')
+            qs= qs.filter(company=Company.objects.get(id=int(company)))
+        else:
+            qs = qs.filter(status=0)
+        return qs
     
     def save_model(self, request, obj, form, change):
-        super(CommentAdmin, self).save_model(request, obj, form, change)
+        super(ContactUsAdmin, self).save_model(request, obj, form, change)
         obj.done_by = request.user.id
         obj.save()
     
