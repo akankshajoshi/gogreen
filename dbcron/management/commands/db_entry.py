@@ -70,6 +70,7 @@ class Command(BaseCommand):
                 city = city_val,
                 company_name = sheet1.cell(row, 5).value, 
                 business_description = modfy_str,
+                deals_in = sheet1.cell(row,4).value,
                 mobile = sheet1.cell(row, 9).value,
                 address = sheet1.cell(row, 10).value,
                 website = sheet1.cell(row, 11).value,

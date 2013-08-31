@@ -92,7 +92,7 @@ def search(request):
             if search_by == 'by_name':
                 comps = Company.objects.filter(company_name__icontains=keyword)
             else:
-                comps = Company.objects.filter(deals_in__icontains=keyword)
+                comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
 
         compcount = comps.count();
         paginator = Paginator(comps, 10)

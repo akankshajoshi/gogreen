@@ -15,3 +15,5 @@ TURNOVER_CHOICES = ((1,'1-10'),(2,'10-20'),(3,'20-30'),(4,'30-40'),)
 
 INDUSTRY_TYPE = ((1,'Media'),(2,'IT'),(3,'Education'),(4,'Business'),)
 
+RATING_CHOICES = ((0,'--SELECT--'),(1,'1'),(2,'2')(3,'3')(4,'4')(5,''))
+

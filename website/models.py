@@ -1,5 +1,5 @@
 from choices import COUNTRY_CHOICES, STATE_CHOICES, CITY_CHOICES, YEAR_CHOICES, \
-    TURNOVER_CHOICES, EMP_CHOICES
+    TURNOVER_CHOICES, EMP_CHOICES, RATING_CHOICES
 from django.contrib.auth.models import User
 from django.db import models
 from tinymce.models import HTMLField
@@ -47,8 +47,9 @@ class Company(models.Model):
     website = models.URLField(null=True, blank=True)
     business_type = models.ManyToManyField('BusinessType')
     business_description = models.TextField(null=True)
-    deals_in = models.CharField(max_length=200,null=True,blank=True)
+    deals_in = models.TextField(null=True,blank=True)
     green_o_meter = models.CharField(max_length=100, null=True, blank=True)
+    rating = models.IntegerField(CHOICES=RATING_CHOICES, default=0)
     subcategory = models.ManyToManyField('Subcategory')
     year_founded = models.IntegerField(choices=YEAR_CHOICES, null=True, blank=True)
     no_of_emp = models.IntegerField(choices=EMP_CHOICES, null=True, blank=True)
