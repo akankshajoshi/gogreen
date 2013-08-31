@@ -1,6 +1,6 @@
 <form class="navbar-form pull-left" method='POST' action='{% url search %}'>
 {% csrf_token %}
-    <ul>  <li class="mm">Search by </li>
+    <ul class="indsearch">  <li class="mm">Search by </li>
         <li class="mm">
         <input name="search_by" type="radio" checked="true" value="by_product" />Product
     </li><li class="mm">

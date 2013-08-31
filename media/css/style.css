@@ -1,6 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
-/*font-family: 'Open Sans', sans-serif;  @customFontFamily*/
-/*------ template stylization ------*/
+
+
+@font-face {
+    font-family: 'HelveticaNeueRegular';
+    src: url('/media/css/fonts/helveticaneue.eot');
+    src: url('/media/css/fonts/helveticaneue.eot') format('embedded-opentype'),
+    url('/media/css/fonts/helveticaneue.woff') format('woff'),
+    url('/media/css/fonts/helveticaneue.ttf') format('truetype'),
+    url('/media/css/fonts/helveticaneue.svg#HelveticaNeueRegular') format('svg');
+}
+
+
 body {
   background: #fff
 }
@@ -18,7 +27,7 @@ h5,
 h6 {
   margin: 15px 0 0 0;
   font-weight: normal;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'HelveticaNeueRegular';
 }
 
 
@@ -1555,7 +1564,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .navbar-form li select { padding:10px ; margin:0 0 0 5px;  width:220px;height:40px;}
 .navbar-form li input[type="submit"]{ background:url(/media/images/submit.gif) no-repeat; width:42px; height:42px; border:none; margin:0;}
 .leftnav { background:#e9e7e7;}
-.leftnav h3 { margin:5px 0 0 0; float:left; width:100%;}
+.leftnav h3 { margin:0; float:left; width:95%;font-size: 13px;}
 .leftnav h3 span { float:left; background:url(/media/images/sprite.png) no-repeat; width:24px; height:21px;}
 
 .leftnav h3 span.energy { background-position:-58px -74px;}
@@ -1572,18 +1581,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .leftnav .bdr { margin:10px 0;  border-bottom:solid 1px #ccc; float:left; width:100%;}
 
-.sort { width:98%; display:block; background:#e9e7e7; box-shadow:1px 1px 1px #c5c5c5; padding:5px; margin:0 0 20px 0}
+.sort { width:98%; display:block; background:#e9e7e7; box-shadow:1px 1px 1px #c5c5c5; padding:5px; margin:0 0 13px 0}
 
 .searchresult {  margin: 10px 0;
-    padding: 10px 10px 10px 20px;
-    width: 95%;}
+    padding: 0px 10px 10px 20px;
+    width: 95%;font-size: 13px;line-height: 16px;}
 .searchresult img { border:solid 1px #e6e6e6; margin:5px 10px 0px 0;}
 
 .searchresult span { display:block;}
-.searchresult strong a { font-size:24px; display:block; color:#ff5500; margin:0 0 10px 0; line-height:24px;}
+.searchresult strong a { font-size:22px; font-weight: normal; display:block; color:#ff5500; margin:0; line-height:24px;}
 .load { text-align:center; font-size:14px; padding:10px 0;}
 
-.searchresultgrey { background:#f6f5f5; border-bottom:solid 2px #d2d2d2;}
+.searchresultgrey { background:#f6f5f5; border-bottom:solid 2px #d2d2d2;padding-top: 5px;}
 .green { color:#000000; font-size:30px; }
 .thumbnail .caption { position:absolute; color:#fff; bottom:0px; background:url(/media/images/caption.png) repeat;font:normal 13px Arial, Helvetica, sans-serif; padding:9px 9px 45px 9px;}
 .thumbnail .caption strong { font:bold 18px Arial, Helvetica, sans-serif;}
@@ -1595,7 +1604,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .comptop img { margin:0 0PX 0 10px ; border:solid 1PX #c5c5c5; box-shadow:1PX 1PX 1PX #ececec; float:left;}
 .comptop h1 { display:block; font-size:20px; float:left; width:80%;  margin:10px 0PX 10px 10px ; line-height:20px; color:#000000;}
-.comptop em  { float:left; font-weight:16px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0PX 0 10px ;}
+.comptop em  { float:left; font-size:16px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0PX 0 10px ;}
 .comptop p  { float:left; width:80%; font:normal 12px Arial, Helvetica, sans-serif; padding:20px 0 0 0;margin:0 0PX 0 10px ;}
 .buisness { margin:20px 0 0 0; position:relative;}
 .buisness h2 { font:normal 18px Arial, Helvetica, sans-serif; display:block; font-weight:400; background:none; color:#000; padding:5px 0;}
@@ -1674,7 +1683,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .listright strong { display:block; font:bold 15px Arial, Helvetica, sans-serif; padding:2px 0 5px 0;}
 .listright p { width:80%; float:left;}
 .listright em { float:right; width:22px; height:22px; background:url(/media/images/sprite.png) -198px -15px no-repeat;}
-ul.keyword{width:670px}
+ul.keyword{width:670px;margin-top: 3px;}
 ul.keyword li{width:33%;float: left;}
 ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 
@@ -1685,3 +1694,4 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 
 .disable{display: none;}
 #content .leftnav ul{float: left;padding-top: 0px;}
+.indsearch{font-size: 12px;}
