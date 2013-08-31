@@ -69,8 +69,8 @@ class GreenVicharAdmin(admin.ModelAdmin):
     
     inlines = [EventInline, ArticleInline, PicsVideoInline, StoryQuotesInline, 
                QuestionireInline]
-    list_display = ('title', 'get_vichar_type', 'publish_date','published_by')
-    fields = ('title', 'vichar_type', 'publish_date','published_by')
+    list_display = ('get_vichar_type', 'publish_date','published_by')
+    fields = ('vichar_type', 'publish_date','published_by')
     form = GreenVicharForm
     
     class Media:
