@@ -25,7 +25,6 @@ class GrnVchrHome(models.Model):
 
     
 class GreenVichar(models.Model):
-    title = models.CharField(max_length=200)
     vichar_type = models.IntegerField()
     creation_date = models.DateTimeField(auto_now_add=True)
     publish_date = models.DateTimeField()
@@ -35,7 +34,7 @@ class GreenVichar(models.Model):
     approved_by = models.CharField(max_length=200, null=True)
      
     def __unicode__(self):
-        return self.title
+        return TYPE_CHOICES[self.vichar_type][1]
     
     def get_vichar_type(self):
         return TYPE_CHOICES[self.vichar_type][1]

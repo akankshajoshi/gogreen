@@ -5,21 +5,11 @@
 
 
 <div id="content">
-  
-  
-  
-  
-  
     <div class="container"> 
-     
-     
-     
-      <ul class="breadcrumb">
+    <ul class="breadcrumb">
     <li><a href="#">Home</a> <span class="divider"> > </span></li>
     <li class="active"><a href="#">Categories</a> &gt; {{comp.company_name}}</li>
       </ul>
-      
-      
       <div class="comptop">
           {% if comp.company_logo %}
           <img src="{{MEDIA_URL}}{{comp.company_logo}}" alt="">
@@ -89,8 +79,11 @@
 </ul>
 
 </form>
-<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,</p>
-<em>Posted by Pritika Arora</em><a href="#">View all reviews</a> </div>
+{% for review in reviews %}
+<p>{{ review.text }}</p>
+<em>Posted by {{ review.name }}</em>{% endfor %}
+
+<a href="{% url view_company_reviews comp.company_name|slugify comp.id %}">View all reviews</a> </div>
 
 </div>
 <div class="span4 pull-right">

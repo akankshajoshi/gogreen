@@ -18,6 +18,7 @@ class CompanyAdmin(admin.ModelAdmin):
     exclude = ('modified_by',)
     inlines = (CompanyProductImgInline,)
     list_display = ('company_name','get_comments','get_contactus')
+    search_fields = ['company_name','id']
     
     
     def get_comments(self, obj):

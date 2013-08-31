@@ -1,5 +1,5 @@
 # Create your views here.
-from forms import SignUpForm, SearchForm
+from forms import SearchForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment
@@ -8,19 +8,6 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
 import json
-
-def signup(request):
-    if request.Method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            status = 'sign up successfully'
-        else:
-            status = 'wrong entry'
-            
-    else:
-        form = SignUpForm()
-    return render_to_response('signup.html', {'form':form, 'status':status}, context_instance=RequestContext(request))
 
 def index_page(request):
     if request.method == 'GET':
@@ -53,11 +40,22 @@ def view_category(request, cat, subcat, subcat_id):
 def view_company(request, cname, cid):
     comp = Company.objects.filter(id=int(cid))
     if comp:
-        data = {'comp':comp[0]}        
+        reviews = Comment.objects.filter(company=comp)[:3]
+        data = {'comp':comp[0],'reviews':reviews}        
         return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
     else:
         return HttpResponse("Company Does not exist")
-        
+    
+
+def view_company_reviews(request, cname, cid):
+    comp = Company.objects.filter(id=int(cid))
+    if comp:
+        reviews = Comment.objects.filter(company=comp,status=1)
+        data = {'reviews':reviews}        
+        return render_to_response('directory/reviews.html', data, context_instance=RequestContext(request))
+    else:
+        return HttpResponse("Company Does not exist")
+
 def ajax_save_contact(request):
     status = 0
     if request.method == 'POST':

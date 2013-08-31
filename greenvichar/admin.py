@@ -33,6 +33,8 @@ class VicharCommentAdmin(admin.ModelAdmin):
 #         if obj.is_approve:
 #             obj.approve_by = request.user
 #             obj.save()
+    
+
      
     def queryset(self, request):
         qs = super(VicharCommentAdmin, self).queryset(request)
@@ -85,6 +87,14 @@ class GreenVicharAdmin(admin.ModelAdmin):
         return obj.get_vichar_type()
     get_vichar_type.short_description = 'Green Vichar Type'
     
+    def queryset(self, request):
+        qs = super(GreenVicharAdmin, self).queryset(request)
+        if request.user.groups.filter(name='frontenduser').count():
+            qs= qs.filter(created_by = request.user)
+        else:
+            qs= qs.filter(status=0).order_by('-moderationdate')
+        return qs
+        
 #     def add_view(self, request, form_url='', extra_context=None):
 #         if request.method == 'GET':
 #             initial = {'published_by': request.user.username}

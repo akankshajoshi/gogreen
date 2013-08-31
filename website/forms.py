@@ -3,10 +3,6 @@ from django.contrib.auth.models import User
 from models import Company, GreenOMeter, Blog, City, State
 
 
-class SignUpForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('username','email','password')    
 
 class SearchForm(forms.Form):
     field = forms.ChoiceField(label='Search By', widget=forms.RadioSelect, choices=(('company', 'Search by Company'), ('product', 'Search by Product')), initial="company")
