@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from website.utils import get_image_by_size
 
-TYPE_CHOICES = ((1,'Event'),(2,'Article'),(3,'Pics/Video'),(4,'Quotes'),(5,'Questionire'))
+TYPE_CHOICES = ((0,'--Select--'),(1,'Event'),(2,'Article'),(3,'Pics/Video'),(4,'Quotes'),(5,'Questionire'))
 
 class GrnVchrHome(models.Model):
     type = models.IntegerField(choices=TYPE_CHOICES)
