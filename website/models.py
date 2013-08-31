@@ -49,7 +49,7 @@ class Company(models.Model):
     business_description = models.TextField(null=True)
     deals_in = models.TextField(null=True,blank=True)
     green_o_meter = models.CharField(max_length=100, null=True, blank=True)
-    rating = models.IntegerField(CHOICES=RATING_CHOICES, default=0)
+    rating = models.IntegerField(choices=RATING_CHOICES, default=0)
     subcategory = models.ManyToManyField('Subcategory')
     year_founded = models.IntegerField(choices=YEAR_CHOICES, null=True, blank=True)
     no_of_emp = models.IntegerField(choices=EMP_CHOICES, null=True, blank=True)
