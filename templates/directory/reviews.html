@@ -1,0 +1,8 @@
+<ul>
+{% for review in reviews %}
+<li>
+{{ review.text }}
+By:{{ review.name }}
+</li>
+{% endfor %}
+</ul>
