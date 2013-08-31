@@ -38,8 +38,8 @@ class Company(models.Model):
     meta_desc = models.CharField(null=True, blank=True, verbose_name='Meta Description', max_length=50)
     meta_kword = models.CharField(max_length=50, null=True, blank=True, verbose_name='Meta Keywords')
     address = models.CharField(max_length=200)
-    city = models.CharField(max_length=50,choices=CITY_CHOICES)
-    state = models.IntegerField(max_length=50,choices=STATE_CHOICES)
+    city = models.IntegerField(max_length=50)
+    state = models.IntegerField(max_length=50)
     mobile = models.CharField(max_length=100, null=True, blank=True)
     phone = models.CharField(max_length=12, null=True, blank=True)
     contact_person = models.CharField(max_length=30, null=True, blank=True)
@@ -64,6 +64,7 @@ class Company(models.Model):
     def __unicode__(self):
         return self.company_name
     
+           
     def save(self,*args,**kwargs):
         super(Company, self).save()
         if self.company_logo:
@@ -81,6 +82,14 @@ class Company(models.Model):
             val = self.green_o_meter
             objs = GreenOMeter.objects.filter(pk__in=val.split(','))
         return objs
+    
+    def get_city(self):
+        city = City.objects.filter(id=self.city)
+        return city.name
+    
+    def get_state(self):
+        state = State.objects.filter(id=self.state)
+        return state.name
                 
 class CompanyProductImg(models.Model):
     company = models.ForeignKey('Company')
@@ -142,6 +151,7 @@ class Category(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     is_deleted = models.BooleanField(default=False)
     sort_order = models.IntegerField(default=1)
+    icon = models.ImageField(upload_to='uploads/category')
     objects = models.Manager()
     has_sub_objs = CatManager()
     

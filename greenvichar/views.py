@@ -4,8 +4,9 @@ from django.template import RequestContext
 
 def home(request):
     vichars = GrnVchrHome.objects.all()
+    print vichars
     return render_to_response('greenvichar/greenvichar.htm', {'vichars':vichars}, context_instance=RequestContext(request))
 
 def view_listing(request, vichar_type, vid):
-#     vichars = GreenVichar.objects.filter(vichar_type=vid)
+    vichars = GreenVichar.objects.all()
     return render_to_response('greenvichar/listing.html', {}, context_instance=RequestContext(request))
