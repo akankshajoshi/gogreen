@@ -8,14 +8,6 @@ class BlogAdmin(admin.ModelAdmin):
     pass
 
 
-# class TopBannerAdmin(admin.ModelAdmin):
-#     list_display = ('image', 'published_date')
-#     fields = ('image')
-#     def save_model(self, request, obj, form, change):
-#         super(TopBannerAdmin, self).save_model(request, obj, form, change)
-#         obj.created_by = request.user 
-#         obj.save()
-
 class CompanyProductImgInline(admin.StackedInline):
     model = CompanyProductImg
     extra = 1

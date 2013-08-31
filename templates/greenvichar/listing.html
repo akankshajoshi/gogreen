@@ -7,10 +7,7 @@
 
 
 <div class="container">
-     
-     
-     
-         <ul class="breadcrumb">
+     <ul class="breadcrumb">
     <li><a href="#">Home</a> <span class="divider"> > </span><a href="#">Green vichar</a>  <span class="divider"> > </span></li>
     <li class="active">Events</li>
     </ul>
@@ -18,7 +15,16 @@
       <div class="span7 pull-left">
       
   <span class="pull-left atr">LATEST ARTICLES</span>  <span class="pull-right post">Post an article</span>
-   <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
+  {% if vid == '1' or vid == '2' %}
+  {% for obj in obj_list %}
+      <div class="latestart">     <img src="{{MEDIA_URL}}{{obj.image}}" alt="" align="left"><strong>{{obj.title}}</strong>
+<span>{{obj.published_by}}</span>
+{{obj.description}}</div>
+   
+   <div class="bdr"></div>
+  {% endfor %}
+  {% endif %}
+   <!--  <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
 Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
 <span>by Pritika Arora</span>
 This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
@@ -59,7 +65,7 @@ This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor
    
    
    
-
+-->
       </div>
      
      <aside class="span4 pull-right " >
