@@ -1,11 +1,11 @@
-from choices import COUNTRY_CHOICES, STATE_CHOICES, CITY_CHOICES, YEAR_CHOICES, \
+from choices import YEAR_CHOICES, \
     TURNOVER_CHOICES, EMP_CHOICES, RATING_CHOICES
 from django.contrib.auth.models import User
 from django.db import models
 from tinymce.models import HTMLField
 from utils import get_image_by_size
 from django.conf import settings
-
+from datetime import datetime as dt
 
 
 class Blog(models.Model):
@@ -117,9 +117,9 @@ class ContactUs(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField()
     text = HTMLField(max_length=1000)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    moderation_date = models.DateTimeField(auto_now=True) 
-    status = models.IntegerField(choices=((0,'Submitted'),(1,'Viewed'),), default=0)
+    creation_date = models.DateTimeField()
+    moderation_date = models.DateTimeField() 
+    status = models.IntegerField(choices=((0,'Submitted'),(1,'Viewed'),(2,'Declined')), default=0)
     done_by = models.IntegerField(null=True)
     
 
