@@ -1,0 +1,61 @@
+{% extends "layoutbase.html" %}
+{% block bodycontent %}
+<div id="content">
+  
+  
+  
+  
+  
+    <div class="container"> 
+     
+     
+     
+         <ul class="breadcrumb">
+    <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
+    <li class="active">Contact Us</li>
+    </ul>
+    </div>
+
+
+<div class="span6 pull-left"><img src="images/contactusmap.jpg" alt=""></div>
+<div class="span3 pull-left contact1"><h3>Contact us</h3>
+
+<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor
+</p>
+<p>
+<strong>Address</strong>
+Rue Potaarde 73,1082 Berchem-Sainte-Agathe
+</p>
+<p>
+<strong>Email</strong>
+contactus@green.com
+</p>
+
+<p>
+
+<strong>Phone</strong>
++91 9910099100, 0124 33443352
+</p><form>
+<p><strong>We will contact you, leave us a message
+</strong>
+</p>
+<ul>
+<li><input name="name" maxlength="70" class="required" placeholder="Name" holder="Name" type="text" /></li>
+    <li><input name="email" maxlength="70" class="email required"  placeholder="Email" holder="Email" type="text" /></li>
+<li><input maxlength="12" class="numericOnly" placeholder="Mobile" holder="Mobile" type="text" /></li><li><select name=""></select></li>
+<li class="message"><textarea placeholder="Message" holder="Message" name="" cols="3" rows="3"></textarea></li>
+    <li><input name="" type="submit" value="Submit" class="orange"></li>
+
+
+
+</ul>
+
+</form>
+</div>
+
+
+
+</div>
+
+
+{% endblock bodycontent %}
