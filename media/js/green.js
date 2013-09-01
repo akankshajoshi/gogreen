@@ -98,7 +98,9 @@ $('.cls_categ').on('click',function(){
 
     $(document).ready(function(){
         $("#googlemap").each(function(){
-            var embed ="<iframe width='100%' height='100%' frameborder='0' scrolling='no'  marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
+            /*var embed ="<iframe width='100%' height='100%' frameborder='0' scrolling='no'  marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";*/
+
+            var embed ="<iframe width='100%' height='100%' frameborder='0' scrolling='no'  marginheight='0' marginwidth='0' src='https://maps.google.co.in/maps?q=" + $(this).text()+"&hl=en&oq="+$(this).text()+"&t=m&z=&amp;output=embed'></iframe>";
             $(this).html(embed);
         });
     });

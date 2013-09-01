@@ -37,12 +37,13 @@
         <link rel="stylesheet" href="{{MEDIA_URL}}css/style.css">
 	{% endblock css.custom %}
 
-    
+
 
 
 </head>
 {% endblock head %}
 <body>
+{% include "config.html" %}
 	<div class="main">
 		{% block header %} {% include "share/header.html" %}	{% endblock header %}
 		{% block bodycontent %}	{% endblock bodycontent %}
