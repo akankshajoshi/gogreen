@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
+from datetime import datetime as dt
 import json
 
 def index_page(request):
@@ -40,7 +41,7 @@ def view_category(request, cat, subcat, subcat_id):
 def view_company(request, cname, cid):
     comp = Company.objects.filter(id=int(cid))
     if comp:
-        reviews = Comment.objects.filter(company=comp)[:3]
+        reviews = Comment.objects.filter(company=comp,status=1)
         data = {'comp':comp[0],'reviews':reviews}        
         return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
     else:
@@ -65,7 +66,9 @@ def ajax_save_contact(request):
             name = request.POST.get('name')
             email = request.POST.get('email')
             text = request.POST.get('text')
-            ContactUs.objects.create(company=comp,name=name,email=email,text=text)
+            creation_date = dt.now()
+            moderation_date = dt.now()
+            ContactUs.objects.create(company=comp,name=name,email=email,text=text,creation_date=creation_date,moderation_date=moderation_date)
             status = 1
     return HttpResponse(json.dumps({'status':status}), mimetype="application/json")
     

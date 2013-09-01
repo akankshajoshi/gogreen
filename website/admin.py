@@ -3,6 +3,8 @@ from models import Company , Comment, Category, Subcategory, PopularKeyword, \
 from django.conf import settings
 from django.contrib import admin
 from forms import CompanyForm
+from datetime import datetime as dt
+from django.contrib.auth.models import User
 
 class BlogAdmin(admin.ModelAdmin):
     pass
@@ -49,7 +51,7 @@ class CompanyAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     model = Comment
     list_display = ('name','get_company_name','email','done_by','status')
-    list_editable = ('status','done_by')
+    list_editable = ('status',)
     list_filter = ('status',)
     
     def get_company_name(self, obj):
@@ -60,7 +62,7 @@ class CommentAdmin(admin.ModelAdmin):
         qs = super(CommentAdmin, self).queryset(request)
         if request.GET.get('company'):
             company = request.GET.get('company')
-            qs= qs.filter(company=Company.objects.get(id=int(company)))
+            qs= qs.filter(company=Company.objects.get(id=int(company), status=1))
         else:
             qs = qs.filter(status=0)
         return qs
@@ -72,8 +74,10 @@ class CommentAdmin(admin.ModelAdmin):
         
 class ContactUsAdmin(admin.ModelAdmin):
     model = ContactUs
-    list_display = ('name','get_company_name','email','done_by','status')
-        
+    list_display = ('name','get_company_name','email','creation_date','get_done_by','moderation_date','status')
+    fields = ('name','email','creation_date','done_by','moderation_date','status')
+    list_editable = ['status']
+    
     def get_company_name(self, obj):
         return obj.company.company_name
     get_company_name.short_description = 'Company Name'
@@ -82,15 +86,37 @@ class ContactUsAdmin(admin.ModelAdmin):
         qs = super(ContactUsAdmin, self).queryset(request)
         if request.GET.get('company'):
             company = request.GET.get('company')
-            qs= qs.filter(company=Company.objects.get(id=int(company)))
+            qs= qs.filter(company=Company.objects.get(id=int(company)), status=1)
         else:
             qs = qs.filter(status=0)
         return qs
     
     def save_model(self, request, obj, form, change):
-        super(ContactUsAdmin, self).save_model(request, obj, form, change)
-        obj.done_by = request.user.id
-        obj.save()
+        if change:
+            obj.done_by = request.user.id
+            obj.moderation_date = dt.now()
+            obj.save()
+    
+    def get_done_by(self,obj):
+        return User.objects.get(id=obj.done_by)
+    get_done_by.short_description = 'Done By'
+        
+    def changelist_view(self, request, extra_context=None):
+        if not request.GET.get('company'):
+            self.list_display = [field for field in self.list_display if field not in ('get_done_by','moderation_date',)]         
+        return super(ContactUsAdmin, self).changelist_view(request, extra_context)
+    
+    def change_view(self, request, object_id, extra_context=None):
+        """Modify the the change view to show you own error message when
+        you are no longer allowed to change a 'Package'.
+        """
+                # Make all readonly fields if user doesn't have permission to edit.
+        if not request.user.is_superuser:
+            self.readonly_fields = [field for field in self.fields if field != 'status']
+        else:
+            self.readonly_fields = []
+        response = super(ContactUsAdmin, self).change_view(request, object_id, extra_context=None)
+        return response
     
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Comment, CommentAdmin)
