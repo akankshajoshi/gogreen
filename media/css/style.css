@@ -1203,13 +1203,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 @media  (max-width: 767px) {
  .buisnessdirtab {
-    position: none;
+    position: static;
     width: 100%;
 }
 }
 
-  
-.buisnessdirtab a { text-transform:uppercase; font-size:16px; padding:17px; text-align:center; font-weight:bold; color:#fff; background:#278f1c;}
+@media  (min-width: 768px) {
+    .registered {
+        width: 440px;        
+    }
+    .spn7{width:550px;}
+}
+
+.buisnessdirtab a { text-transform:uppercase; font-size:16px; padding:17px 15px; text-align:center; font-weight:bold; color:#fff; background:#278f1c;}
 .buisnessdirtab .g1 { background:#66ba1c;}
 .buisnessdirtab .g2 { background:#98cc44;}
 #profile { background:#e9e7e7; padding:10px 3px 5px 0;}
@@ -1545,7 +1551,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 
 #content .homeart h3 { color:#66ba1c;}
-  #content .homeart { margin-top:45px;}
+  #content .homeart { margin-top:25px;}
 
 .breadcrumb {
   padding: 0px 15px 0 0;
@@ -1695,3 +1701,4 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .disable{display: none;}
 #content .leftnav ul{float: left;padding-top: 0px;}
 .indsearch{font-size: 12px;}
+.homecontent{margin-top:18px}

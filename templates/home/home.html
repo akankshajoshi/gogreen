@@ -8,7 +8,7 @@
 
     <div class="midsection">
   <div class="span12">
-  <div class="span7">
+  <div class="span7 spn7">
   
   <h1>India get your green business online</h1>
   <h2>Welcome to india's 1st most comprehensive green business directory. Here you get to choose the Green Product/Services of the various green companies, that help to attain a sustainable life.</h2>
@@ -17,7 +17,7 @@
   <span>{{count.text1}}</span>
   
   </div>
-  <div class="re pull-right ">Registered Green Companies<span>{{count.text2}}</span></div>
+  <div class="re pull-left ">Registered Green Companies<span>{{count.text2}}</span></div>
   
   <div class="clearfix"></div>
   </div>
@@ -71,7 +71,9 @@
   </div>
   
   
-    <div class="buisnessdirtab "><a href="{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}" class="span4">Green Business Directory</a><a href="#" class="span4 g1">Green Business Directory</a><a href="#" class="span4 g2">Green Business Directory</a></div>
+    <div class="buisnessdirtab "><a href="{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}" class="span5">Green Business Directory</a>
+        <a href="#" class="span5 g1">Green Vichar</a>
+        </div>
   </div>
 
   
@@ -83,7 +85,7 @@
   
   
   
-    <div class="container"> 
+    <div class="container homecontent">
       <div class="row homeart">
       <article class="span4 offset1 pull-left tree"><img src="{{MEDIA_URL}}images/tree.gif" alt=""><strong>{{count.tree_planted}}</strong><em>Green has taken the initiative and planted 
 {{count.tree_planted}} trees so far. <a href="#">Click here</a> to join us today</em></article>
