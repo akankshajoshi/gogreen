@@ -52,7 +52,6 @@ class Command(BaseCommand):
             print row,'-------row--------'
             _regx = re.compile(r'[^\x00-\x7F]')
             modfy_str = _regx.sub('', sheet1.cell(row, 7).value)
-            
             state = State.objects.filter(name=sheet1.cell(row, 2).value)
             if state:
                 state_val = state[0].id

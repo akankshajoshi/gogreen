@@ -8,6 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', include('homepage.urls')),
+    url(r'^login/',include('login.urls')),
     url(r'^footer/', include('footer.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^',include('website.urls')),

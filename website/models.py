@@ -179,16 +179,6 @@ class PopularKeyword(models.Model):
         return self.keyword
     
     
-class Review(models.Model):
-    company = models.ForeignKey('Company')
-    name = models.CharField(max_length=200)
-    email = models.EmailField()
-    text = HTMLField(max_length=1000)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    moderation_date = models.DateTimeField(auto_now=True) 
-    status = models.IntegerField(choices=((0,'Submitted'),(1,'Accepted'),(2,'Rejected')),default=0)
-    done_by = models.IntegerField(null=True)
-
 class State(models.Model):
     name = models.CharField(max_length=50)
     
