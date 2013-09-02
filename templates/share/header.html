@@ -4,7 +4,13 @@
             <div class="navbar-inner">
                 <div class="clearfix">
                     <h1 class="brand"><a href="{% url index %}"><img alt="" src="{{MEDIA_URL}}images/logo.png"></a><span>Green</span></h1>
-                    <div class="greenbase">{% for text in headings %}{{text.text}}{% endfor %}</div>
+                    <div class="greenbase pull-left">
+                        <ul class="bxslider1 pull-left w100">
+                        {% for text in headings %}
+                        <li>{{text.text}}</li>
+                                {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

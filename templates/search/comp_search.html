@@ -12,14 +12,14 @@
      
      
          <ul class="breadcrumb">
-    <li><a href="#">Home</a> <span class="divider"> > </span></li>
+    <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
     <li class="active">Categories</li>
     </ul>
         {% include "directory/search.html" %}
 
         {% include "directory/categ-subcateg.htm" %}
 
-      <div class="span7 pull-right">
+      <div class="span7 pull-left srchrest">
 
           <h4>
               ‘{{keyword}}’ yielded {{compcount}} Results

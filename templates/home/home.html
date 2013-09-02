@@ -37,6 +37,7 @@
                 	<ul>
                     <li >
                         <input name="keyword" type="text" value="" placeholder="Search Company" holder="Search Company" />
+                        <select ><option>Select City</option></select>
                         <input name="search_by" type="hidden" value="by_name" />
                         <input name="" type="submit" value="" />
                     </li>
@@ -47,6 +48,7 @@
                        <ul>
                         <li >
                             <input name="keyword" type="text" value="" placeholder="Search Product" holder="Search Product" />
+                           <select ><option>Select City</option></select>
                             <input name="search_by" type="hidden" value="by_product" />
                             <input name="" type="submit" value="" />
                         </li>
@@ -61,7 +63,7 @@
   
   </div>
   
-  <div class="span4 sponsor"><img src="{{MEDIA_URL}}images/banner_300.jpg" alt="">
+  <div class="span4 sponsor pull-right hidden-phone"><img src="{{MEDIA_URL}}images/banner_300.jpg" alt="">
   <div class="spo">
 <h3><strong>  Sponsored by</strong></h3>
 {% for logo in homelogos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
@@ -123,5 +125,18 @@
             slideWidth: 100,
             slideMargin: 10
         });
+
+/*
+        $('.bxslider1').bxSlider({
+            minSlides: 1,
+            maxSlides: 1,
+
+
+            auto: true,
+            randomStart:true,
+            infiniteLoop:true
+        });*/
     </script>
+
+
 {% endblock ASYJS %}

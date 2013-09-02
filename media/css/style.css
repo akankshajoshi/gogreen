@@ -1208,12 +1208,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 }
 }
 
-@media  (min-width: 768px) and (max-width: 1024px) {
-    .registered {
-        width: 440px;        
-    }
-    .spn7{width:550px;}
-}
+
 
 .buisnessdirtab a { text-transform:uppercase; font-size:16px; padding:17px 15px; text-align:center; font-weight:bold; color:#fff; background:#278f1c;}
 .buisnessdirtab .g1 { background:#66ba1c;}
@@ -1221,8 +1216,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 #profile { background:#e9e7e7; padding:10px 3px 5px 0;}
 .greybase .nav { margin-bottom:0px;}
 .greybase .nav-tabs > li > a { background:#ff5500; border-radius:0px; color:#fff; margin:0 7px 0 0; padding:10px 30px; font-size:15px; border:none; }
-.greybase input[type="text"] { width:87%; border:solid 1px #d1d0d0; color:#333; padding:11px 5px; box-shadow:1px 1px 1px #e9e7e7; font-size:13px;}	
-.greybase select { float:left; border:solid 1px #d1d0d0; color:#333; padding: 12px 5px 10px 5px; box-shadow:1px 1px 1px #e9e7e7; margin:0 10px 0 0; width:210px; height:43px}
+.greybase input[type="text"] { width:57%;margin-right: 5px; float: left; border:solid 1px #d1d0d0; color:#333; padding:11px 5px; box-shadow:1px 1px 1px #e9e7e7; font-size:13px;}
+.greybase select {
+    border: 1px solid #D1D0D0;
+    box-shadow: 1px 1px 1px #E9E7E7;
+    color: #333333;
+    float: left;
+    height: 40px;
+    margin: 3px 10px 0 0;
+    padding: 10px 5px 9px;
+    width: 160px;
+}
 .greybase input[type="submit"] { background:url(/media/images/submit.gif) no-repeat; width:42PX; height:42PX; border:none;}
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
@@ -1564,10 +1568,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .navbar-form { background:#e9e7e7; width:98%; padding:10px 10px; margin:10px 0;}
 .navbar-form li { padding:0 10px; float:left;}
 
-.navbar-form li input[type="text"] { padding:10px; margin:0 0 0 5px; height:20px; width:580px;}
+.navbar-form li input[type="text"] { padding:10px; margin:0 0 0 5px; height:20px; width:400px;}
 
 .navbar-form li.mm { padding-top:10px;} 
-.navbar-form li select { padding:10px ; margin:0 0 0 5px;  width:220px;height:40px;}
+.navbar-form li select { padding:10px ; margin:0px;  width:160px;height:41px;}
 .navbar-form li input[type="submit"]{ background:url(/media/images/submit.gif) no-repeat; width:42px; height:42px; border:none; margin:0;}
 .leftnav { background:#e9e7e7;}
 .leftnav h3 { margin:0; float:left; width:95%;font-size: 13px;}
@@ -1618,7 +1622,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .buisness li { display:inline-block; padding:0 5px;}
 .buisness h2 em { color:#666666; font-style:normal;}
-.buisness .contact { background:url(/media/images/caption.png) repeat; padding:10px; width:97.5%; color:#fff; }
+.buisness .contact { background:url(/media/images/caption.png) repeat; padding:10px 0 0 0; width:100%;
+    float: left; color:#fff; }
 .buisness .contact a { color:#fff;}
 .buisness .contact span { float:left; width:20px; height:20px; background:url(/media/images/sprite.png) no-repeat;}
 .buisness .contact span.mo { background-position:-121px -10px}
@@ -1635,12 +1640,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .review input[type="submit"] { background:#f85606; border-radius:1px; color:#fff; font-size:14px; border:0px; padding:2px 10px; margin:43px 10px 0 10px;}
 
 .review strong { color:#333333; font-size:16px; margin: 0 0 0 10px;}
-.review  { margin:0;}
+.review  { margin:0;float: left;}
 .review textarea { width:500px;}
 @media (min-width: 768px) and (max-width: 979px)
 {.review textarea { width:300px;}
 .review input[type="submit"] { margin:10px 10px 0 0px;}
-  .midsection .sponsor { visibility:hidden;}
+  
 }
 
 #googlemap{float: left;width: 696px;height: 240px;}
@@ -1748,9 +1753,87 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .contact1 ul li.message { width:100%}
 .contact1 ul li.message textarea { width:91%}
 .contact1 ul li input[type="button"] { margin:0;}
+
+.srchrest,.key{margin-left: 25px;}
+.key h2,.leftnav,.srchrest, .key{float: left;}
+.key h2{width: 95%;}
 @media (max-width: 480px) {
     .quote .latestart { float:right; width:81%;}
     .question .que1 { float:left; width:76%;}
     .contact1 ul li { width:100%;}
     .contact1  { margin:0 0 0 10px;}
+}
+
+
+
+@media  (min-width: 768px) and (max-width: 1024px) {
+    .midsection{height:682px}
+    .midsection .span12{height:647px}
+    .greybase{width:100%}
+    .greybase input[type="text"]{width: 42%;}
+    .tree{width:250px}
+    .navbar-form li input[type="text"]{width:155px}
+    .navbar-form li select{width:100px}
+    .navbar_ .brand{text-align: left;}
+    .srchrest{width:440px}
+    .bd{width:455px}
+    #googlemap{width:455px;}
+    .key h2{width:95%}
+    ul.keyword{width:100%}
+    ul.keyword li{width:50%}
+    .navbar-form{width:94%}
+
+}
+
+@media  (max-width: 640px) {
+    .key h2{width: 568px;}
+    .key{margin-left: 0px;}
+    .ul.keyword li{width:100%}
+    .navbar-form li input[type="text"]{width:479px;}
+}
+
+
+@media  (max-width: 480px) {
+    .greybase input[type="text"]{width:80%}
+    .homecontent{float: left;}
+    .navbar-form { padding: 10px 3px;}
+    .navbar-form li input[type="text"]{width:200px}
+    .navbar-form li.mm{padding:10px 5px 0px 5px }
+    .navbar-form li{padding:0px}
+    .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
+    .leftnav h2{float:left;width:95%; padding: 10px 11px;}
+    .key h2,.leftnav,.srchrest, .key{float: left;}
+    .key h2,.key{width:420px}
+    .key h2 { padding: 10px;}
+    .srchrest, .key{margin-left: 0px;}
+    ul.keyword,ul.keyword li{width:100%}
+
+}
+
+
+@media  (max-width: 360px) {
+    .greybase input[type="text"]{width:45%}
+    .homecontent{float: left;}
+    .navbar-form { padding: 10px 3px;}
+    .navbar-form li input[type="text"]{width:200px}
+    .navbar-form li.mm{padding:10px 5px 0px 5px }
+    .navbar-form li{padding:0px}
+    .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
+    .leftnav h2{float:left;width:93%; padding: 10px 11px;}
+    .key h2,.leftnav,.srchrest, .key{float: left;}
+    .key h2,.key{width:97%}
+    .key h2 { padding: 10px;}
+    .srchrest, .key{margin-left: 0px;}
+    ul.keyword,ul.keyword li{width:100%}
+    .greybase select{width: 90px;}
+}
+
+
+
+@media  (min-width: 800px) and (max-width: 979px) {
+    .key{width:455px;margin-left: 20px; }
+    ul.keyword{width: 435px;}
+    .navbar-form{width:97%}
+
+
 }
