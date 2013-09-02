@@ -6,6 +6,7 @@ from tinymce.models import HTMLField
 from utils import get_image_by_size
 from django.conf import settings
 from datetime import datetime as dt
+import json
 
 
 class Blog(models.Model):
@@ -70,6 +71,7 @@ class Company(models.Model):
         if self.company_logo:
             thumbname = get_image_by_size(self.company_logo,'company_logo')
             self.company_logo = 'uploads/comp_logo/' + thumbname
+#         create_companyjson()
         super(Company, self).save()
         
     def get_business_type(self):
@@ -90,7 +92,13 @@ class Company(models.Model):
     def get_state(self):
         state = State.objects.filter(id=self.state)
         return state.name
-                
+
+# def create_companyjson():
+#     companies = Company.objects.all().values_list('company_name',flat=True)
+#     company_json = json.dumps({'company':companies})
+#     f = open('abc.js')
+#     f.write(company_json)
+ 
 class CompanyProductImg(models.Model):
     company = models.ForeignKey('Company')
     image = models.ImageField(upload_to='uploads/comp_imgs')

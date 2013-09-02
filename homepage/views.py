@@ -5,6 +5,7 @@ from website.models import Category, Subcategory, Company, Blog
 from logo.models import GovrnLogo, HomePageLogo
 from django.db.models import Q
 from datetime import datetime as dt
+from forms import CityForm
 
 def home(request):
     comps = []
@@ -12,7 +13,8 @@ def home(request):
     homelogos = HomePageLogo.objects.filter(start_date__lte=dt.now().date(), end_date__gte=dt.now().date())
     if request.method == 'GET':
         count = CompanyCount.objects.all()[0]
+        cityform = CityForm()
         return render_to_response('home/home.html',
-                                  {'count':count, 'blogs':blogs,'homelogos':homelogos},
+                                  {'count':count, 'blogs':blogs,'homelogos':homelogos,'cityform':cityform},
                                   context_instance=RequestContext(request))
     

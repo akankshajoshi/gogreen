@@ -110,7 +110,7 @@ class ContactUsAdmin(admin.ModelAdmin):
         """Modify the the change view to show you own error message when
         you are no longer allowed to change a 'Package'.
         """
-                # Make all readonly fields if user doesn't have permission to edit.
+        # Make all readonly fields if user doesn't have permission to edit.
         if not request.user.is_superuser:
             self.readonly_fields = [field for field in self.fields if field != 'status']
         else:

@@ -1,6 +1,9 @@
 from PIL import Image
 import sys
 from django.conf import settings
+
+import json
+
 IMG_SIZE = settings.IMG_SIZE
 
 def get_image_by_size(image, type):
@@ -26,4 +29,3 @@ def get_image_by_size(image, type):
     im.save(fullpath + '/' + thumbname)
     return thumbname
 
-        

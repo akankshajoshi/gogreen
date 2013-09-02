@@ -3,6 +3,7 @@ from greenvichar.models import GrnVchrHome, GreenVichar, Event, \
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
+
 def home(request):
     vichars = GrnVchrHome.objects.all()
     print vichars

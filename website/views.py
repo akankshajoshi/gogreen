@@ -2,13 +2,15 @@
 from forms import SearchForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment
+from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment, City
 from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
 from datetime import datetime as dt
 import json
+from models import Company
+from homepage.forms import CityForm
 
 def index_page(request):
     if request.method == 'GET':
@@ -35,14 +37,16 @@ def view_category(request, cat, subcat, subcat_id):
         categ=Category.objects.filter(subcategory=subcat)
 
         populars = subcat.popularkeyword_set.all()
-        return render_to_response('search/keyword.html', {'categ':categ,'populars': populars, 'comps':comps,'subcat':subcat}, context_instance=RequestContext(request))
+        cityform = CityForm()
+        return render_to_response('search/keyword.html', {'categ':categ,'populars': populars, 'comps':comps,'subcat':subcat,'cityform':cityform}, context_instance=RequestContext(request))
     
     
 def view_company(request, cname, cid):
     comp = Company.objects.filter(id=int(cid))
+    cityform = CityForm()
     if comp:
         reviews = Comment.objects.filter(company=comp,status=1)
-        data = {'comp':comp[0],'reviews':reviews}        
+        data = {'comp':comp[0],'reviews':reviews,'cityform':cityform}        
         return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
     else:
         return HttpResponse("Company Does not exist")
@@ -89,11 +93,18 @@ def search(request):
     if request.method=="POST":
         keyword = request.POST.get('keyword')
         search_by = request.POST.get('search_by')
+        city = request.POST.get('city', 0)
         if keyword:
             if search_by == 'by_name':
-                comps = Company.objects.filter(company_name__icontains=keyword)
+                if int(city) > 0 :
+                    comps = Company.objects.filter(company_name__icontains=keyword, city=int(city))
+                else:
+                    comps = Company.objects.filter(company_name__icontains=keyword)
             else:
-                comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
+                if int(city) > 0:
+                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city))
+                else:
+                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
 
         compcount = comps.count();
         paginator = Paginator(comps, 10)
@@ -111,7 +122,7 @@ def search(request):
              HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
              return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
 
-        return render_to_response('search/comp_search.html', {'categ':categ,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
+        return render_to_response('search/comp_search.html', {'categ':categ,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm()}, context_instance=RequestContext(request))
     else:
         return HttpResponse('BAD REQUEST')
 
