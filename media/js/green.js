@@ -53,7 +53,7 @@ submitHandler:function(form)
     $f.makeRequest(k,function(){
         k.div = $('<div class="cls_dyn_popup" title="Contact Us"></div>');
         k.open = function(){
-            $('.cls_dyn_popup').html('Successfully');
+            $('.cls_dyn_popup').html('Your information has been successfully updated.');
         }
         $f.popup(k);
     });

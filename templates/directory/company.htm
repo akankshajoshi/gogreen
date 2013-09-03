@@ -59,7 +59,8 @@
       
       {{comp.business_description}}
       </div>
-      
+
+      {% if comp.get_green_o_meter %}
       
       <div class=" buisness">
    <h2>   Green-o-meter <em>(How green is it?)</em></h2>
@@ -72,7 +73,7 @@
    
    
    </div>
-   
+   {% endif %}
    
    <div class=" buisness">
    <h2> Contact Information</h2>

@@ -12,7 +12,7 @@ def home(request):
     blogs = Blog.objects.all().order_by('-creation_date')[:5]
     homelogos = HomePageLogo.objects.filter(start_date__lte=dt.now().date(), end_date__gte=dt.now().date())
     if request.method == 'GET':
-        count = CompanyCount.objects.all()[0]
+
         cityform = CityForm()
         return render_to_response('home/home.html',
                                   {'count':count, 'blogs':blogs,'homelogos':homelogos,'cityform':cityform},

@@ -2,7 +2,7 @@ import os
 import socket
 import datetime
 from logo.models import GovrnLogo
-from homepage.models import Heading
+from homepage.models import Heading, CompanyCount
 from website.models import Category, Subcategory
 from django.conf import settings
 
@@ -12,7 +12,9 @@ def shared(request):
     categ_subCateg = filter(lambda x:x[1]!=None, [[cat.name, cat.subcategory_set.all()[0]] if cat.subcategory_set.all() else [cat.name, None] for cat in cats])
     headings = Heading.objects.all()
     govn_logos = GovrnLogo.objects.all()
-    return {'cats':cats,'sub': sub,'list':categ_subCateg,'headings':headings,'govn_logos':govn_logos}
+    count = CompanyCount.objects.all()[0]
+    return {'count':count,'cats':cats,'sub': sub,'list':categ_subCateg,'headings':headings,'govn_logos':govn_logos}
+
 
 def media_globals(request):
 
