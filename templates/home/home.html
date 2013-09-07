@@ -17,7 +17,7 @@
   <span>{{count.text1}}</span>
   
   </div>
-  <div class="re pull-left ">Registered Green Companies<span>{{count.text2}}</span></div>
+  <div class="re pull-left ">Registered Green Products<span>{{count.text2}}</span></div>
   
   <div class="clearfix"></div>
   </div>
@@ -63,12 +63,14 @@
   
   </div>
   
-  <div class="span4 sponsor pull-right hidden-phone"><img src="{{MEDIA_URL}}images/banner_300.jpg" alt="">
-  <div class="spo">
+  <div class="span4 sponsor pull-right hidden-phone"><img src="{{MEDIA_URL}}{{bigbanner.0.image}}" alt="" />
+
+      {% if homelogos %}
+      <div class="spo">
 <h3><strong>  Sponsored by</strong></h3>
-{% for logo in homelogos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
+{% for logo in homelogos %}<a target="_blank" href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
 </div>  
-  
+  {% endif %}
   
   </div>
   
@@ -104,13 +106,20 @@
 
 </div>
 
-        
+        {% if govnlogos %}
 <div class="logos">
 
            <div class="spo">
-           {% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
+           {% for logo in govnlogos %}
+               {% if logo.click_url %}
+               <a target="_blank" href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt="" /></a>
+           {% else %}<img src="{{MEDIA_URL}}{{logo.image}}" alt="" />{% endif %}
+           {% endfor %}
             </div>
-
+            </div>
+{% else %}
+            <br/>
+        {% endif %}
 
 
 {% endblock bodycontent %}
@@ -126,16 +135,16 @@
             slideMargin: 10
         });
 
-/*
+
         $('.bxslider1').bxSlider({
             minSlides: 1,
             maxSlides: 1,
-
-
+            speed: 1000,
+            mode:'fade',
             auto: true,
             randomStart:true,
             infiniteLoop:true
-        });*/
+        });
     </script>
 
 

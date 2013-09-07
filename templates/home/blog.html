@@ -7,7 +7,7 @@
             {% for blog in blogs %}
                 <li class="span5">
                     <div class="blok_carousel">
-                        <figure class="img-polaroid"><img width="140" height="140" src="{{ MEDIA_URL }}{{blog.image}}" alt=""></figure>
+                        <figure class="img-polaroid"><img src="{{ MEDIA_URL }}{{blog.image}}" alt="" /></figure>
                         <date>{{blog.creation_date|date:'M d at h.i A'}}</date>
                         <a href='{{blog.linkurl}}'><p><strong>{{blog.name}}</strong>{{blog.text|safe}}</p></a>
                     </div>
