@@ -11,7 +11,6 @@ def shared(request):
     sub = cats[0].subcategory_set.all()[0]
     categ_subCateg = filter(lambda x:x[1]!=None, [[cat.name, cat.subcategory_set.all()[0]] if cat.subcategory_set.all() else [cat.name, None] for cat in cats])
     headings = Heading.objects.all()
-
     count = CompanyCount.objects.all()[0]
     return {'count':count,'cats':cats,'sub': sub,'list':categ_subCateg,'headings':headings}
 

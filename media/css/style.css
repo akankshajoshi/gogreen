@@ -1613,7 +1613,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .comptop { width:100%; border:solid 1px #c5c5c5; padding:10px 0; background:url(/media/images/compbase.gif) repeat-x #f3f3f3; box-shadow:1px 1px 1px #cfcfcf; }
 
 .comptop img { margin:0 0PX 0 10px ; border:solid 1PX #c5c5c5; box-shadow:1PX 1PX 1PX #ececec; float:left;}
-.comptop h1 { display:block; font-size:20px; float:left; width:80%;  margin:10px 0PX 10px 10px ; line-height:20px; color:#000000;}
+.comptop h1 {text-transform: uppercase ;display:block; font-size:20px; float:left; width:80%;  margin:10px 0PX 10px 10px ; line-height:20px; color:#000000;}
 .comptop em  { float:left; font-size:16px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0PX 0 10px ;}
 .comptop p  { float:left; width:80%; font:normal 12px Arial, Helvetica, sans-serif; padding:20px 0 0 0;margin:0 0PX 0 10px ;}
 .buisness { margin:20px 0 0 0; position:relative;}

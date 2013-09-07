@@ -1,15 +1,19 @@
 {% extends "layoutbase.html" %}
+
+{% block title %}{{comp.company_name}} - India Get Green{% endblock title %}
 {% block meta %}
 {{ block.super }}
     <meta property="og:title" content="{{comp.company_name}}" />
     <meta itemprop="title" content="{{comp.company_name}}" />
-    <meta property="og:image" content="{{ MEDIA_URL }}images/candidate/new/shinelogo.gif" />
-    <meta itemprop="image" content="{{ MEDIA_URL }}images/candidate/new/shinelogo.gif " />
+    <meta property="og:image" content="{{url_prefix}}media/images/candidate/new/shinelogo.gif" />
+    <meta itemprop="image" content="{{url_prefix}}media/images/candidate/new/shinelogo.gif " />
     <meta property="og:url" content="{{url_prefix}}{{ comp.company_name|slugify }}/{{ comp.id }}/" />
     <meta itemprop="url" content="{{url_prefix}}{{ comp.company_name|slugify }}/{{ comp.id }}/" />
     <meta property="og:description" content="{{comp.business_description|removetags:'p b span br ul li strong ol'|safe|truncatewords:60}}" />
     <meta name="Description" content="{{comp.business_description|removetags:'p b span br ul li strong ol'|safe|truncatewords:60}}" />
     <meta name="keywords" content="{{comp.deals_in}}" />
+    {% if comp.state %}<meta name="geo.placename" content="{{ comp.state }}"/>{% endif %}
+    <link rel="canonical" href="{{url_prefix}}{{ comp.company_name|slugify }}/{{ comp.id }}/" />
 {% endblock meta %}
 
 {% block bodycontent %}
@@ -26,7 +30,7 @@
     <div class="container"> 
     <ul class="breadcrumb w100">
     <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
-    <li class="active"><a href="{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a> &gt; {{comp.company_name}}</li>
+    <li class="active"><a href="/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a> &gt; {{comp.company_name}}</li>
     <li class="pull-right">
         <div class="fb-like" data-href="http://developers.facebook.com/docs/reference/plugins/like"
              data-width="100" data-layout="button_count" data-show-faces="false" data-send="false"></div>
@@ -42,8 +46,7 @@
           {% if comp.company_logo %}
           <img src="{{MEDIA_URL}}{{comp.company_logo}}" alt="">
           {% endif %}
-          <h1>{{comp.company_name}}
-</h1>    <em>  Business Profile: {{comp.get_business_type}}</em>
+          <h1>{{comp.company_name}}</h1>    <em>  Business Profile: {{comp.get_business_type}}</em>
       
       <p {% if not comp.company_logo %}style="width:98%"{% endif %}><b>Deals in:</b> {{comp.deals_in}}
 </p>
@@ -93,7 +96,7 @@
   <li><span class="mo"></span>{{comp.mobile}}</li>
        {% endif %}
        {% if comp.website %}
-       <li>	  <span class="web"></span>	<a href="{{ comp.website }}" target="_blank">{{ comp.website }}</a> </li>
+       <li>	  <span class="web"></span>	<a rel="nofollow" href="{{ comp.website }}" target="_blank">{{ comp.website }}</a> </li>
        {% endif %}
        {% if comp.contact_email %}
        <li> <span class="email"></span><a href="mailto:{{contact_email}}">{{comp.contact_email}}</a></li>

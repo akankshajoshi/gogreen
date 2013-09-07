@@ -1,8 +1,5 @@
 {% extends "layoutbase.html" %}
-{% block css.shared %}
-    {{ block.super }}
-    <link rel="stylesheet" href="{{MEDIA_URL}}css/jquery.bxslider.css" />
-{% endblock css.shared %}
+
 
 {% block bodycontent %}
 
@@ -123,10 +120,8 @@
 
 
 {% endblock bodycontent %}
-{% block ASYJS %}
+{% block JSCustom %}
     {{ block.super }}
-    <script src="{{MEDIA_URL}}js/jquery.bxslider.js" type="text/javascript"></script>
-
     <script type="text/javascript">
         $('.bxslider').bxSlider({
             minSlides: 1,
@@ -134,18 +129,5 @@
             slideWidth: 100,
             slideMargin: 10
         });
-
-
-        $('.bxslider1').bxSlider({
-            minSlides: 1,
-            maxSlides: 1,
-            speed: 1000,
-            mode:'fade',
-            auto: true,
-            randomStart:true,
-            infiniteLoop:true
-        });
     </script>
-
-
-{% endblock ASYJS %}
+{% endblock JSCustom %}
