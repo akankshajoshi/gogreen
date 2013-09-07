@@ -4,10 +4,10 @@
             <div class="navbar-inner">
                 <div class="clearfix">
                     <h1 class="brand"><a href="{% url index %}"><img alt="" src="{{MEDIA_URL}}images/logo.png"></a><span>Green</span></h1>
-                    <div class="greenbase pull-left">
-                        <ul class="bxslider1 pull-left w100">
+                    <div class="greenbase pull-left w100">
+                        <ul class="bxslider1">
                         {% for text in headings %}
-                        <li>{{text.text}}</li>
+                        <li class=" disable" style="width:100%">{{text.text}}</li>
                                 {% endfor %}
                         </ul>
                     </div>
