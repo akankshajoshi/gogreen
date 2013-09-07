@@ -32,7 +32,7 @@
     <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
     <li class="active"><a href="/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a> &gt; {{comp.company_name}}</li>
     <li class="pull-right">
-        <div class="fb-like" data-href="http://developers.facebook.com/docs/reference/plugins/like"
+        <div class="fb-like" data-href="{{url_prefix}}{{ comp.company_name|slugify }}/{{ comp.id }}/"
              data-width="100" data-layout="button_count" data-show-faces="false" data-send="false"></div>
     </li>
 
