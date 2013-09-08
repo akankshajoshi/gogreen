@@ -261,7 +261,7 @@ figure.img-polaroid {
  float:left;
 }
 .img-polaroid {
-  padding: 5px;
+  padding: 5px 5px 5px 0px;
 }
 .img-polaroid:after {
  
