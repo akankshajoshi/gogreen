@@ -1,4 +1,17 @@
 {% extends "layoutbase.html" %}
+
+{% block title %}Green Vichar - Indiagetgreen{% endblock title %}
+{% block css.custom %}
+{{ block.super }}
+<style type="text/css">
+
+    .row-fluid [class*="span"]:nth-child(4){
+        margin-left:0px
+    }
+
+</style>
+{% endblock css.custom %}
+
 {% block bodycontent %}
 
 <div id="content">
