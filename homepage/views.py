@@ -12,7 +12,7 @@ def home(request):
     blogs = Blog.objects.all().order_by('-creation_date')[:5]
     homelogos = HomePageLogo.objects.filter(start_date__lte=dt.now().date(), end_date__gte=dt.now().date())
     govn_logos = GovrnLogo.objects.all()
-    bigbanner = BigBanner.objects.all()[:1]
+    bigbanner = BigBanner.objects.all()
 
     if request.method == 'GET':
         count = CompanyCount.objects.all()[0]
