@@ -24,6 +24,7 @@ def get_image_by_size(image, type):
     # create thumbnail
     im.thumbnail((IMG_SIZE[type]['width'],
     IMG_SIZE[type]['height']), Image.ANTIALIAS)
+
     thumbname = filename + "_" + str(IMG_SIZE[type]['width']) \
          + "x" + str(IMG_SIZE[type]['height']) + "." + extension
     im.save(fullpath + '/' + thumbname)

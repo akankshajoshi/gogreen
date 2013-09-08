@@ -92,7 +92,7 @@ class GreenVicharAdmin(admin.ModelAdmin):
         if request.user.groups.filter(name='frontenduser').count():
             qs= qs.filter(created_by = request.user)
         else:
-            qs= qs.filter(status=0).order_by('-moderationdate')
+            qs= qs.filter(vichar_type   =0).order_by('-moderationdate')
         return qs
         
 #     def add_view(self, request, form_url='', extra_context=None):

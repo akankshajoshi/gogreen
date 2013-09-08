@@ -42,3 +42,10 @@ class BigBanner(models.Model):
     created_by = models.ForeignKey(User)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateField(auto_now=True)
+
+    def save(self):
+        super(BigBanner, self).save()
+        if self.image:
+            thumbname = get_image_by_size(self.image,'bigbaner')
+            self.image = 'uploads/bigbaner/' + thumbname
+        super(BigBanner, self).save()

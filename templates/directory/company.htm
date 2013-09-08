@@ -143,26 +143,36 @@
 </form>
 
 </div>
-<div class="martop"><img src="{{MEDIA_URL}}images/banner_300.jpg" alt=""></div>
 
 
+{% if productimg %}
+<div class="martop prodimg pull-left w100 hidden-phone">
+<ul class="bxprodimg">
+    {% for logo in productimg %}
+       <li class="disable"> <img src="{{MEDIA_URL}}{{logo.image}}" alt="" /></li>
+    {% endfor %}
 
+</ul>
 </div>
-
-
+{% endif %}
+</div>
     </div>
-    
-    
-    
-    
 </div>
 
-            <div class="logos">
-            
-           <div class="spo">
-{% for logo in govn_logos %}<a href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %} </div>
-            
-            </div>
-
+<br/>
 
 {% endblock bodycontent %}
+{% block JSCustom %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.bxprodimg').bxSlider({
+            minSlides: 1,
+            maxSlides: 1,
+            speed: 1000,
+            mode:'fade',
+            auto: true,
+            randomStart:true,
+            infiniteLoop:true
+        });
+    </script>
+{% endblock JSCustom %}
