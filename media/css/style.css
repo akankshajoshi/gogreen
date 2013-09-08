@@ -1776,7 +1776,7 @@ footer .foot .foottree strong { color: #666666;
 
 footer .foot .foottree span { float:left; width:80px; background:url(/media/images/sprite.png) -189px -74px no-repeat; height:100px;}
 
-    
+
 
 @media (max-width: 500px) {.greenbase  {background:#a9e14a;}
 
@@ -1859,7 +1859,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .key{width:455px;margin-left: 20px; }
     ul.keyword{width: 435px;}
     .navbar-form{width:97%}
-
-
 }
-.greenbase .bx-controls-direction{display: none;}
+
+.greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction{display: none;}
+ul.bxbigbanner,.prodimg ul{margin: 0px;}
