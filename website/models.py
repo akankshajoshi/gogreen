@@ -13,7 +13,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     linkurl = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, upload_to='uploads/blogimage', blank=True)
-    text = HTMLField(max_length=5000, null=True, blank=True)
+    text = models.TextField(null=True, blank=True)
     creation_date = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):

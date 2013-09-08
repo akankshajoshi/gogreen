@@ -5,7 +5,11 @@ class Heading(models.Model):
     text = models.CharField(max_length=150)
     created_by = models.ForeignKey(User)
     created_date = models.DateTimeField(auto_now_add=True)
-    
+
+    def __unicode__(self):
+        return self.text
+
+
 class CompanyCount(models.Model):
     text1 = models.CharField(max_length=10, verbose_name='Registered Companies')
     text2 = models.CharField(max_length=10, verbose_name='Registered products')

@@ -53,7 +53,7 @@ submitHandler:function(form)
     $f.makeRequest(k,function(){
         k.div = $('<div class="cls_dyn_popup" title="Contact Us"></div>');
         k.open = function(){
-            $('.cls_dyn_popup').html('Successfully');
+            $('.cls_dyn_popup').html('Your information has been successfully updated.');
         }
         $f.popup(k);
     });
@@ -84,7 +84,7 @@ $('#id_formreview').validate({
 $('.lmr').live('click',function(){
     var k ={};
     k.DATA=$('#frm_search').serialize();
-    k.SRC = "http://localhost:8000/search/?page="+$(this).data('id');
+    k.SRC = sc.url_prefix+"search/?page="+$(this).data('id');
     $f.makeRequest(k,function(r){
         $('#content').find('.lmr').remove();
         $('#searchresult').append(r.HTML)
@@ -93,7 +93,14 @@ $('.lmr').live('click',function(){
 });
 
 $('.cls_categ').on('click',function(){
-    $('#sub_'+$(this).attr('id')).slideToggle('slow');
+    var k = $(this);
+
+    $('.cls_subcateg').slideUp('slow');
+        $('#sub_'+k.attr('id')).slideDown('slow',function(){
+
+        });
+
+
 });
 
     $(document).ready(function(){

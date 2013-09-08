@@ -1,19 +1,14 @@
 {% extends "layoutbase.html" %}
+{% block title %}{{ keyword }} companies in india | {{ keyword }} companies - India Get Green{% endblock title %}
 {% block bodycontent %}
   
   <div id="content">
-  
-  
-  
-  
-  
-    <div class="container"> 
-     
-     
+    <div class="container">
      
          <ul class="breadcrumb">
     <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
-    <li class="active">Categories</li>
+    <li><a href="/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a> <span class="divider"> > </span></li>
+    <li class="active">Search</li>
     </ul>
         {% include "directory/search.html" %}
 
@@ -21,11 +16,7 @@
 
       <div class="span7 pull-left srchrest">
 
-          <h4>
-              ‘{{keyword}}’ yielded {{compcount}} Results
-
-
-          </h4>
+          <h4>'{{keyword}}' yielded {{compcount}} Results</h4>
 
           <div class="sort"><select name="Sort">
               <option>Sort by Alphabets</option>

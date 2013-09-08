@@ -2,7 +2,7 @@
 <div id="searchresult">
 {% for comp in comps.object_list %}
     <div class="searchresult {% cycle '' 'searchresultgrey'%}">
-        <strong><a target="_blank" href="{% url view_company comp.company_name|slugify comp.id %}">{{comp}}</a> </strong>
+        <strong title="{{comp}}"><a target="_blank" href="{% url view_company comp.company_name|slugify comp.id %}">{{comp}}</a> </strong>
         {% if comp.company_logo %}
             <img src="{{MEDIA_URL}}{{comp.company_logo}}" alt="" class="pull-left">
         {% endif %}
@@ -15,7 +15,7 @@
         {% endif %}
 
         {% if comp.website %}
-            <span> <strong>Website:&nbsp;</strong> <a href="javascript:void(0)">{{comp.website}}</a></span>
+            <span> <strong>Website:&nbsp;</strong> <a rel="nofollow" target="_blank" href="{{comp.website}}">{{comp.website}}</a></span>
         {% endif %}
         {% if comp.get_business_type %}
             <span> <strong>Business type:&nbsp;</strong>{{comp.get_business_type}}<br></span>
