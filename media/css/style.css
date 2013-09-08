@@ -1861,5 +1861,14 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .navbar-form{width:97%}
 }
 
+@media  (min-width: 1025px) {
+    .midsection{height:612px}
+    .midsection .span12{height:577px}
+    .key h2{width:95%}
+    .navbar-form li input[type="text"]{width:360px}
+    .navbar-form li select{width:150px}
+
+}
+
 .greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction{display: none;}
 ul.bxbigbanner,.prodimg ul{margin: 0px;}

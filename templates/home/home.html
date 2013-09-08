@@ -64,7 +64,7 @@
   <div class="span4 sponsor pull-right hidden-phone">
           <ul class="bxbigbanner">
               {% for logo in bigbanner %}
-              <li>
+              <li class="disable">
           <img src="{{MEDIA_URL}}{{logo.image}}" alt="" />
       </li>{% endfor %}
           </ul>
@@ -146,6 +146,8 @@
             randomStart:true,
             infiniteLoop:true
         });
+            {% else %}
+            $('.bxbigbanner li').removeClass('disable');
         {% endif %}
     </script>
 {% endblock JSCustom %}

@@ -11,6 +11,9 @@ class GrnVchrHome(models.Model):
     text = models.CharField(max_length=250)
     image = models.ImageField(upload_to='uploads/grnvichar')
 
+    def __unicode__(self):
+        return self.title
+
     def save(self):
         super(GrnVchrHome, self).save()
         if self.image:
@@ -32,7 +35,7 @@ class GreenVichar(models.Model):
     published_by = models.CharField(max_length=100)
     is_approved = models.BooleanField(default=False)
     approved_by = models.CharField(max_length=200, null=True)
-     
+
     def __unicode__(self):
         return TYPE_CHOICES[self.vichar_type][1]
     
