@@ -2,7 +2,7 @@
 from forms import SearchForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment, City
+from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment, City, CompanyProductImg
 from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -46,7 +46,8 @@ def view_company(request, cname, cid):
     cityform = CityForm()
     if comp:
         reviews = Comment.objects.filter(company=comp,status=1)
-        data = {'comp':comp[0],'reviews':reviews,'cityform':cityform}        
+        productimg = CompanyProductImg.objects.filter(company=comp)
+        data = {'comp':comp[0],'reviews':reviews,'cityform':cityform,'productimg':productimg}
         return render_to_response('directory/company.htm', data, context_instance=RequestContext(request))
     else:
         return HttpResponse("Company Does not exist")

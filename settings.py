@@ -169,5 +169,5 @@ LOGGING = {
     }
 }
 
-IMG_SIZE = {'company_logo':{'height':108,'width':108}, 'green_o_meter':{'height':97,'width':94},'blog':{'height':140,'width':140},'homepage_logo':{'height':79,'width':95},'govn_logo':{'height':79,'width':95},
-'comp_prod_img':{'height':300,'width':250},'green_vichar_landing':{'height':320,'width':364},'small_eventNimage':{'height':95,'width':95},'big_eventNimage':{'height':248,'width':248}}
+IMG_SIZE = {'company_logo':{'height':108,'width':108}, 'green_o_meter':{'height':91,'width':94},'blog':{'height':140,'width':140},'homepage_logo':{'height':79,'width':95},'govn_logo':{'height':79,'width':95},
+'comp_prod_img':{'height':250,'width':300},'green_vichar_landing':{'height':364,'width':320},'bigbaner':{'height':250,'width':300},'small_eventNimage':{'height':95,'width':95},'big_eventNimage':{'height':248,'width':248}}

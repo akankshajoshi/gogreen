@@ -58,7 +58,7 @@ class Company(models.Model):
     certifications = models.FileField(upload_to='uploads/comp_certi/',null=True, blank=True)
     company_logo = models.ImageField(upload_to='uploads/comp_logo/', null=True, blank=True)
     brouchers = models.FileField(upload_to='uploads/comp_downloads/',null=True, blank=True, verbose_name='brouchers(if any)')
-    created_date = models.DateField(auto_now_add=True)
+    created_date = models.DateField(auto_now=True)
     modified_date = models.DateField(auto_now=True)
     modified_by = models.ForeignKey(User)
     

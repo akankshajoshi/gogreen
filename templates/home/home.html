@@ -59,11 +59,19 @@
   
   
   </div>
-  
-  <div class="span4 sponsor pull-right hidden-phone"><img src="{{MEDIA_URL}}{{bigbanner.0.image}}" alt="" />
 
+      <div class="span4 sponsor pull-right hidden-phone">
+      {% if bigbanner %}
+
+          <ul class="bxbigbanner">
+              {% for logo in bigbanner %}
+              <li class="disable">
+          <img src="{{MEDIA_URL}}{{logo.image}}" alt="" />
+      </li>{% endfor %}
+          </ul>
+{% endif %}
       {% if homelogos %}
-      <div class="spo">
+      <div class="spo hidden-phone">
 <h3><strong>  Sponsored by</strong></h3>
 {% for logo in homelogos %}<a target="_blank" href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt=""></a>{% endfor %}
 </div>  
@@ -129,5 +137,18 @@
             slideWidth: 100,
             slideMargin: 10
         });
+        {% if bigbanner.count > 1 %}
+        $('.bxbigbanner').bxSlider({
+            minSlides: 1,
+            maxSlides: 1,
+            speed: 1000,
+            mode:'fade',
+            auto: true,
+            randomStart:true,
+            infiniteLoop:true
+        });
+            {% else %}
+            $('.bxbigbanner li').removeClass('disable');
+        {% endif %}
     </script>
 {% endblock JSCustom %}
