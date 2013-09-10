@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from models import Company, GreenOMeter, Blog, City, State, Subcategory
-
+from models import Company, GreenOMeter, Blog, City, State, Subcategory, BusinessType
 
 
 class SearchForm(forms.Form):
@@ -17,10 +16,12 @@ class SearchForm(forms.Form):
     
 
 class CompanyForm(forms.ModelForm):
-    green_o_meter = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple,choices=())
+    green_o_meter = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple,choices=(),required=False)
     subcategory = forms.ModelMultipleChoiceField(queryset=Subcategory.objects.order_by('name'))
+    business_type = forms.ModelMultipleChoiceField(queryset=BusinessType.objects.order_by('name'))
     city = forms.ChoiceField()
     state = forms.ChoiceField()
+    
     class Meta:
         model = Company
     
@@ -29,9 +30,19 @@ class CompanyForm(forms.ModelForm):
         self.fields['green_o_meter'].choices = GreenOMeter.objects.all().values_list('id','name')
         self.fields['city'].choices = City.objects.all().values_list('id','name').order_by('name')
         self.fields['state'].choices = State.objects.all().values_list('id','name').order_by('name')
+        self.fields['subcategory'].widget.attrs['size']='10'
+        self.fields['business_type'].widget.attrs['size']='10'
+
 
 class PopularKeywordForm(forms.ModelForm):
-     subcat = forms.ModelMultipleChoiceField(queryset=Subcategory.objects.order_by('name'))
+    subcat = forms.ModelMultipleChoiceField(queryset=Subcategory.objects.order_by('name'))
+     
+    def __init__(self,*args,**kwargs):
+        super(PopularKeywordForm,self).__init__(*args,**kwargs)
+        self.fields['subcat'].widget.attrs['size']='10'
+     
+     
 class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog
+

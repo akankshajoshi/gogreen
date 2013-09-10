@@ -121,14 +121,25 @@ class ContactUsAdmin(admin.ModelAdmin):
 class PopularKeywordAdmin(admin.ModelAdmin):
     form = PopularKeywordForm
 
+class CityAdmin(admin.ModelAdmin):
+    def queryset(self, request):
+        return super(CityAdmin, self).queryset(request).order_by('name')
+
+class StateAdmin(admin.ModelAdmin):
+    def queryset(self, request):
+        qs = super(StateAdmin, self).queryset(request)
+        qs = qs.order_by('name')
+        return qs
+
+
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(Category)
 admin.site.register(Subcategory)
-admin.site.register(PopularKeyword,PopularKeywordAdmin)
+admin.site.register(PopularKeyword, PopularKeywordAdmin)
 admin.site.register(BusinessType)
 admin.site.register(GreenOMeter)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(State)
-admin.site.register(City)
+admin.site.register(City, CityAdmin)
