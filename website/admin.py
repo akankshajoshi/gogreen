@@ -2,7 +2,7 @@ from models import Company , Comment, Category, Subcategory, PopularKeyword, \
     BusinessType, GreenOMeter, CompanyProductImg, Blog, ContactUs, State, City 
 from django.conf import settings
 from django.contrib import admin
-from forms import CompanyForm
+from forms import CompanyForm, PopularKeywordForm
 from datetime import datetime as dt
 from django.contrib.auth.models import User
 
@@ -117,13 +117,16 @@ class ContactUsAdmin(admin.ModelAdmin):
             self.readonly_fields = []
         response = super(ContactUsAdmin, self).change_view(request, object_id, extra_context=None)
         return response
-    
+
+class PopularKeywordAdmin(admin.ModelAdmin):
+    form = PopularKeywordForm
+
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(Category)
 admin.site.register(Subcategory)
-admin.site.register(PopularKeyword)
+admin.site.register(PopularKeyword,PopularKeywordAdmin)
 admin.site.register(BusinessType)
 admin.site.register(GreenOMeter)
 admin.site.register(Blog, BlogAdmin)

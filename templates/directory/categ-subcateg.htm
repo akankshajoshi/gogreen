@@ -1,12 +1,17 @@
 <div class="span4 pull-left leftnav" ><h2>Browse Categories</h2>
 {% for cat in cats %}
    <a href="javascript:void(0)">
-      <h3 id="{{cat.id}}" class="cls_categ"><span class="energy"></span>{{cat}}</h3>
+      <h3 id="{{cat.id}}" class="cls_categ">
+          {% if cat.icon %}
+          <img src="{{ MEDIA_URL }}{{ cat.icon }}" class="pull-left" alt="{{cat}}" />
+          {% endif %}
+          {{cat}}</h3>
    </a>
    <ul id="sub_{{cat.id}}" class="cls_subcateg {% if not categ.0.id == cat.id %}disable{% endif %}">
    {% for sub in cat.subcategory_set.all %}
-       <li><a href="{% url view_category cat.name|slugify sub.name|slugify sub.id %}">{{sub}}</a></li>
+       <li><a {% if subcat.id == sub.id %} class="selected"{% endif %} href="{% url view_category cat.name|slugify sub.name|slugify sub.id %}">{{sub}}</a></li>
    {% endfor %}
    </ul>
+    <div class="bdr"></div>
 {% endfor %}
 </div>
