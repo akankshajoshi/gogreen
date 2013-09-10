@@ -109,6 +109,7 @@ h3 {
 }
 #content ul {
   list-style: none;
+    font-family: arial;
 }
 .dis-block {
   display: block;
@@ -261,7 +262,7 @@ figure.img-polaroid {
  float:left;
 }
 .img-polaroid {
-  padding: 5px 5px 5px 0px;
+  padding: 5px 10px 5px 0px;
 }
 .img-polaroid:after {
  
@@ -1599,11 +1600,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .searchresult {  margin: 10px 0;
     padding: 0px 10px 10px 20px;
-    width: 95%;font-size: 13px;line-height: 16px;}
+    width: 95%;font-size: 13px;line-height: 16px;font-family: arial;}
 .searchresult img { border:solid 1px #e6e6e6; margin:5px 10px 0px 0;}
 
 .searchresult span { display:block;}
-.searchresult strong a { font-size:22px; font-weight: normal; display:block; color:#ff5500; margin:0; line-height:24px;}
+.searchresult strong a { font-size:22px; font-weight: normal; display:block; color:#ff5500; margin:0; line-height:24px;font-family: 'HelveticaNeueRegular';}
 .load { text-align:center;cursor: pointer; font-size:14px; padding:10px 0;}
 
 .searchresultgrey { background:#f6f5f5; border-bottom:solid 2px #d2d2d2;padding-top: 5px;}
@@ -1614,14 +1615,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .more a { display:block;width:67px; height:44px; }
 
 
-.comptop { width:100%; border:solid 1px #c5c5c5; padding:10px 0; background:url(/media/images/compbase.gif) repeat-x #f3f3f3; box-shadow:1px 1px 1px #cfcfcf; }
+.comptop { width:100%; border:solid 1px #c5c5c5; padding:10px 0; font-family: arial; background:url(/media/images/compbase.gif) repeat-x #f3f3f3; box-shadow:1px 1px 1px #cfcfcf; }
 
-.comptop img { margin:0 0PX 0 10px ; border:solid 1PX #c5c5c5; box-shadow:1PX 1PX 1PX #ececec; float:left;}
-.comptop h1 {text-transform: uppercase ;display:block; font-size:20px; float:left; width:80%;  margin:10px 0PX 10px 10px ; line-height:20px; color:#000000;}
+.comptop img { margin:0 0PX 0 10px ; border:solid 1PX #c5c5c5; box-shadow:1px 1px 1px #ececec; float:left;}
+.comptop h1 {text-transform: uppercase ;display:block; font-size:20px; float:left; font-family: 'HelveticaNeueRegular'; width:80%;  margin:10px 0PX 10px 10px ; line-height:20px; color:#000000;}
 .comptop em  { float:left; font-size:16px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0PX 0 10px ;}
 .comptop p  { float:left; width:80%; font:normal 12px Arial, Helvetica, sans-serif; padding:20px 0 0 0;margin:0 0PX 0 10px ;}
 .buisness { margin:20px 0 0 0; position:relative;}
-.buisness h2 { font:normal 18px Arial, Helvetica, sans-serif; display:block; font-weight:400; background:none; color:#000; padding:5px 0;}
+.buisness h2 { font:normal 18px 'HelveticaNeueRegular'; display:block; font-weight:400; background:none; color:#000; padding:5px 0;}
 .buisness ul { margin:10px 0}
 
 .buisness li { display:inline-block; padding:0 5px;}
@@ -1699,14 +1700,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .listright p { width:80%; float:left;}
 .listright em { float:right; width:22px; height:22px; background:url(/media/images/sprite.png) -198px -15px no-repeat;}
 ul.keyword{width:670px;margin-top: 3px;}
-ul.keyword li{width:33%;float: left;}
+ul.keyword li{width:33%;float: left;line-height: 22px;}
 ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 
-.list_carousel ul a p{color:#333;float:left;width:100%}
+.list_carousel ul a p{color:#333;float:left;width:100%;color: #666;font: normal 13px arial;}
 .list_carousel ul date{float: left;width:45%}
 .list_carousel ul li a{width:70%;
     float: left;}
-.blok_carousel strong{float: left;width:100%}
+.blok_carousel strong{float: left;width:100%;font:15px normal;padding: 5px 0;color: #333;}
 
 .list_carousel .bx-wrapper .bx-controls-direction a{top:10%;}
 .list_carousel  .bx-wrapper .bx-prev{left:92% }
@@ -1898,3 +1899,4 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 
 .greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction{display: none;}
 ul.bxbigbanner,.prodimg ul{margin: 0px;}
+.leftnav h3 span{padding-top: 3px;font-weight: bold;}
