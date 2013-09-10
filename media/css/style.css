@@ -1721,15 +1721,15 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .w100{width: 100% !important;float:left}
 .homecontent{margin-top:18px}
 .fbtw {
-    background: url("/media/images/sprite.png") no-repeat scroll -76px -192px transparent;
+    background: url("/media/images/sprite.png") no-repeat scroll -78px -188px transparent;
     float: left;
-    width: 69px;
+    width: 76px;
     text-align: center;
-    height: 22px;
+    height: 27px;
     margin: 0px 5px 0px 0px;
 }
 .tw {
-    background-position: -3px -190px;width:67px
+    background-position: -2px -189px;width:74px
 }
 
 
