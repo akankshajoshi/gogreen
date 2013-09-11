@@ -1585,7 +1585,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .leftnav ul { padding:13px 0 10.5px 0px; margin:0;}
 .leftnav ul li { color:#666;}
 .leftnav ul li a { color:#666;float:left; width:84%;padding:3px 0 3px 43px;  }
-.leftnav ul li a:hover { color:#666; background:#ade153;float:left; width:84%; padding:3px 0 3px 43px;   }
+.leftnav ul li a:hover,.leftnav ul li a.selected { color:#666; background:#ade153;float:left; width:84%; padding:3px 0 3px 43px;   }
 .leftnav h3 span.herbal { background-position:-133px -74px;}
 .leftnav h3 span.enviorment { background-position:-94px -74px;}
 .leftnav h3 span.gifts { background-position:-160px -101px;}
@@ -1714,7 +1714,8 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .ui-dialog .ui-dialog-titlebar{background: none repeat scroll 0 0 #66BA1C;border-color: #66BA1C;}
 
 .disable{display: none;}
-#content .leftnav ul{float: left;padding-top: 0px;}
+#content .leftnav ul{float: left;padding-top: 0px;width:100%}
+#content .leftnav ul li{float: left;width:100%}
 .indsearch{font-size: 12px;}
 .w100{width: 100% !important;float:left}
 .homecontent{margin-top:18px}

@@ -26,8 +26,8 @@ class CompanyForm(forms.ModelForm):
     def __init__(self,*args,**kwargs):
         super(CompanyForm,self).__init__(*args,**kwargs)
         self.fields['green_o_meter'].choices = GreenOMeter.objects.all().values_list('id','name')
-        self.fields['city'].choices = City.objects.all().values_list('id','name')
-        self.fields['state'].choices = State.objects.all().values_list('id','name')
+        self.fields['city'].choices = City.objects.all().values_list('id','name').order_by('name')
+        self.fields['state'].choices = State.objects.all().values_list('id','name').order_by('name')
     
     
 class BlogForm(forms.ModelForm):
