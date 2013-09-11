@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from models import Company, GreenOMeter, Blog, City, State
+from models import Company, GreenOMeter, Blog, City, State, Subcategory
 
 
 
@@ -18,6 +18,7 @@ class SearchForm(forms.Form):
 
 class CompanyForm(forms.ModelForm):
     green_o_meter = forms.MultipleChoiceField(widget=forms.widgets.CheckboxSelectMultiple,choices=())
+    subcategory = forms.ModelMultipleChoiceField(queryset=Subcategory.objects.order_by('name'))
     city = forms.ChoiceField()
     state = forms.ChoiceField()
     class Meta:
@@ -28,8 +29,9 @@ class CompanyForm(forms.ModelForm):
         self.fields['green_o_meter'].choices = GreenOMeter.objects.all().values_list('id','name')
         self.fields['city'].choices = City.objects.all().values_list('id','name').order_by('name')
         self.fields['state'].choices = State.objects.all().values_list('id','name').order_by('name')
-    
-    
+
+class PopularKeywordForm(forms.ModelForm):
+     subcat = forms.ModelMultipleChoiceField(queryset=Subcategory.objects.order_by('name'))
 class BlogForm(forms.ModelForm):
     class Meta:
         model = Blog

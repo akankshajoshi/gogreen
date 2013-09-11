@@ -95,9 +95,10 @@ class Company(models.Model):
 
 # def create_companyjson():
 #     companies = Company.objects.all().values_list('company_name',flat=True)
-#     company_json = json.dumps({'company':companies})
-#     f = open('abc.js')
-#     f.write(company_json)
+# #     company_json = json.dumps({'company':companies})
+#     f = open('media/js/auto_companies.js','w')
+#     text = 'var companies = ' + 
+#     f.write(companies)
  
 class CompanyProductImg(models.Model):
     company = models.ForeignKey('Company')
