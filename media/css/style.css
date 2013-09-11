@@ -1667,7 +1667,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .logos { width:100%; background:#e9e7e7; }
 .logos li { display:inline-block;}
 .logos .spo { width:1006px; margin:20px auto 0 auto; padding:20px 0;}
-.logos .spo img { margin:0 80px 0 0;}
+.logos .spo img { margin:0 ;}
 .logos .spo img + img + img + img + img + img { margin-right:0px}
 
 @media (max-width: 768px) 
@@ -1897,6 +1897,6 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .navbar-form{width:97.7%}
 }
 
-.greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction{display: none;}
+.greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction,.spo .bx-controls-direction{display: none;}
 ul.bxbigbanner,.prodimg ul{margin: 0px;}
 .leftnav h3 span{padding-top: 3px;font-weight: bold;}
