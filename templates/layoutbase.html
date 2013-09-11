@@ -72,7 +72,10 @@
                 auto: true,
                 randomStart:true,
                 infiniteLoop:true,
-                pause:7000
+                pause:7000,
+                onSliderLoad:function(){
+                    $('.bxslider1 li').removeClass('disable');
+                }
             });
         </script>
     {% endblock JSCustom %}
