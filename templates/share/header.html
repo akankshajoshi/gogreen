@@ -5,9 +5,9 @@
                 <div class="clearfix">
                     <h1 class="brand"><a href="{% url index %}"><img alt="IndiaGetGreen" src="{{MEDIA_URL}}images/logo.jpg"></a><span>Green</span></h1>
                     <div class="greenbase pull-left w100">
-                        <ul class="bxslider1">
+                        <ul class="bxslider1 disable">
                         {% for text in headings %}
-                        <li class="disable" style="width:100%">{{text.text}}</li>
+                        <li style="width:100%">{{text.text}}</li>
                                 {% endfor %}
                         </ul>
                     </div>
