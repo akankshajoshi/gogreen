@@ -1786,58 +1786,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 
     .navbar_ .brand {margin:25px 0 0 3px}}
 
-@media (max-width: 480px) {
-    .quote .latestart { float:right; width:81%;}
-    .question .que1 { float:left; width:76%;}
-    .contact1 ul li { width:100%;}
-    .contact1  { margin:0 0 0 10px;}
-}
 
-
-
-@media  (min-width: 768px) and (max-width: 1024px) {
-    .midsection{height:682px}
-    .midsection .span12{height:647px}
-    .greybase{width:100%}
-    .greybase input[type="text"]{width: 42%;}
-    .tree{width:250px}
-    .navbar-form li input[type="text"]{width:155px}
-    .navbar-form li select{width:100px}
-    .navbar_ .brand{text-align: left;}
-    .srchrest{width:440px}
-    .bd{width:455px}
-    #googlemap{width:455px;}
-    .key h2{width:95%}
-    ul.keyword{width:100%}
-    ul.keyword li{width:50%}
-    .navbar-form{width:94%}
-
-}
-
-@media  (max-width: 640px) {
-    .key h2{width: 568px;}
-    .key{margin-left: 0px;}
-    .ul.keyword li{width:100%}
-    .navbar-form li input[type="text"]{width:479px;}
-}
-
-
-@media  (max-width: 480px) {
-    .greybase input[type="text"]{width:80%}
-    .homecontent{float: left;}
-    .navbar-form { padding: 10px 3px;}
-    .navbar-form li input[type="text"]{width:200px}
-    .navbar-form li.mm{padding:10px 5px 0px 5px }
-    .navbar-form li{padding:0px}
-    .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
-    .leftnav h2{float:left;width:95%; padding: 10px 11px;}
-    .key h2,.leftnav,.srchrest, .key{float: left;}
-    .key h2,.key{width:420px}
-    .key h2 { padding: 10px;}
-    .srchrest, .key{margin-left: 0px;}
-    ul.keyword,ul.keyword li{width:100%}
-
-}
 
 
 @media  (max-width: 360px) {
@@ -1859,19 +1808,91 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 
 
 
+
+
+
+
+@media (max-width: 480px) {
+    .quote .latestart { float:right; width:81%;}
+    .question .que1 { float:left; width:76%;}
+    .contact1 ul li { width:100%;}
+    .contact1  { margin:0 0 0 10px;}
+
+    .greybase input[type="text"]{width:80%}
+    .homecontent{float: left;}
+    .navbar-form { padding: 10px 3px;}
+    .navbar-form li input[type="text"]{width:200px}
+    .navbar-form li.mm{padding:10px 5px 0px 5px }
+    .navbar-form li{padding:0px}
+    .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
+    .leftnav h2{float:left;width:95%; padding: 10px 11px;}
+    .key h2,.leftnav,.srchrest, .key{float: left;}
+    .key h2,.key{width:420px}
+    .key h2 { padding: 10px;}
+    .srchrest, .key{margin-left: 0px;}
+    ul.keyword,ul.keyword li{width:100%}
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar-form li input[type="text"]{width:320px}
+}
+
+@media  (max-width: 640px) {
+    .key h2{width: 568px;}
+    .key{margin-left: 0px;}
+    .ul.keyword li{width:100%}
+    .navbar-form li input[type="text"]{width:479px;}
+}
+
+@media  (min-width: 768px) and (max-width: 1024px) {
+    .midsection{height:682px}
+    .midsection .span12{height:647px}
+    .greybase{width:100%}
+    .greybase input[type="text"]{width: 42%;}
+    .tree{width:250px}
+    .navbar-form li input[type="text"]{width:155px}
+    .navbar-form li select{width:100px}
+    .navbar_ .brand{text-align: left;}
+    .srchrest{width:440px}
+    .bd{width:455px}
+    #googlemap{width:455px;}
+    .key h2{width:95%}
+    ul.keyword{width:100%}
+    ul.keyword li{width:50%}
+    .navbar-form{width:94%}
+    .navbar-form li{padding:0px 6px}
+}
+
+
 @media  (min-width: 800px) and (max-width: 979px) {
     .key{width:455px;margin-left: 20px; }
     ul.keyword{width: 435px;}
-    .navbar-form{width:97%}
+    .navbar-form{width:98%}
+    .navbar-form li{padding:0px 8px}
+}
+
+
+@media  (min-width: 980px){
+    .midsection .span12,.logos .spo{width:945px}
+    .registered{width:425px}
+    .buisnessdirtab a{width:440px}
+    .navbar-form li input[type="text"]{width:280px}
+    .key h2{width:100%}
+    .navbar-form{width:93.2%}
+    .navbar-form li{padding:0px 10px}
+    .navbar-form li select{width:125px}
 }
 
 @media  (min-width: 1025px) {
     .midsection{height:612px}
-    .midsection .span12{height:577px}
+    .midsection .span12{height:577px;width:1006px;}
     .key h2{width:95%}
     .navbar-form li input[type="text"]{width:360px}
     .navbar-form li select{width:150px}
-
+    .buisnessdirtab a{width:470px}
+    .navbar-form{width:97.7%}
 }
 
 .greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction{display: none;}
