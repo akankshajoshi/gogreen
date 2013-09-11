@@ -1575,9 +1575,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .navbar-form li input[type="submit"]{ background:url(/media/images/submit.gif) no-repeat; width:42px; height:42px; border:none; margin:0;}
 .leftnav { background:#e9e7e7;}
 .leftnav h3 { margin:0; float:left; width:95%;font-size: 13px;}
-.leftnav h3 span { float:left; background:url(/media/images/sprite.png) no-repeat; width:24px; height:21px;}
+
+/*.leftnav h3 span { float:left; background:url(/media/images/sprite.png) no-repeat; width:24px; height:21px;}
 
 .leftnav h3 span.energy { background-position:-58px -74px;}
+*/
+.leftnav a h3  img{float:left;margin-right: 5px; }
+
 .leftnav ul { padding:13px 0 10.5px 0px; margin:0;}
 .leftnav ul li { color:#666;}
 .leftnav ul li a { color:#666;float:left; width:84%;padding:3px 0 3px 43px;  }
