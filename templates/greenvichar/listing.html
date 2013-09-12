@@ -2,13 +2,9 @@
 {% block bodycontent %}
 
 <div id="content">
-
-
-
-
 <div class="container">
      <ul class="breadcrumb">
-    <li><a href="#">Home</a> <span class="divider"> > </span><a href="#">Green vichar</a>  <span class="divider"> > </span></li>
+    <li><a href="#">Home</a><span class="divider">></span><a href="{% url greenvichar %}">Green vichar</a><span class="divider">></span></li>
     <li class="active">Events</li>
     </ul>
       
@@ -17,72 +13,29 @@
   <span class="pull-left atr">LATEST ARTICLES</span>  <span class="pull-right post">Post an article</span>
   {% if vid == '1' or vid == '2' %}
   {% for obj in obj_list %}
-      <div class="latestart">     <img src="{{MEDIA_URL}}{{obj.image}}" alt="" align="left"><strong>{{obj.title}}</strong>
+      <div class="latestart">     <img src="{{MEDIA_URL}}{{obj.image}}" alt="" align="left" /><strong>{{obj.title}}</strong>
 <span>{{obj.published_by}}</span>
 {{obj.description}}</div>
    
    <div class="bdr"></div>
   {% endfor %}
   {% endif %}
-   <!--  <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
-Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
-<span>by Pritika Arora</span>
-This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
-   
-   <div class="bdr"></div>
-   
-   
-      <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
-Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
-<span>by Pritika Arora</span>
-This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
-   
-   <div class="bdr"></div>
-      <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
-Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
-<span>by Pritika Arora</span>
-This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
-   
-   <div class="bdr"></div>
-      <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
-Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
-<span>by Pritika Arora</span>
-This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
-   
-   <div class="bdr"></div>
-      <div class="latestart">     <img src="{{MEDIA_URL}}images/95x95_art.jpg" alt="" align="left"><strong> This is Photoshop's version  of 
-Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
-<span>by Pritika Arora</span>
-This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
-   
-   <div class="bdr"></div>
-      <div class="latestart">    <strong> This is Photoshop's version  of 
-Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</strong>
-<span>by Pritika Arora</span>
-This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odi</div>
-   
-   <div class="bdr"></div>
-   
-   
-   
--->
+
       </div>
-     
+
+
+
+
      <aside class="span4 pull-right " >
-    
- <div class="listright"><strong><a href="#">Events</a></strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.<a href="#">more</a></p><a href="#"><em></em></a>
- <div class="clearfix"></div></div>
-     
- <div class="listright"><strong><a href="#">Article</a></strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.<a href="#">more</a></p><a href="#"><em></em></a>
- <div class="clearfix"></div></div>
-  <div class="listright"><strong><a href="#">Picture and videos</a></strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.<a href="#">more</a></p><a href="#"><em></em></a>
- <div class="clearfix"></div></div>
-   <div class="listright"><strong><a href="#">Share ideas, stories and quotes </a></strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.<a href="#">more</a></p><a href="#"><em></em></a>
- <div class="clearfix"></div></div>
-   <div class="listright"><strong><a href="#">Ask question and give answer</a></strong><p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin.<a href="#">more</a></p><a href="#"><em></em></a>
+         {% for vichar in vichars %}
+
+ <div class="listright"><strong><a href="{% url view_listing vichar.get_type|slugify vichar.type %}">
+     {{ vichar.title }}</a></strong><p>{{ vichar.text }}.
+     <a href="{% url view_listing vichar.get_type|slugify vichar.type %}">more</a>
+ </p><a href="{% url view_listing vichar.get_type|slugify vichar.type %}"><em></em></a>
  <div class="clearfix"></div></div>
 
-
+{% endfor %}
            <div class="clearfix"></div>
       </aside>
   </div>
