@@ -1707,6 +1707,7 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .list_carousel ul date{float: left;width:45%}
 .list_carousel ul li a{width:70%;
     float: left;}
+    .list_carousel ul#carousel-fred li a{width:68%}
 .blok_carousel strong{float: left;width:100%;font:15px normal;padding: 5px 0;color: #333;}
 
 .list_carousel .bx-wrapper .bx-controls-direction a{top:10%;}
