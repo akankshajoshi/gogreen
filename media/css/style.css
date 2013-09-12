@@ -1546,7 +1546,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 }
 
 
-.list_carousel #carousel-fred { margin-left:27px;}
+.list_carousel #carousel-fred { margin-left:16px;}
 
 .registered { border:solid 1px #818b91; border-radius:4px; padding:5px 15px;  margin:40px 0; color:#fff; font-weight:bold; }
 
@@ -1708,7 +1708,7 @@ ul.keyword li a,ul.keyword li a:hover{color:#4F4F4F}
 .list_carousel ul li a{width:70%;
     float: left;}
     .list_carousel ul#carousel-fred li a{width:68%}
-.blok_carousel strong{float: left;width:100%;font:15px normal;padding: 5px 0;color: #333;}
+.blok_carousel strong{float: left;width:100%;font:15px normal;padding: 3px 0;color: #333;}
 
 .list_carousel .bx-wrapper .bx-controls-direction a{top:10%;}
 .list_carousel  .bx-wrapper .bx-prev{left:92% }
@@ -1789,7 +1789,9 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 
     .navbar_ .brand {margin:25px 0 0 3px}}
 
-
+@media  (max-width: 320px) {
+.greenbase {display: none;}
+}
 
 
 @media  (max-width: 360px) {
@@ -1820,12 +1822,11 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .question .que1 { float:left; width:76%;}
     .contact1 ul li { width:100%;}
     .contact1  { margin:0 0 0 10px;}
-
-    .greybase input[type="text"]{width:80%}
     .homecontent{float: left;}
     .navbar-form { padding: 10px 3px;}
+    .navbar-form li.liinp{width:120px}
     .navbar-form li input[type="text"]{width:200px}
-    .navbar-form li.mm{padding:10px 5px 0px 5px }
+    .navbar-form li.mm{padding:10px 3px 0px 5px;width:auto; }
     .navbar-form li{padding:0px}
     .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
     .leftnav h2{float:left;width:95%; padding: 10px 11px;}
@@ -1834,6 +1835,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .key h2 { padding: 10px;}
     .srchrest, .key{margin-left: 0px;}
     ul.keyword,ul.keyword li{width:100%}
+    .navbar-form li select{width:100px;padding: 5px;height:30px}
 
 }
 
@@ -1843,10 +1845,14 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 }
 
 @media  (max-width: 640px) {
+    .navbar-form li{padding: 0px;}
+    .navbar-form li.mm{padding:10px 3px 0px 5px }
     .key h2{width: 568px;}
     .key{margin-left: 0px;}
     .ul.keyword li{width:100%}
-    .navbar-form li input[type="text"]{width:479px;}
+    .navbar-form li input[type="text"]{width:80%;}
+    .navbar-form li select{width:90px;padding: 5px;height:30px}
+    .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
 }
 
 @media  (min-width: 768px) and (max-width: 1024px) {
@@ -1874,6 +1880,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     ul.keyword{width: 435px;}
     .navbar-form{width:98%}
     .navbar-form li{padding:0px 8px}
+    .list_carousel ul#carousel-fred li a{width:47%}
 }
 
 
@@ -1881,11 +1888,12 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .midsection .span12,.logos .spo{width:945px}
     .registered{width:425px}
     .buisnessdirtab a{width:440px}
-    .navbar-form li input[type="text"]{width:280px}
+    .navbar-form li input[type="text"]{width:278px}
     .key h2{width:100%}
     .navbar-form{width:93.2%}
     .navbar-form li{padding:0px 10px}
     .navbar-form li select{width:125px}
+    .list_carousel ul#carousel-fred li a{width:60%}
 }
 
 @media  (min-width: 1025px) {

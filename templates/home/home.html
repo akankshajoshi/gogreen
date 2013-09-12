@@ -112,7 +112,7 @@
 </div>
 
         {% if govnlogos %}
-<div class="logos">
+<div class="logos hidden-phone">
 
            <div class="spo "><ul class="bxgovlogo disable">
            {% for logo in govnlogos %}
@@ -164,7 +164,7 @@
                 speed: 1000,
                 auto: true,
                 moveSlides: 1,
-                infiniteLoop:true
+                infiniteLoop:true,randomStart:true
             });
             {% else %}
             $('.bxgovlogo').removeClass('disable');
