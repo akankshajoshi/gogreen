@@ -114,12 +114,13 @@
         {% if govnlogos %}
 <div class="logos">
 
-           <div class="spo">
+           <div class="spo "><ul class="bxgovlogo disable">
            {% for logo in govnlogos %}
+               <li>
                {% if logo.click_url %}
                <a target="_blank" href="{{logo.click_url}}"><img src="{{MEDIA_URL}}{{logo.image}}" alt="" /></a>
-           {% else %}<img src="{{MEDIA_URL}}{{logo.image}}" alt="" />{% endif %}
-           {% endfor %}
+           {% else %}<img src="{{MEDIA_URL}}{{logo.image}}" alt="" />{% endif %}</li>
+           {% endfor %}</ul>
             </div>
             </div>
 {% else %}
@@ -131,12 +132,16 @@
 {% block JSCustom %}
     {{ block.super }}
     <script type="text/javascript">
-        $('.bxslider').bxSlider({
+        {% if blogs.count > 1 %}
+        $('.bxslider').removeClass('disable').bxSlider({
             minSlides: 1,
             maxSlides: 1,
             slideWidth: 100,
             slideMargin: 10
         });
+        {% else %}
+            $('.bxslider').removeClass('disable')
+        {% endif %}
         {% if bigbanner.count > 1 %}
         $('.bxbigbanner').bxSlider({
             minSlides: 1,
@@ -149,6 +154,20 @@
         });
             {% else %}
             $('.bxbigbanner li').removeClass('disable');
+        {% endif %}
+        {% if govnlogos.count > 5 %}
+            $('.bxgovlogo').removeClass('disable').bxSlider({
+                minSlides: 1,
+                maxSlides: 5,
+                slideMargin: 80,
+                slideWidth: 95,
+                speed: 1000,
+                auto: true,
+                moveSlides: 1,
+                infiniteLoop:true
+            });
+            {% else %}
+            $('.bxgovlogo').removeClass('disable');
         {% endif %}
     </script>
 {% endblock JSCustom %}
