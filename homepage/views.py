@@ -15,7 +15,7 @@ def home(request):
     bigbanner = BigBanner.objects.all()
 
     if request.method == 'GET':
-
+        count = CompanyCount.objects.all()[0]
         cityform = CityForm()
         return render_to_response('home/home.html',
                                   { 'govnlogos':govn_logos,'bigbanner':bigbanner,'blogs':blogs,'homelogos':homelogos,'cityform':cityform},

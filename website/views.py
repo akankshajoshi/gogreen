@@ -120,10 +120,10 @@ def search(request):
             # If page is out of range (e.g. 9999), deliver last page of results.
             comp1 = paginator.page(paginator.num_pages)
         if request.is_ajax():
-             HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
-             return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
+            HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
+            return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
 
-        return render_to_response('search/comp_search.html', {'categ':categ,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm()}, context_instance=RequestContext(request))
+        return render_to_response('search/comp_search.html', {'categ':categ,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
     else:
         return HttpResponse('BAD REQUEST')
 
