@@ -36,7 +36,7 @@ def view_category(request, cat, subcat, subcat_id):
         comps = subcat.company_set.all()
         categ=Category.objects.filter(subcategory=subcat)
 
-        populars = subcat.popularkeyword_set.all()
+        populars = subcat.popularkeyword_set.all().order_by('keyword')
         cityform = CityForm()
         return render_to_response('search/keyword.html', {'categ':categ,'populars': populars, 'comps':comps,'subcat':subcat,'cityform':cityform}, context_instance=RequestContext(request))
     
@@ -95,17 +95,25 @@ def search(request):
         keyword = request.POST.get('keyword')
         search_by = request.POST.get('search_by')
         city = request.POST.get('city', 0)
+        selcat = {}
         if keyword:
             if search_by == 'by_name':
                 if int(city) > 0 :
                     comps = Company.objects.filter(company_name__icontains=keyword, city=int(city))
+
                 else:
                     comps = Company.objects.filter(company_name__icontains=keyword)
             else:
                 if int(city) > 0:
                     comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city))
                 else:
+
                     comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
+                    #key = PopularKeyword.objects.filter(keyword__iexact=keyword)
+                    #if(key.count()>0):
+                    #    selsub = Subcategory.objects.filter(popularkeyword=key)
+                    #    selcat = Category.objects.filter(subcategory=selsub)
+
 
         compcount = comps.count();
         paginator = Paginator(comps, 10)

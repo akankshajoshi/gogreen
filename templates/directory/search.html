@@ -1,11 +1,11 @@
 <form class="navbar-form pull-left" method='POST' action='{% url search %}'>
 {% csrf_token %}
-    <ul class="indsearch">  <li class="mm">Search by </li>
+    <ul class="indsearch">  <li class="mm hidden-phone">Search by </li>
         <li class="mm">
-        <input name="search_by" type="radio" checked="true" value="by_product" />Product/Services
+        <input name="search_by" type="radio" checked="true" value="by_product" />Products / Services
     </li><li class="mm">
         <input name="search_by" type="radio" value="by_name" />Company Name </li>
-        <li><input type="text" class="span2" name ='keyword' holder="Search here" value="{{ keyword }}" placeholder="Search here"></li>
-        <li>{{cityform.city}}</li>
+        <li class="liinp"><input type="text" class="span2" name ='keyword' holder="Search here" value="{{ keyword }}" placeholder="Search here"></li>
+        <li class="lisel">{{cityform.city}}</li>
         <li> <input name="" type="submit" value=""></li></ul>
 </form>

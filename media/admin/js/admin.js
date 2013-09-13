@@ -34,6 +34,9 @@ django.jQuery(document).ready(function() {
             django.jQuery('.form-row pic').hide();
             django.jQuery('form-row video').show();
      }
+
+    django.jQuery('#id_vichar_type').trigger('change');
+    django.jQuery('#id_picsvideo_set-0-type').trigger('change');
 });
 
 django.jQuery('#id_vichar_type').live('change',function(){
@@ -63,11 +66,15 @@ django.jQuery('#id_vichar_type').live('change',function(){
 
 django.jQuery('#id_picsvideo_set-0-type').live('change',function(){
 	if (django.jQuery(this).val() == 1){
-        django.jQuery('.form-row pic').show();
-        django.jQuery('form-row video').hide();
+        django.jQuery('.pic').show();
+        django.jQuery('.links').hide();
  }
 	else if (django.jQuery(this).val() == 2){
-        django.jQuery('.form-row pic').hide();
-        django.jQuery('form-row video').show();
- }
+        django.jQuery('.pic').hide();
+        django.jQuery('.links').show();
+ }else{
+        django.jQuery('.pic').hide();
+        django.jQuery('.links').hide();
+        django.jQuery('.title').hide();
+    }
 });

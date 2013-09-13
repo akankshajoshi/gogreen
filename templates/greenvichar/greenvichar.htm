@@ -17,7 +17,7 @@
 <div id="content">
     <div class="container">
       <ul class="breadcrumb">
-    <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
+    <li><a href="{% url index %}">Home</a><span class="divider">></span></li>
     <li class="active">Green Vichar</li>
     </ul>
     <h1 class="green">Green Vichar</h1></div>
@@ -30,8 +30,8 @@
                   <div class="caption">
 				  <strong>{{ vichar.title }}</strong>          
 				  <p>{{ vichar.text }}</p>
-
-   				  <span class="more"> <a href="{% url view_listing vichar.get_type|slugify vichar.type %}"> </a> </span>
+                      {% comment %}<a href="{% url view_listing vichar.get_type|slugify vichar.type %}"></a>{% endcomment %}
+   				  <span class="more">  </span>
                   </div>
                 </div>
                 </li>
