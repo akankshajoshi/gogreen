@@ -45,8 +45,13 @@ class CompanyAdmin(admin.ModelAdmin):
             obj.green_o_meter = gom
         obj.save()
         super(CompanyAdmin, self).save_model(request, obj, form, change)
+        
+    def render_change_form(self, request, context, *args, **kwargs):
+        gom = context['original'].green_o_meter
+        context['adminform'].form.initial['green_o_meter'] = gom.split(',')
+        return super(CompanyAdmin, self).render_change_form(request, context, args, kwargs)
             
-            
+
     
 class CommentAdmin(admin.ModelAdmin):
     model = Comment
