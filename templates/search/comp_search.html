@@ -6,8 +6,8 @@
     <div class="container">
      
          <ul class="breadcrumb">
-    <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
-    <li><a href="/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a> <span class="divider"> > </span></li>
+    <li><a href="{% url index %}">Home</a> <span class="divider">></span></li>
+    <li><a href="/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a><span class="divider">></span></li>
     <li class="active">{{ keyword }}</li>
     </ul>
         {% include "directory/search.html" %}
