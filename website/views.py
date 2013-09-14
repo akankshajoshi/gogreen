@@ -38,7 +38,7 @@ def view_category(request, cat, subcat, subcat_id):
 
         populars = subcat.popularkeyword_set.all().order_by('keyword')
         cityform = CityForm()
-        return render_to_response('search/keyword.html', {'categ':categ,'populars': populars, 'comps':comps,'subcat':subcat,'cityform':cityform}, context_instance=RequestContext(request))
+        return render_to_response('search/keyword.html', {'categ_id': categ[0].id,'populars': populars, 'comps':comps,'subcat_id':subcat.id,'cityform':cityform}, context_instance=RequestContext(request))
     
     
 def view_company(request, cname, cid):
@@ -95,7 +95,8 @@ def search(request):
         keyword = request.POST.get('keyword')
         search_by = request.POST.get('search_by')
         city = request.POST.get('city', 0)
-        selcat = {}
+        categ = int(request.POST.get('categ',0))
+        subcat = int(request.POST.get('subcat',0))
         if keyword:
             if search_by == 'by_name':
                 if int(city) > 0 :
@@ -109,16 +110,16 @@ def search(request):
                 else:
 
                     comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
-                    #key = PopularKeyword.objects.filter(keyword__iexact=keyword)
-                    #if(key.count()>0):
-                    #    selsub = Subcategory.objects.filter(popularkeyword=key)
-                    #    selcat = Category.objects.filter(subcategory=selsub)
-
-
-        compcount = comps.count();
+#                 key = PopularKeyword.objects.filter(keyword__iexact=keyword)
+#                 if(key.count()>0):
+#                     selsub = Subcategory.objects.filter(popularkeyword=key[0])
+#                     selcat = Category.objects.filter(subcategory=selsub[0])
+        compcount = comps.count()
         paginator = Paginator(comps, 10)
         page = request.GET.get('page', 1)
-        categ=Category.objects.filter(subcategory=1)
+        if not categ:
+            categ = Category.objects.filter(subcategory=1)[0].id
+            subcat = Subcategory.objects.get(id=1)
         try:
             comp1 = paginator.page(page)
         except PageNotAnInteger:
@@ -130,8 +131,7 @@ def search(request):
         if request.is_ajax():
             HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
             return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
-
-        return render_to_response('search/comp_search.html', {'categ':categ,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
+        return render_to_response('search/comp_search.html', {'categ_id':categ,'subcat_id':subcat,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
     else:
         return HttpResponse('BAD REQUEST')
 

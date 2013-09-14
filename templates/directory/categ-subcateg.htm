@@ -8,9 +8,9 @@
           <span class="pull-left">{{cat}}</span>
       </h3>
    </a>
-   <ul id="sub_{{cat.id}}" class="cls_subcateg {% if not categ.0.id == cat.id %}disable{% endif %}">
+   <ul id="sub_{{cat.id}}" class="cls_subcateg {% if not categ_id == cat.id %}disable{% endif %}">
    {% for sub in cat.subcategory_set.all %}
-       <li><a {% if subcat.id == sub.id %} class="selected"{% endif %} href="{% url view_category cat.name|slugify sub.name|slugify sub.id %}">{{sub}}</a></li>
+       <li><a {% if subcat_id == sub.id %} class="selected"{% endif %} href="{% url view_category cat.name|slugify sub.name|slugify sub.id %}">{{sub}}</a></li>
    {% endfor %}
    </ul>
     <div class="bdr"></div>

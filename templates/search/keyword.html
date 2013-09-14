@@ -1,20 +1,19 @@
 {% extends "layoutbase.html" %}
-
 {% block title %}{{subcat}} - Indiagetgreen{% endblock title %}
-
 {% block bodycontent %}
 <form id='proxy_form' method='POST' action='{% url search %}' style="border: 0px;">
-{% csrf_token %}
-<input name="search_by" type="hidden" value="by_product" id="id_hdnproduct" />
-<input type="hidden" class="span2" name ="keyword" value="" id="id_hdnkeyword" />
+	{% csrf_token %}
+	<input name="search_by" type="hidden" value="by_product" id="id_hdnproduct" />
+	<input type="hidden" class="span2" name ="keyword" value="" id="id_hdnkeyword" />
+	<input type='hidden' name ="categ" value="{{categ_id}}" id="id_hdncateg" />
+	<input type='hidden' name ="subcat" value="{{subcat_id}}" id="id_hdnsubcat" />
 </form>
-
 
 <div id="content">
     <div class="container">
         <ul class="breadcrumb">
            <li><a href="{% url index %}">Home</a> <span class="divider"> > </span></li>
-            <li class="active">{{subcat}}</li>
+           <li class="active">{{subcat}}</li>
         </ul>
 
 
@@ -32,7 +31,7 @@
             <div class="clearfix"></div>
 
 
-        </div>
+</div>
 
 
     </div>

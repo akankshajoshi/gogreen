@@ -31,7 +31,8 @@ class CompanyAdmin(admin.ModelAdmin):
     get_comments.allow_tags = True
     
     def get_contactus(self, obj):
-        """Returns the url for the comments of the Company.
+        """
+        Returns the url for the comments of the Company.
         """
         return '<a target="_blank" href="/admin/website/contactus?company=%s">View ContactUs</a>' % (obj.id)
     get_contactus.short_description = 'ContactUs'
@@ -53,7 +54,7 @@ class CompanyAdmin(admin.ModelAdmin):
         except:
             pass
         return super(CompanyAdmin, self).render_change_form(request, context, args, kwargs)
-            
+        
 
     
 class CommentAdmin(admin.ModelAdmin):
