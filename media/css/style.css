@@ -1734,6 +1734,13 @@ ul.keyword li a:hover{color:#66ba1c;text-decoration: underline;}
     background-position: -2px -189px;width:74px
 }
 
+.bdr {
+    border-bottom: 1px solid #CCCCCC;
+    float: left;
+    margin: 10px 0;
+    width: 100%;
+}
+
 
 
 
