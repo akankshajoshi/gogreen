@@ -5,8 +5,8 @@
 	{% csrf_token %}
 	<input name="search_by" type="hidden" value="by_product" id="id_hdnproduct" />
 	<input type="hidden" class="span2" name ="keyword" value="" id="id_hdnkeyword" />
-	<input type='hidden' name ="categ" value="{{categ_id}}" id="id_hdncateg" />
-	<input type='hidden' name ="subcat" value="{{subcat_id}}" id="id_hdnsubcat" />
+	<input type='hidden' name ="categ" value="{{categ.0.id}}" id="id_hdncateg" />
+	<input type='hidden' name ="subcat" value="{{subcat.id}}" id="id_hdnsubcat" />
 </form>
 
 <div id="content">
