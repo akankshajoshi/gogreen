@@ -92,6 +92,7 @@ def ajax_save_review(request):
     
 def search(request):
     if request.method=="POST":
+        flag = 0
         keyword = request.POST.get('keyword')
         search_by = request.POST.get('search_by')
         city = request.POST.get('city', 0)
@@ -110,12 +111,14 @@ def search(request):
                 else:
 
                     comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
+        import pdb;pdb.set_trace()
         compcount = comps.count()
         paginator = Paginator(comps, 10)
         page = request.GET.get('page', 1)
         if not (categ_id and subcat_id):
             categ = Category.objects.filter(subcategory=1)[0]
             subcat = Subcategory.objects.get(id=1)
+            flag = 1
         else:
             categ = Category.objects.filter(id=int(categ_id))
             subcat = Subcategory.objects.get(id=int(subcat_id))
@@ -130,7 +133,7 @@ def search(request):
         if request.is_ajax():
             HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
             return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
-        return render_to_response('search/comp_search.html', {'categ':categ,'subcat':subcat,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
+        return render_to_response('search/comp_search.html', {'flag':flag,'categ':categ,'subcat':subcat,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
     else:
         return HttpResponse('BAD REQUEST')
 

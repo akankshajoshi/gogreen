@@ -7,7 +7,7 @@
      
          <ul class="breadcrumb">
     <li><a href="{% url index %}">Home</a> <span class="divider">></span></li>
-    <li><a href="/{{ categ.0.name|slugify}}/{{subcat.name|slugify}}/{{subcat.id }}">Categories</a><span class="divider">></span></li>
+    <li><a href="{% if flag == 1 %}/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}{% else %}/{{ categ.0.name|slugify}}/{{subcat.name|slugify}}/{{subcat.id }}{% endif %}">{% if flag == 1 %}Category{% else %}{{ categ.0.name }}{% endif %}</a><span class="divider">></span></li>
     <li class="active">{{ keyword }}</li>
     </ul>
         {% include "directory/search.html" %}
