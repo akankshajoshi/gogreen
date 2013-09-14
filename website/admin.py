@@ -47,8 +47,11 @@ class CompanyAdmin(admin.ModelAdmin):
         super(CompanyAdmin, self).save_model(request, obj, form, change)
         
     def render_change_form(self, request, context, *args, **kwargs):
-        gom = context['original'].green_o_meter
-        context['adminform'].form.initial['green_o_meter'] = gom.split(',')
+        try:
+            gom = context['original'].green_o_meter
+            context['adminform'].form.initial['green_o_meter'] = gom.split(',')
+        except:
+            pass
         return super(CompanyAdmin, self).render_change_form(request, context, args, kwargs)
             
 
