@@ -111,7 +111,7 @@ def search(request):
                 else:
 
                     comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
-        import pdb;pdb.set_trace()
+
         compcount = comps.count()
         paginator = Paginator(comps, 10)
         page = request.GET.get('page', 1)
