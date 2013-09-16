@@ -18,10 +18,11 @@
 
           <h4>'{{keyword}}' yielded {{compcount}} Results</h4>
 
+         {% comment %}
           <div class="sort"><select name="Sort">
               <option>Sort by Alphabets</option>
           </select></div>
-
+            {% endcomment %}
 
           {% include "search/searchlisting.html" %}
   </div>

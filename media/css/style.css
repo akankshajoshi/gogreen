@@ -1679,7 +1679,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 
 .tree strong { color:#51b84e; font-size:60px; padding:20px 0 30px 10px; float:left; display:block;}
 .tree img { float:left;}
-.tree em { font-style:normal; display:block; width:67%; float:left;}
+.tree em { font:normal 12px arial; display:block; width:67%; float:left;}
 .art  { margin:10px 0 0 30px; font:normal 12px Arial, Helvetica, sans-serif; color:#666666; text-align:justify;}
 .art img { margin:0 30px 10px 0}
 .art h1 { font:normal 20px 'HelveticaNeueRegular'; line-height:22px; width:200px; float:left; color:#000; display:block; margin:0 18px 0 0; text-align:left;}
@@ -1740,12 +1740,6 @@ ul.keyword li a:hover{color:#66ba1c;text-decoration: underline;}
     margin: 10px 0;
     width: 100%;
 }
-
-
-
-
-
-
 .qu { float:left; width:50px; margin:5px 0 0 0;}
 .quote .latestart { float:right; width:92%;}
 .question { float:left;border-bottom:solid 1px #e9e7e7; }
