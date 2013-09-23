@@ -101,16 +101,16 @@ def search(request):
         if keyword:
             if search_by == 'by_name':
                 if int(city) > 0 :
-                    comps = Company.objects.filter(company_name__icontains=keyword, city=int(city))
+                    comps = Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('company_name')
 
                 else:
-                    comps = Company.objects.filter(company_name__icontains=keyword)
+                    comps = Company.objects.filter(company_name__icontains=keyword).order_by('company_name')
             else:
                 if int(city) > 0:
-                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city))
+                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city)).order_by('company_name')
                 else:
 
-                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword))
+                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword)).order_by('company_name')
 
         compcount = comps.count()
         paginator = Paginator(comps, 10)
