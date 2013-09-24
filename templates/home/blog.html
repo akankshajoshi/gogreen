@@ -1,5 +1,5 @@
 <article class="span6 pull-right">
-    <h3>Latest Articles</h3>
+    <h3>About Us</h3>
 
     <div class="list_carousel responsive">
 
@@ -8,7 +8,7 @@
                 <li class="span5">
                     <div class="blok_carousel">
                         <figure class="img-polaroid"><img src="{{ MEDIA_URL }}{{blog.image}}" alt="" /></figure>
-                        <date>{{blog.creation_date|date:'M d Y'}}</date>
+                        {% comment %}<date>{{blog.creation_date|date:'M d Y'}}</date>{% endcomment %}
                         <a href='{{blog.linkurl}}'><p><strong>{{blog.title}}</strong>{{blog.text|safe|truncatewords:25}}</p></a>
                     </div>
                 </li>

@@ -38,8 +38,10 @@
     <ul class="breadcrumb w100">
     <li><a href="{% url index %}">Home</a><span class="divider">&gt;</span></li><li class="active"><a href="/{{ cats.0.name|slugify}}/{{sub.name|slugify}}/{{sub.id }}">Categories</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;{{comp.company_name}}</li>
     <li class="pull-right">
+
         <div class="fb-like" data-href="{{url_prefix}}{{ comp.company_name|slugify }}/{{ comp.id }}/"
              data-width="100" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+             
     </li>
 
         <li class="pull-right">
@@ -52,9 +54,21 @@
           {% if comp.company_logo %}
           <img itemprop="image" src="{{MEDIA_URL}}{{comp.company_logo}}" alt="" />
           {% endif %}
-          <h1 itemprop="name">{{comp.company_name}}</h1>    <em>  Business Profile: {{comp.get_business_type}}</em>
-      
-      <p {% if not comp.company_logo %}style="width:98%"{% endif %}><b>Deals in:</b> {{comp.deals_in}}</p>
+          <h1 itemprop="name">{{comp.company_name}}</h1>
+    {% if company_tagline %}
+          <h2 {% if not comp.company_logo %}style="width:98%"{% endif %}>  {{comp.company_tagline}}</h2>
+{% endif %}
+
+      <div class="p" {% if not comp.company_logo %}style="width:98.95%"{% endif %}>
+
+          <ul>
+
+              {% if comp.year_founded %}<li>Year Founded: {{comp.year_founded}}</li>{% endif %}
+              {% if comp.turnover %}<li>TurnOver: {{comp.turnover}}</li>{% endif %}
+              {% if comp.no_of_emp %}<li>No of Employees: {{comp.no_of_emp}}</li>{% endif %}
+          </ul>
+          <em {% if not comp.company_logo %}style="width:98%"{% endif %}>  <b>Business Profile:</b> {{comp.get_business_type}}</em>
+          <b>Deals in:</b> {{comp.deals_in}}</div>
       <div class="clearfix"></div>
       </div>
       

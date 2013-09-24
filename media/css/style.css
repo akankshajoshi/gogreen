@@ -1615,12 +1615,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .more a { display:block;width:67px; height:44px; }
 
 
-.comptop { width:100%; border:solid 1px #c5c5c5; padding:10px 0; font-family: arial; background:url(/media/images/compbase.gif) repeat-x #f3f3f3; box-shadow:1px 1px 1px #cfcfcf; }
+.comptop { width:100%; border:solid 1px #c5c5c5; padding:10px 0 0; font-family: arial;  box-shadow:1px 1px 1px #cfcfcf; }
 
 .comptop img { margin:0 0PX 0 10px ; border:solid 1PX #c5c5c5; box-shadow:1px 1px 1px #ececec; float:left;}
-.comptop h1 {text-transform: uppercase ;display:block; font-size:20px; float:left; font-family: 'HelveticaNeueRegular'; width:80%;  margin:10px 0PX 10px 10px ; line-height:20px; color:#000000;}
-.comptop em  { float:left; font-size:16px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0PX 0 10px ;}
-.comptop p  { float:left; width:80%; font:normal 12px Arial, Helvetica, sans-serif; padding:20px 0 0 0;margin:0 0PX 0 10px ;}
+.comptop h1 {text-transform: uppercase ;display:block; font-size:20px; float:left; font-family: 'HelveticaNeueRegular'; width:80%;  margin:10px 0px 3px 10px ; line-height:20px; color:#000000;}
+.comptop h1 span{font:12px arial;color:#666;text-transform: none;}
+.comptop h2 {background: none;padding:0px;margin:0px 0px 0px 10px;display:block; font-size:13px;font-style: italic; float:left; font-family: 'HelveticaNeueRegular'; width:80%;  color:#666;}
+.comptop em  { float:left; font-size:12px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0px 0 0px ;}
+.comptop ul{float:left;width:100%;margin: 0px;}
+.comptop ul li{float:left;width:30%}
+.comptop div.p  { float:left; width:80%; font:normal 12px Arial, Helvetica, sans-serif;background:url(/media/images/compbase.gif) repeat-x scroll 0 -76px #f3f3f3; padding:20px 0 10px 10px;margin:0px ;}
 .buisness { margin:20px 0 0 0; position:relative;}
 .buisness h2 { font:normal 18px 'HelveticaNeueRegular'; display:block; font-weight:400; background:none; color:#000; padding:5px 0;}
 .buisness ul { margin:10px 0}
@@ -1706,11 +1710,10 @@ ul.keyword li a:hover{color:#66ba1c;text-decoration: underline;}
 
 .list_carousel ul a p{color:#333;float:left;width:100%;color: #666;font: normal 13px arial;}
 .list_carousel ul date{float: left;width:45%}
-.list_carousel ul li a{width:70%;
-    float: left;}
-    .list_carousel ul#carousel-fred li a{width:68%}
+.list_carousel ul li a{width:70%;float: left;}
+.list_carousel ul#carousel-fred li a{width:68%}
 .blok_carousel strong{float: left;width:100%;font:15px normal;padding: 3px 0;color: #333;}
-
+.list_carousel ul#carousel-fred li a:hover p strong{color:#66ba1c;}
 .list_carousel .bx-wrapper .bx-controls-direction a{top:10%;}
 .list_carousel  .bx-wrapper .bx-prev{left:92% }
 .foot .categ a{color:#fff}
@@ -1905,3 +1908,4 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 .greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction,.spo .bx-controls-direction{display: none;}
 ul.bxbigbanner,.prodimg ul{margin: 0px;}
 .leftnav h3 span{padding-top: 3px;font-weight: bold;}
+.comptop p b{font:500 12px 'HelveticaNeueRegular';color: #000;}
