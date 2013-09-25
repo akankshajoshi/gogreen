@@ -1,4 +1,5 @@
 from django import template
+from website import choices
 register = template.Library()
 
 @register.filter
@@ -13,3 +14,5 @@ def cut(value,arg):
         value = st[3:]
 
     return value
+
+

@@ -41,7 +41,7 @@
 
         <div class="fb-like" data-href="{{url_prefix}}{{ comp.company_name|slugify }}/{{ comp.id }}/"
              data-width="100" data-layout="button_count" data-show-faces="false" data-send="false"></div>
-             
+
     </li>
 
         <li class="pull-right">
@@ -55,7 +55,7 @@
           <img itemprop="image" src="{{MEDIA_URL}}{{comp.company_logo}}" alt="" />
           {% endif %}
           <h1 itemprop="name">{{comp.company_name}}</h1>
-    {% if company_tagline %}
+    {% if comp.company_tagline %}
           <h2 {% if not comp.company_logo %}style="width:98%"{% endif %}>  {{comp.company_tagline}}</h2>
 {% endif %}
 
@@ -63,9 +63,9 @@
 
           <ul>
 
-              {% if comp.year_founded %}<li>Year Founded: {{comp.year_founded}}</li>{% endif %}
-              {% if comp.turnover %}<li>TurnOver: {{comp.turnover}}</li>{% endif %}
-              {% if comp.no_of_emp %}<li>No of Employees: {{comp.no_of_emp}}</li>{% endif %}
+              {% if comp.year_founded %}<li><b>Year Founded:</b> {{comp.year_founded}}</li>{% endif %}
+              {% if comp.turnover %}<li><b>Turnover:</b> {{ comp.get_turnover_display }} Crores</li>{% endif %}
+              {% if comp.no_of_emp %}<li><b>No. of Employees:</b> {{comp.get_no_of_emp_display}}</li>{% endif %}
           </ul>
           <em {% if not comp.company_logo %}style="width:98%"{% endif %}>  <b>Business Profile:</b> {{comp.get_business_type}}</em>
           <b>Deals in:</b> {{comp.deals_in}}</div>

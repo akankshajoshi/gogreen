@@ -9,9 +9,9 @@ CITY_CHOICES=(('Noida','Noida'),('Jhansi','Jhansi'),)
 
 YEAR_CHOICES = ((int(x),int(x)) for x in range(1950, datetime.today().year))
 
-EMP_CHOICES = ((1,'1-10'),(2,'10-50'),(3,'50-100'),(4,'100-200'),(5,'200 above'))
+EMP_CHOICES = ((1,'< 10'),(2,'10-50'),(3,'50-100'),(4,'100-200'),(5,'200 above'))
 
-TURNOVER_CHOICES = ((1,'1-10'),(2,'10-50'),(3,'50-100'),(4,'100-200'),(5,'200 above'))
+TURNOVER_CHOICES = ((1,'< 10'),(2,'10-50'),(3,'50-100'),(4,'100-200'),(5,'200 above'))
 
 INDUSTRY_TYPE = ((1,'Media'),(2,'IT'),(3,'Education'),(4,'Business'),)
 
