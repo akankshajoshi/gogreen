@@ -21,21 +21,24 @@
 
             </li>
             <li style="margin-right:none;" class="span1"><strong>FeedBack</strong>
-                <a class="twit" href="#"></a>
-                <a class="face" href="#"></a>
+                <a class="twit" target="_blank" href="https://twitter.com/Indiagetgreen"></a>
+                <a class="face" href="https://www.facebook.com/pages/Indiagetgreen/117346185111791" target="_blank"></a>
 
 
             </li>   <li class="span4 footerform pull-right">
                 <form id='id_enquiry' method='POST' action="{% url enquiry %}" onsubmit="return false">
                      {% csrf_token %}
-                    <strong>Get in touch with us, fill the details below </strong>
+                    <strong>Get your green business register with us.
+                       <span> our executive will get back to you with in 24hrs<span>
+                    </strong>
+
                     <input type="text" name="name" maxlength="70" class="required" placeholder="Name" holder="Name" />
 
                     <input type="text" name="email" maxlength="70" class="email required"  placeholder="Email" holder="Email" />
                     <input type="text" name="mobile" maxlength="12" class="numericOnly" placeholder="Mobile" holder="Mobile" />
 
                     <textarea rows="3" cols="2" name="text" placeholder="Message" holder="Message"></textarea>
-                    <input type="submit" class="button" value="Submit" name="">
+                    <input type="submit" class="button" value="Submit" name="" />
 
                 </form>
 

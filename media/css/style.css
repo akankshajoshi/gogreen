@@ -1162,6 +1162,7 @@ footer .foot .span1 { width:105px;}
 
 footer .foot .span2 { margin-right: 45px ;}
 footer .foot strong { display:block; padding:0 0 18px 0; font-size:16px; font-weight:normal;}
+footer .foot strong span{font-size: 11px;display: block;}
 footer .foot .span2  p { line-height:12px; font-size:11px;}
 footer .foot .span2  em { font-size:12px;}
 footer .foot .span2  span { color:#8e8e8e; display:block;}
@@ -1620,11 +1621,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .comptop img { margin:0 0PX 0 10px ; border:solid 1PX #c5c5c5; box-shadow:1px 1px 1px #ececec; float:left;}
 .comptop h1 {text-transform: uppercase ;display:block; font-size:20px; float:left; font-family: 'HelveticaNeueRegular'; width:80%;  margin:10px 0px 3px 10px ; line-height:20px; color:#000000;}
 .comptop h1 span{font:12px arial;color:#666;text-transform: none;}
-.comptop h2 {background: none;padding:0px;margin:0px 0px 0px 10px;display:block; font-size:13px;font-style: italic; float:left; font-family: 'HelveticaNeueRegular'; width:80%;  color:#666;}
-.comptop em  { float:left; font-size:12px; font-style:normal; padding:5px 0; display:block; width:80%;margin:0 0px 0 0px ;}
+.comptop h2 {background: none;padding:0px;margin:0px 0px 0px 10px;display:block; font-size:13px;font-style: italic; float:left; font-family: 'HelveticaNeueRegular'; width:85%;  color:#666;}
+.comptop em  { float:left; font-size:12px; font-style:normal; padding:5px 0; display:block; width:98%;margin:0 0px 0 0px ;}
 .comptop ul{float:left;width:100%;margin: 0px;}
 .comptop ul li{float:left;width:30%}
-.comptop div.p  { float:left; width:80%; font:normal 12px Arial, Helvetica, sans-serif;background:url(/media/images/compbase.gif) repeat-x scroll 0 -76px #f3f3f3; padding:20px 0 10px 10px;margin:0px ;}
+.comptop div.p  { float:left; width:98.95%; font:normal 12px Arial, Helvetica, sans-serif;background:url(/media/images/compbase.gif) repeat-x scroll 0 -76px #f3f3f3; padding:20px 0 10px 10px;margin:0px ;}
 .buisness { margin:20px 0 0 0; position:relative;}
 .buisness h2 { font:normal 18px 'HelveticaNeueRegular'; display:block; font-weight:400; background:none; color:#000; padding:5px 0;}
 .buisness ul { margin:10px 0}
@@ -1788,7 +1789,12 @@ footer .foot .foottree strong { color: #666666;
 
 footer .foot .foottree span { float:left; width:80px; background:url(/media/images/sprite.png) -189px -74px no-repeat; height:100px;}
 
-
+.greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction,.spo .bx-controls-direction{display: none;}
+ul.bxbigbanner,.prodimg ul{margin: 0px;}
+.prodimg{margin-top: 17px;}
+.prodimg h2{float: left;background: none;color:#000;width:100%;padding: 0px;font:400 18px 'HelveticaNeueRegular';}
+.leftnav h3 span{padding-top: 3px;font-weight: bold;}
+.comptop p b{font:500 12px 'HelveticaNeueRegular';color: #000;}
 
 @media (max-width: 500px) {.greenbase  {background:#a9e14a;}
 
@@ -1796,6 +1802,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
 
 @media  (max-width: 320px) {
 .greenbase {display: none;}
+    .comptop div.p{width:95.5%}
 }
 
 
@@ -1814,6 +1821,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .srchrest, .key{margin-left: 0px;}
     ul.keyword,ul.keyword li{width:100%}
     .greybase select{width: 90px;}
+    .comptop div.p{width:95.5%}
 }
 
 @media (max-width: 480px) {
@@ -1835,12 +1843,13 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .srchrest, .key{margin-left: 0px;}
     ul.keyword,ul.keyword li{width:100%}
     .navbar-form li select{width:100px;padding: 5px;height:30px}
-
+    .comptop div.p{width:97.5%}
 }
 
 @media (max-width: 600px) {
 
     .navbar-form li input[type="text"]{width:320px}
+    .comptop div.p{width:97.5%}
 }
 
 @media  (max-width: 640px) {
@@ -1852,6 +1861,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .navbar-form li input[type="text"]{width:80%;}
     .navbar-form li select{width:90px;padding: 5px;height:30px}
     .navbar-form li input[type="submit"]{height:30px;width:30px;background-position: -6px -5px;}
+    .comptop div.p{width:97.5%}
 }
 
 @media  (min-width: 768px) and (max-width: 1024px) {
@@ -1871,6 +1881,7 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     ul.keyword li{width:50%}
     .navbar-form{width:94%}
     .navbar-form li{padding:0px 4px}
+    .comptop div.p{width:98.55%}
 }
 
 
@@ -1880,6 +1891,8 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .navbar-form{width:98%}
     .navbar-form li{padding:0px 7px}
     .list_carousel ul#carousel-fred li a{width:47%}
+    .comptop div.p{width:98.65%}
+    
 }
 
 
@@ -1903,9 +1916,6 @@ footer .foot .foottree span { float:left; width:80px; background:url(/media/imag
     .navbar-form li select{width:150px}
     .buisnessdirtab a{width:470px}
     .navbar-form{width:97.7%}
+    .comptop div.p{width:98.95%}
 }
 
-.greenbase .bx-controls-direction, .prodimg .bx-controls-direction,.sponsor .bx-controls-direction,.spo .bx-controls-direction{display: none;}
-ul.bxbigbanner,.prodimg ul{margin: 0px;}
-.leftnav h3 span{padding-top: 3px;font-weight: bold;}
-.comptop p b{font:500 12px 'HelveticaNeueRegular';color: #000;}

@@ -59,7 +59,7 @@
           <h2 {% if not comp.company_logo %}style="width:98%"{% endif %}>  {{comp.company_tagline}}</h2>
 {% endif %}
 
-      <div class="p" {% if not comp.company_logo %}style="width:98.95%"{% endif %}>
+      <div class="p">
 
           <ul>
 
@@ -67,14 +67,14 @@
               {% if comp.turnover %}<li><b>Turnover:</b> {{ comp.get_turnover_display }} Crores</li>{% endif %}
               {% if comp.no_of_emp %}<li><b>No. of Employees:</b> {{comp.get_no_of_emp_display}}</li>{% endif %}
           </ul>
-          <em {% if not comp.company_logo %}style="width:98%"{% endif %}>  <b>Business Profile:</b> {{comp.get_business_type}}</em>
+          <em>  <b>Business Profile:</b> {{comp.get_business_type}}</em>
           <b>Deals in:</b> {{comp.deals_in}}</div>
       <div class="clearfix"></div>
       </div>
       
       <div class="span8 pull-left bd">
       <div class=" buisness">
-   <h2>   Business Description</h2>
+   <h2>Business Description</h2>
       
       <span itemprop="description">{{comp.business_description}}</span>
       </div>
@@ -82,7 +82,7 @@
       {% if comp.get_green_o_meter %}
       
       <div class=" buisness">
-   <h2>   Green-o-meter <em>(How green is it?)</em></h2>
+   <h2>   Green-o-meter <em>(How is it green?)</em></h2>
    
    <ul>
    {% for obj in comp.get_green_o_meter %}
@@ -161,9 +161,10 @@
 </div>
 
 
-{% if productimg %}
+{% if not productimg %}
 <div class="martop prodimg pull-left w100 hidden-phone">
-<ul class="bxprodimg">
+    <h2>Product Gallery</h2>
+    <ul class="bxprodimg">
     {% for logo in productimg %}
        <li class="disable"> <img src="{{MEDIA_URL}}{{logo.image}}" alt="" /></li>
     {% endfor %}
