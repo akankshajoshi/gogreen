@@ -180,7 +180,7 @@
 
 {% if productimg %}
 <div class="martop prodimg pull-left w100 hidden-phone">
-    <h2>Product Gallery</h2>
+    {% comment %}<h2>Product Gallery</h2>{% endcomment %}
     <ul class="bxprodimg">
     {% for logo in productimg %}
        <li class="disable"> <img src="{{MEDIA_URL}}{{logo.image}}" alt="" /></li>
