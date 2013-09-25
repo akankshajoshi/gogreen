@@ -68,7 +68,24 @@
               {% if comp.no_of_emp %}<li><b>No. of Employees:</b> {{comp.get_no_of_emp_display}}</li>{% endif %}
           </ul>
           <em>  <b>Business Profile:</b> {{comp.get_business_type}}</em>
-          <b>Deals in:</b> {{comp.deals_in}}</div>
+          <b>Deals in:</b> {{comp.deals_in}}
+      <span class="dwnloads">
+        {% if comp.brouchers or comp.certifications %}
+          <b>Downloads:</b>{% endif %}
+          {% if comp.brouchers %}<a href="{{MEDIA_URL}}{{comp.brouchers}}" target="_blank">Broucher</a>{% endif %}{% if comp.brouchers and comp.certifications %},{% endif %}
+          {% if comp.certifications %}<a href="{{MEDIA_URL}}{{comp.certifications}}" target="_blank">Certificate</a>{% endif %}
+
+{% comment %}
+          {% if comp.city %}
+          <b>City:</b> {{  comp.city.name }}
+      {% endif %}
+          {% if comp.state %}
+              <b>State:</b> {{  comp.get_state_display }}
+          {% endif %}
+     {% endcomment %}
+      </span>
+      </div>
+
       <div class="clearfix"></div>
       </div>
       

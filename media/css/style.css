@@ -1626,6 +1626,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
 .comptop ul{float:left;width:100%;margin: 0px;}
 .comptop ul li{float:left;width:30%}
 .comptop div.p  { float:left; width:98.95%; font:normal 12px Arial, Helvetica, sans-serif;background:url(/media/images/compbase.gif) repeat-x scroll 0 -76px #f3f3f3; padding:20px 0 10px 10px;margin:0px ;}
+.comptop div.p span.dwnloads{width:100%;float:left;margin-top: 5px;}
+
 .buisness { margin:20px 0 0 0; position:relative;}
 .buisness h2 { font:normal 18px 'HelveticaNeueRegular'; display:block; font-weight:400; background:none; color:#000; padding:5px 0;}
 .buisness ul { margin:10px 0}
@@ -1892,7 +1894,7 @@ ul.bxbigbanner,.prodimg ul{margin: 0px;}
     .navbar-form li{padding:0px 7px}
     .list_carousel ul#carousel-fred li a{width:47%}
     .comptop div.p{width:98.65%}
-    
+
 }
 
 
