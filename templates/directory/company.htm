@@ -1,6 +1,6 @@
 {% extends "layoutbase.html" %}
 
-{% block title %}{{comp.company_name}} - Indiagetgreen{% endblock title %}
+{% block title %}{{comp.company_name}} - IndiaGetGreen{% endblock title %}
 {% block meta %}
 {{ block.super }}
     <meta property="og:type" content="website" />
@@ -125,8 +125,8 @@
        {% if comp.address %}
        <li><span class="ad"></span>
    {{comp.address}}</li>{% endif %}
-   {% if  comp.mobile %}
-  <li><span class="mo"></span>{{comp.mobile}}</li>
+   {% if  comp.mobile or comp.phone%}
+  <li><span class="mo"></span>{{comp.mobile}} {% if comp.phone != None %}, {{comp.phone}}{% endif %}</li>
        {% endif %}
        {% if comp.website %}
        <li>	  <span class="web"></span>	<a rel="nofollow" href="{{ comp.website }}" target="_blank">{{ comp.website }}</a> </li>
@@ -179,8 +179,9 @@
 
 
 {% if productimg %}
+    <h2 class="h2prod">Product Gallery</h2>
 <div class="martop prodimg pull-left w100 hidden-phone">
-    {% comment %}<h2>Product Gallery</h2>{% endcomment %}
+
     <ul class="bxprodimg">
     {% for logo in productimg %}
        <li class="disable"> <img src="{{MEDIA_URL}}{{logo.image}}" alt="" /></li>

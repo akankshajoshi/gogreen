@@ -11,7 +11,7 @@ from datetime import datetime as dt
 import json
 from models import Company
 from homepage.forms import CityForm
-
+from django.views.decorators.csrf import csrf_exempt
 def index_page(request):
     if request.method == 'GET':
         form = SearchForm()
@@ -101,16 +101,16 @@ def search(request):
         if keyword:
             if search_by == 'by_name':
                 if int(city) > 0 :
-                    comps = Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('company_name')
+                    comps = Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('-rating','company_name')
 
                 else:
-                    comps = Company.objects.filter(company_name__icontains=keyword).order_by('company_name')
+                    comps = Company.objects.filter(company_name__icontains=keyword).order_by('-rating','company_name')
             else:
                 if int(city) > 0:
-                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city)).order_by('company_name')
+                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city)).order_by('-rating','company_name')
                 else:
 
-                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword)).order_by('company_name')
+                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword)).order_by('-rating','company_name')
 
         compcount = comps.count()
         paginator = Paginator(comps, 10)
@@ -137,3 +137,20 @@ def search(request):
     else:
         return HttpResponse('BAD REQUEST')
 
+@csrf_exempt
+def autosuggest(request):
+        keyword = request.POST.get('terms')
+        city = request.POST.get('city', 0)
+        comps = []
+        response_data = {}
+        if keyword:
+            if int(city) > 0 :
+                comps = [(x.company_name )for x in Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('company_name')]
+
+            else:
+                comps = [(x.company_name )for x in Company.objects.filter(company_name__icontains=keyword).order_by('company_name')]
+
+
+            response_data['result'] = comps[:10]
+
+        return HttpResponse(json.dumps(response_data), content_type="application/json")

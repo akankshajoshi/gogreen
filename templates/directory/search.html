@@ -2,10 +2,10 @@
 {% csrf_token %}
     <ul class="indsearch">  <li class="mm hidden-phone">Search by </li>
         <li class="mm">
-        <input name="search_by" type="radio" checked="true" value="by_product" />Products / Services
+        <input name="search_by" type="radio" checked="true" class="cls_type" value="by_product" />Products / Services
     </li><li class="mm">
-        <input name="search_by" type="radio" value="by_name" />Company Name </li>
-        <li class="liinp"><input type="text" class="span2" name ='keyword' holder="Search here" value="{{ keyword }}" placeholder="Search here"></li>
+        <input name="search_by" type="radio" class="cls_type" value="by_name" />Company Name </li>
+        <li class="liinp"><input type="text" class="cls_comp span2" name ='keyword' holder="Search here" value="{{ keyword }}" placeholder="Search here"></li>
         <li class="lisel">{{cityform.city}}</li>
         <input type='hidden' name ="categ" value="{{categ.0.id}}" id="id_hdncateg" />
 	<input type='hidden' name ="subcat" value="{{subcat.id}}" id="id_hdnsubcat" />

@@ -1,6 +1,6 @@
 {% extends "layoutbase.html" %}
 
-{% block title %}Joint the India's Largest Green Community - Indiagetgreen{% endblock title %}
+{% block title %}Joint the India's Largest Green Community - IndiaGetGreen{% endblock title %}
 
 {% block meta %}
 {{ block.super }}
@@ -40,7 +40,9 @@
                 
                 	<ul>
                     <li >
-                        <input name="keyword" type="text" value="" placeholder="Search Company" holder="Search Company" />
+                        <span class="spnkey">
+                            <input name="keyword" type="text" class="cls_comp" value="" placeholder="Search Company" holder="Search Company" />
+                        </span>
                         {{cityform.city}}
                         <input name="search_by" type="hidden" value="by_name" />
                         <input name="" type="submit" value="" />

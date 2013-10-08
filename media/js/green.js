@@ -102,3 +102,41 @@ $('.cls_categ').on('click',function(){
         });
     });
 
+
+
+$(".cls_comp").autocomplete({
+        source: function (request, response) {
+            $.ajax ({
+                url: sc.url_prefix+"query/",
+                data: { 'city':$('#id_city').val(),'terms':request.term },
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset = utf-8",
+                success: function (data) {
+                    response (data.result);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+
+            });
+        },
+    minLength: 1,
+    open: function() { $(this).autocomplete("widget").css({"width": $(".cls_comp").width()+6})},
+    appendTo:$( ".cls_comp").parent(),
+    select: function( event, ui ) { }
+
+});
+
+$('.cls_type').on('change',function(){
+    act_deac_autocomp();
+})
+
+$(function(){
+    act_deac_autocomp();
+})
+
+function act_deac_autocomp(){
+    if($('.cls_type').length>0){
+        $('.cls_type:checked').val() == 'by_name' ? $(".cls_comp").autocomplete( "enable" ) : $(".cls_comp").autocomplete( "disable");
+    }
+}
