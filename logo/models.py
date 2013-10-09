@@ -21,11 +21,20 @@ class HomePageLogo(models.Model):
 class PaidLogo(models.Model):
     name = models.CharField(max_length=25)
     image = models.ImageField(upload_to='uploads/logo')
-    click_url = models.URLField()
+    click_url = models.URLField(null=True, blank=True)
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateField(auto_now=True)
-    category = models.ManyToManyField(Category)
-    
+    category = models.ManyToManyField(Category,null=True, blank=True)
+    def __unicode__(self):
+        return self.name
+
+    def save(self):
+        super(PaidLogo, self).save()
+        if self.image:
+            thumbname = get_image_by_size(self.image,'govn_logo')
+            self.image = 'uploads/logo/' + thumbname
+        super(PaidLogo, self).save()
+
 class GovrnLogo(models.Model):
     image = models.ImageField(upload_to='uploads/logo')
     click_url = models.URLField(null=True, blank=True)

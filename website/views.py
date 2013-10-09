@@ -3,6 +3,7 @@ from forms import SearchForm
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from models import Company, Category, Subcategory, PopularKeyword, ContactUs, Comment, City, CompanyProductImg
+from logo.models import PaidLogo
 from django.db.models import Q
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -30,6 +31,7 @@ def index_page(request):
 def view_category(request, cat, subcat, subcat_id):
     comps = []
 #     cats = Category.objects.all()
+    
     if request.method == 'GET':
         populars = PopularKeyword.objects.all()
         subcat = Subcategory.objects.get(id=int(subcat_id))
@@ -37,8 +39,13 @@ def view_category(request, cat, subcat, subcat_id):
         categ=Category.objects.filter(subcategory=subcat)
 
         populars = subcat.popularkeyword_set.all().order_by('keyword')
+        list1 = list(PaidLogo.objects.filter(category = categ[0].pk))
+        list2 = list(PaidLogo.objects.all())
+        logos = list1 + list(set(list2) - set(list1))
+
+
         cityform = CityForm()
-        return render_to_response('search/keyword.html', {'categ': categ,'populars': populars, 'comps':comps,'subcat':subcat,'cityform':cityform}, context_instance=RequestContext(request))
+        return render_to_response('search/keyword.html', {'categ': categ,'logos':logos,'populars': populars, 'comps':comps,'subcat':subcat,'cityform':cityform}, context_instance=RequestContext(request))
     
     
 def view_company(request, cname, cid):
@@ -139,17 +146,22 @@ def search(request):
 
 @csrf_exempt
 def autosuggest(request):
-        keyword = request.POST.get('terms')
+        key = request.POST.get('terms')
         city = request.POST.get('city', 0)
+        search_by = request.POST.get('search_by')
         comps = []
         response_data = {}
-        if keyword:
-            if int(city) > 0 :
-                comps = [(x.company_name )for x in Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('company_name')]
 
+        if key:
+            if search_by == 'by_name':
+                if int(city) > 0 :
+                    comps = [(x.company_name )for x in Company.objects.filter(company_name__icontains=key, city=int(city)).order_by('company_name')]
+
+                else:
+                    comps = [(x.company_name )for x in Company.objects.filter(company_name__icontains=key).order_by('company_name')]
             else:
-                comps = [(x.company_name )for x in Company.objects.filter(company_name__icontains=keyword).order_by('company_name')]
 
+                  comps = [(x.keyword )for x in PopularKeyword.objects.filter(keyword__icontains=key).distinct('keyword').order_by('keyword')]
 
             response_data['result'] = comps[:10]
 

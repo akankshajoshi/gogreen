@@ -10,6 +10,7 @@ $('.cls_tab').on('click',function(){
     $('.cls_tab_'+ e.h).show();
     $('.cls_tab').removeClass('active');
     $(this).addClass('active');
+    $('.cls_type').val(e.data('type'));
 });
 
 $('input.numericOnly').bind('keypress', function(e) {
@@ -108,7 +109,7 @@ $(".cls_comp").autocomplete({
         source: function (request, response) {
             $.ajax ({
                 url: sc.url_prefix+"query/",
-                data: { 'city':$('#id_city').val(),'terms':request.term },
+                data: { 'city':$('#id_city').val(),'terms':request.term,'search_by':$('.cls_type:checked').val() },
                 dataType: "json",
                 type: "POST",
                 contentType: "application/json; charset = utf-8",
@@ -121,8 +122,8 @@ $(".cls_comp").autocomplete({
             });
         },
     minLength: 1,
-    open: function() { $(this).autocomplete("widget").css({"width": $(".cls_comp").width()+6})},
-    appendTo:$( ".cls_comp").parent(),
+    open: function() { $(this).autocomplete("widget").css({"width": $(this).width()+6})},
+    /*appendTo:$( ".cls_comp").parent(),*/
     select: function( event, ui ) { }
 
 });
@@ -132,11 +133,11 @@ $('.cls_type').on('change',function(){
 })
 
 $(function(){
-    act_deac_autocomp();
+    //act_deac_autocomp();
 })
 
 function act_deac_autocomp(){
-    if($('.cls_type').length>0){
+    /*if($('.cls_type').length>0){
         $('.cls_type:checked').val() == 'by_name' ? $(".cls_comp").autocomplete( "enable" ) : $(".cls_comp").autocomplete( "disable");
-    }
+    }*/
 }

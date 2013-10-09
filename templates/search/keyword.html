@@ -40,7 +40,27 @@
 
 
 </div>
+    {% if logos %}
+        <div class="span7 pull-left key"><h2>Featured Companies</h2>
 
+            <ul class="span2 logosc keyword">
+                {% for key in logos %}
+                    <li>
+                        {% if key.click_url %}
+                            <a href="{{ key.click_url }}" target="_blank" rel="nofollow">
+                                <img src="{{MEDIA_URL}}{{ key.image }}" title="{{ key.name }}" alt="{{ key.name }}" /></li>
+                            </a>
+                        {% else %}
+                            <img src="{{MEDIA_URL}}{{ key.image }}" title="{{ key.name }}" alt="{{ key.name }}" /></li>
+                        {% endif %}
+
+                {% endfor %}
+            </ul>
+            <div class="clearfix"></div>
+
+
+            </div>
+    {% endif %}
 
     </div>
 
