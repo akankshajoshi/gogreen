@@ -40,8 +40,9 @@ def view_category(request, cat, subcat, subcat_id):
 
         populars = subcat.popularkeyword_set.all().order_by('keyword')
         list1 = list(PaidLogo.objects.filter(category = categ[0].pk))
-        list2 = list(PaidLogo.objects.all())
-        logos = list1 + list(set(list2) - set(list1))
+        logos = list1
+        #list2 = list(PaidLogo.objects.all())
+        #logos = list1 + list(set(list2) - set(list1))
 
 
         cityform = CityForm()
