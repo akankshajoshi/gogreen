@@ -48,12 +48,12 @@
                     <li>
                         {% if key.click_url %}
                             <a href="{{ key.click_url }}" target="_blank" rel="nofollow">
-                                <img src="{{MEDIA_URL}}{{ key.image }}" title="{{ key.name }}" alt="{{ key.name }}" /></li>
+                                <img src="{{MEDIA_URL}}{{ key.image }}" title="{{ key.name }}" alt="{{ key.name }}" />
                             </a>
                         {% else %}
-                            <img src="{{MEDIA_URL}}{{ key.image }}" title="{{ key.name }}" alt="{{ key.name }}" /></li>
+                            <img src="{{MEDIA_URL}}{{ key.image }}" title="{{ key.name }}" alt="{{ key.name }}" />
                         {% endif %}
-
+                    </li>
                 {% endfor %}
             </ul>
             <div class="clearfix"></div>
