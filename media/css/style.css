@@ -1802,7 +1802,7 @@ ul.bxbigbanner,.prodimg ul{margin: 0px;}
 .leftnav h3 span{padding-top: 3px;font-weight: bold;}
 .comptop p b{font:500 12px 'HelveticaNeueRegular';color: #000;}
 
-ul.logosc li{float:left; width:15%;margin:0px 2px 10px 0px;height:90px;overflow:hidden;text-align:center;}
+ul.logosc li{float:left; width:15%;margin:0px 2px 10px 0px;height:80px;overflow:hidden;text-align:center;border:solid 1px #ddd;}
 .cpyright{width:100%;float:left;text-align: left;}
 .cpyright span{margin: 0 auto;}
 
