@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^contact/$', 'website.views.ajax_save_contact', name='save_contact'),
     url(r'^review/$', 'website.views.ajax_save_review', name='save_review'),
     url(r'^search/$','website.views.search',name='search'),
+    url(r'^search/(?P<key>[-\w+]*)/$','website.views.search',name='search_key'),
     url(r'^query/$','website.views.autosuggest',name='autosuggest'),
         (r'^robots\.txt$', direct_to_template, {'template': 'robots.txt', 'mimetype': 'text/plain'}),
     )

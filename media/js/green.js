@@ -1,7 +1,23 @@
 $('.cls_keyword').on('click',function(){
     $('#id_hdnkeyword').val($(this).text());
+    var k = $(this).text().replace(/[^\w]/gi, '-')
+    $('#proxy_form').attr('action',$('#proxy_form').attr('action')+k+'/');
     $('#proxy_form').submit();
 });
+
+
+$('#frmsearch').on('submit',function(){
+    var k = $('input[name=keyword]').val().replace(/[^\w]/gi, '-')
+    $(this).attr('action',$(this).attr('action')+k+'/');
+    return true;
+});
+
+$('.cls_homeform').on('submit',function(){
+    var k = $(this).find('input[name=keyword]').val().replace(/[^\w]/gi, '-')
+    $(this).attr('action',$(this).attr('action')+k+'/');
+    return true;
+});
+
 
 $('.cls_tab').on('click',function(){
     var e = $(this);

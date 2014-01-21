@@ -98,52 +98,63 @@ def ajax_save_review(request):
             status = 1
     return HttpResponse(json.dumps({'status':status}), mimetype="application/json")
     
-def search(request):
+def search(request,key=None):
+    flag = 0
     if request.method=="POST":
-        flag = 0
         keyword = request.POST.get('keyword')
         search_by = request.POST.get('search_by')
         city = request.POST.get('city', 0)
         categ_id = request.POST.get('categ')
         subcat_id = request.POST.get('subcat')
-        if keyword:
-            if search_by == 'by_name':
-                if int(city) > 0 :
-                    comps = Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('-rating','company_name')
-
-                else:
-                    comps = Company.objects.filter(company_name__icontains=keyword).order_by('-rating','company_name')
-            else:
-                if int(city) > 0:
-                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city)).order_by('-rating','company_name')
-                else:
-
-                    comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword)).order_by('-rating','company_name')
-
-        compcount = comps.count()
-        paginator = Paginator(comps, 10)
-        page = request.GET.get('page', 1)
-        if not (categ_id and subcat_id):
-            categ = Category.objects.filter(subcategory=1)[0]
-            subcat = Subcategory.objects.get(id=1)
-            flag = 1
-        else:
-            categ = Category.objects.filter(id=int(categ_id))
-            subcat = Subcategory.objects.get(id=int(subcat_id))
-        try:
-            comp1 = paginator.page(page)
-        except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
-            comp1 = paginator.page(1)
-        except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
-            comp1 = paginator.page(paginator.num_pages)
-        if request.is_ajax():
-            HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
-            return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
-        return render_to_response('search/comp_search.html', {'flag':flag,'categ':categ,'subcat':subcat,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
-    else:
+        request.session['keyword'] = keyword
+        request.session['search_by'] = search_by
+        request.session['city'] = city
+        request.session['categ_id'] = categ_id
+        request.session['subcat_id'] = subcat_id
+    elif request.method == "GET":
+        keyword = request.session.get("keyword", None)
+        search_by = request.session.get("search_by")
+        city = request.session.get("city")
+        categ_id = request.session.get("categ")
+        subcat_id = request.session.get("subcat")
+    if not keyword:
         return HttpResponse('BAD REQUEST')
+    if keyword:
+        if search_by == 'by_name':
+            if int(city) > 0 :
+                comps = Company.objects.filter(company_name__icontains=keyword, city=int(city)).order_by('-rating','company_name')
+
+            else:
+                comps = Company.objects.filter(company_name__icontains=keyword).order_by('-rating','company_name')
+        else:
+            if int(city) > 0:
+                comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword), city=int(city)).order_by('-rating','company_name')
+            else:
+
+                comps = Company.objects.filter(Q(deals_in__icontains=keyword) | Q(business_description__icontains=keyword)).order_by('-rating','company_name')
+
+    compcount = comps.count()
+    paginator = Paginator(comps, 10)
+    page = request.GET.get('page', 1)
+    if not (categ_id and subcat_id):
+        categ = Category.objects.filter(subcategory=1)[0]
+        subcat = Subcategory.objects.get(id=1)
+        flag = 1
+    else:
+        categ = Category.objects.filter(id=int(categ_id))
+        subcat = Subcategory.objects.get(id=int(subcat_id))
+    try:
+        comp1 = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        comp1 = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        comp1 = paginator.page(paginator.num_pages)
+    if request.is_ajax():
+        HTML = render_to_string('search/searchlisting.html',{'comps':comp1,'keyword':keyword,'search_by':search_by}, context_instance=RequestContext(request))
+        return HttpResponse(json.dumps({'HTML':HTML,'keyword':keyword,'search_by':search_by}))
+    return render_to_response('search/comp_search.html', {'flag':flag,'categ':categ,'subcat':subcat,'compcount':compcount,'comps':comp1,'keyword':keyword,'search_by':search_by,'cityform':CityForm(initial={'city':city})}, context_instance=RequestContext(request))
 
 @csrf_exempt
 def autosuggest(request):
