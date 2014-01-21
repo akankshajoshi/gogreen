@@ -89,7 +89,7 @@
       <div class="clearfix"></div>
       </div>
       
-      <div class="span8 pull-left bd">
+      <div class="span12 pull-left ">
       <div class=" buisness">
    <h2>Business Description</h2>
       
@@ -114,11 +114,11 @@
    <div class=" buisness">
    <h2> Contact Information</h2>
 
-<div id="googlemap">
+<div id="googlemap" >
        {{comp.address}}
    </div>
 
-       <div class=" contact">
+       <div class="contact">
 {% if comp.contact_person %}
    <strong>Contact Person: {{comp.contact_person}}</strong><br>{% endif %}
    <ul>
@@ -138,13 +138,14 @@
  
    </div>
 
-
+      </div>
+        <div class="span8 pull-left bd">
 <div class=" martop review">
 <h2>Reviews</h2>
 
 <form method='POST' action='{% url save_review %}' onsubmit="return false" id='id_formreview'>
  {% csrf_token %}
-  <strong> Post a query
+  <strong> Post your reviews
   </strong>
   <ul>
 <li><input name="name" type="text" maxlength="70" class="required" placeholder="Name" holder="Name" /></li>
@@ -159,10 +160,14 @@
 <p>{{ review.text }}</p>
 <em>Posted by {{ review.name }}</em>{% endfor %}
 
-<a href="{% url view_company_reviews comp.company_name|slugify comp.id %}">View all reviews</a> </div>
-
+{% if reviews %}
+<a href="{% url view_company_reviews comp.company_name|slugify comp.id %}">View all reviews</a>
+        {% endif %}
 </div>
+</div>
+        {% if productimg %}
 <div class="span4 pull-right">
+{% comment %}
 <div class="contactform"><strong>Contact form</strong><em>Fill the details below to get in touch </em>
 <form action='{% url save_contact %}' onsubmit="return false" method='POST' id='id_formcontact'>
 {% csrf_token %}
@@ -176,9 +181,9 @@
 </form>
 
 </div>
+{% endcomment %}
 
 
-{% if productimg %}
     <h2 class="h2prod">Product Gallery</h2>
 <div class="martop prodimg pull-left w100 hidden-phone">
 
@@ -189,8 +194,9 @@
 
 </ul>
 </div>
-{% endif %}
+
 </div>
+        {% endif %}
     </div>
 </div>
 

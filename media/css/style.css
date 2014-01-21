@@ -1663,7 +1663,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fde242', end
   
 }
 
-#googlemap{float: left;width: 696px;height: 240px;}
+#googlemap{float: left;width: 100%;height: 240px;}
 
 .martop { margin-top:30px;}
 
@@ -1886,7 +1886,7 @@ ul.logosc li{float:left; width:15%;margin:0px 2px 10px 0px;height:80px;overflow:
     .navbar_ .brand{text-align: left;}
     .srchrest{width:440px}
     .bd{width:455px}
-    #googlemap{width:455px;}
+    /*#googlemap{width:455px;}*/
     .key h2{width:95%}
     ul.keyword{width:100%}
     ul.keyword li{width:50%}
