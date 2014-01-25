@@ -118,7 +118,14 @@ def search(request,key=None):
         categ_id = request.session.get("categ")
         subcat_id = request.session.get("subcat")
     if not keyword:
-        return HttpResponse('BAD REQUEST')
+        if key:
+            keyword = key.replace("-"," ")
+            search_by = ''
+            categ_id = ''
+            subcat_id = ''
+            city = 0
+        else:
+            return HttpResponse('BAD REQUEST')
     if keyword:
         if search_by == 'by_name':
             if int(city) > 0 :
